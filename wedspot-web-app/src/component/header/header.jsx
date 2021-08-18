@@ -2,10 +2,10 @@ import React from "react";
 import logo from "../image/Logo.png";
 import SignIn from "./modal/modal";
 import { Nav, Navbar, Container } from "react-bootstrap";
-function Header() {
+function Header({ background = "white" }) {
   return (
     <div>
-      <Navbar bg="light" expand="md">
+      <Navbar bg={background} expand="md">
         <Container className="ps-5">
           <Navbar.Brand href="/">
             <div className="d-flex align-items-center ">

@@ -12,10 +12,25 @@ function SignIn() {
   const [showreg, setShowRegister] = useState(false);
   return (
     <>
-      <Button onClick={() => setShowLogin(true)} className="green">
+      <Button
+        onClick={() => setShowLogin(true)}
+        style={{
+          background: "#455437",
+          color: "white",
+          width: "132px",
+          marginRight: "12px",
+        }}
+      >
         Login
       </Button>
-      <Button onClick={() => setShowRegister(true)} className="bg-light">
+      <Button
+        onClick={() => setShowRegister(true)}
+        className="bg-light"
+        style={{
+          width: "132px",
+          marginLeft: "12px",
+        }}
+      >
         Register
       </Button>
 

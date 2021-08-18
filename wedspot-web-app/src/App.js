@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core";
-import Venue from "./component/Card/Venue";
+import Homepage from "./pages/Homepage";
 
 function App() {
   const theme = createMuiTheme({
@@ -17,7 +17,7 @@ function App() {
   });
   return (
     <ThemeProvider theme={theme}>
-      <Venue />
+      <Homepage />
     </ThemeProvider>
   );
 }
