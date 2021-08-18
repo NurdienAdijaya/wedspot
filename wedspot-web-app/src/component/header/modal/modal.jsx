@@ -10,7 +10,6 @@ import { FailedMessage } from "../../alert-message/message";
 function SignIn() {
   const [show, setShowLogin] = useState(false);
   const [showreg, setShowRegister] = useState(false);
-
   return (
     <>
       <Button onClick={() => setShowLogin(true)} className="green">

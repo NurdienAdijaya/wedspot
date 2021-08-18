@@ -1,22 +1,24 @@
-import logo from "./logo.svg";
-import React, { useState } from "react";
+import React from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Header from "./component/header/header";
-import { VendorCard, PackageDetailCard } from "./component/card/card";
-import { ImageHeader } from "./component/image-header/imgheader";
-import Footer from "./component/footer/footer";
-import { FailedMessage } from "./component/alert-message/message";
+import { createMuiTheme, ThemeProvider } from "@material-ui/core";
+import Venue from "./component/Card/Venue";
 
 function App() {
+  const theme = createMuiTheme({
+    palette: {
+      primary: {
+        main: "#455437",
+      },
+      secondary: {
+        main: "#C97C68",
+      },
+    },
+  });
   return (
-    <div className="positon">
-      <Header />
-      <ImageHeader />
-      <Footer />
-      <VendorCard />
-      <PackageDetailCard />
-    </div>
+    <ThemeProvider theme={theme}>
+      <Venue />
+    </ThemeProvider>
   );
 }
 
