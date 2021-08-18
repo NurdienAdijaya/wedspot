@@ -2,6 +2,7 @@ import React from "react";
 import logo from "../image/Logo.png";
 import SignIn from "./modal/modal";
 import { Nav, Navbar, Container } from "react-bootstrap";
+import { Avatar, Notif } from "./dropdown/login";
 function Header() {
   return (
     <div>
@@ -17,6 +18,11 @@ function Header() {
           </Navbar.Brand>
           <Nav.Item>
             <SignIn />
+          </Nav.Item>
+          <Nav.Item>
+            <div className="d-flex">
+              <Avatar /><Notif />
+            </div>
           </Nav.Item>
         </Container>
       </Navbar>

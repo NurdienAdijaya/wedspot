@@ -41,6 +41,7 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(3, 0, 2),
   },
 }));
+
 export default function SignUp() {
   const classes = useStyles();
   const [signup, setSignup] = React.useState(true);
