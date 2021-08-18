@@ -1,14 +1,26 @@
+import { createMuiTheme, ThemeProvider } from "@material-ui/core";
 import { BrowserRouter } from "react-router-dom";
 import "./App.css";
-import Sidebar from "./components/Sidebar";
-import Routers from "./routers/router";
+import Login from "./pages/Login";
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: "#455437",
+    },
+    secondary: {
+      main: "#C97C68",
+    },
+  },
+});
 
 function App() {
   return (
-    <BrowserRouter>
-      <Sidebar />
-      <Routers />
-    </BrowserRouter>
+    <ThemeProvider theme={theme}>
+      <BrowserRouter>
+        <Login />
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }
 
