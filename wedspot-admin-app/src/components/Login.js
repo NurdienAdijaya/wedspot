@@ -41,9 +41,13 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(3, 0, 2),
   },
 }));
-
 export default function SignUp() {
   const classes = useStyles();
+  const [signup, setSignup] = React.useState(true);
+
+  const handleClick = (event) => {
+    setSignup(event.target.checked);
+  };
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -103,65 +107,85 @@ export default function SignUp() {
         <Typography variant="h5" className={classes.titleForm}>
           Sign to your account
         </Typography>
-        <form className={classes.form} noValidate>
-          <Grid container spacing={2}>
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="fullName"
-                label="Full Name"
-                name="fullName"
-                autoComplete="fname"
-              />
+
+        {signup ? (
+          <form className={classes.form} noValidate>
+            <Grid container spacing={2}>
+              <Grid item xs={12}>
+                <TextField
+                  variant="outlined"
+                  required
+                  fullWidth
+                  id="fullName"
+                  label="Full Name"
+                  name="fullName"
+                  autoComplete="fname"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  variant="outlined"
+                  required
+                  fullWidth
+                  id="email"
+                  label="Email Address"
+                  name="email"
+                  autoComplete="email"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  variant="outlined"
+                  required
+                  fullWidth
+                  name="password"
+                  label="Password"
+                  type="password"
+                  id="password"
+                  autoComplete="current-password"
+                />
+              </Grid>
             </Grid>
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
-              />
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+              className={classes.submit}
+            >
+              Sign Up
+            </Button>
+            <Grid container justifyContent="center">
+              <Grid item>
+                {"Already have an account? "}
+                <Link
+                  href="#"
+                  OnClick={handleClick}
+                  variant="body2"
+                  style={{ color: "#C97C68", fontWeight: "bold" }}
+                >
+                  Sign in
+                </Link>
+              </Grid>
             </Grid>
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
-                autoComplete="current-password"
-              />
+          </form>
+        ) : (
+          <>
+            "ini signin"
+            <Grid container justifyContent="center">
+              <Grid item>
+                {"Don't have an account? "}
+                <Link
+                  OnClick={handleClick}
+                  variant="body2"
+                  style={{ color: "#C97C68", fontWeight: "bold" }}
+                >
+                  Sign up
+                </Link>
+              </Grid>
             </Grid>
-          </Grid>
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-            className={classes.submit}
-          >
-            Sign Up
-          </Button>
-          <Grid container justifyContent="center">
-            <Grid item>
-              {"Already have an account? "}
-              <Link
-                href="#"
-                variant="body2"
-                style={{ color: "#C97C68", fontWeight: "bold" }}
-              >
-                Sign in
-              </Link>
-            </Grid>
-          </Grid>
-        </form>
+          </>
+        )}
       </div>
       <Box mt={5}>
         <Copyright />

@@ -1,6 +1,5 @@
 import { Grid } from "@material-ui/core";
 import React from "react";
-import LogImg from "../assets/log.png";
 import SignUp from "../components/Login";
 
 const LoginPage = () => {
