@@ -19,9 +19,8 @@
 }
 
 .image {
-    margin:auto;
-    height: 100%;
-    width: auto;
+    margin-top:20%;
+    transform: translate(0, -50%);
 }
 
 @media only screen and(max-width:1200px) { 

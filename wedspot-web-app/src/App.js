@@ -3,11 +3,8 @@ import React, { useState } from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "./component/header/header";
-import { VendorCard, PackageDetailCard } from "./component/card/card";
-import { ImageHeader } from "./component/image-header/imgheader";
 import Footer from "./component/footer/footer";
-import { FailedMessage } from "./component/message/message";
-import SearchInput from './component/search/search'
+import PackageDetail from "./pages/vendor/package";
 
 function App() {
   const theme = createMuiTheme({
@@ -25,11 +22,8 @@ function App() {
     <ThemeProvider theme={theme}>
       <div >
         <Header />
-        <ImageHeader /><SearchInput/>
+        <PackageDetail/>
         <Footer />
-        <VendorCard />
-        <PackageDetailCard />
-        
       </div>
     </ThemeProvider>
   );
