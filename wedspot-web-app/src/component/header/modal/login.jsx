@@ -7,7 +7,7 @@ function Login({ props }) {
   return (
     <div>
       <form>
-        <div className="form-floating mb-5">
+        <div className="form-floating mb-0">
           <input
             type="email"
             className="form-control rounded-4"
@@ -20,7 +20,7 @@ function Login({ props }) {
           />
           <label htmlFor="floatingInput">Email address</label>
         </div>
-        <div className="form-floating my-5">
+        <div className="form-floating my-2">
           <input
             type="password"
             className="form-control rounded-4"

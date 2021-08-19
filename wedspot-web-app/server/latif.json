@@ -1,41 +1,47 @@
 {
-    "data": [
-        {
-            "image_poster": "https://images.unsplash.com/photo-1510076857177-7470076d4098?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8d2VkZGluZyUyMHZlbnVlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
-            "title": "bali hall",
-            "location": "bali"
-        },
+  "data": [
+    {
+      "image_poster": "https://images.unsplash.com/photo-1510076857177-7470076d4098?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8d2VkZGluZyUyMHZlbnVlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
+      "title": "bali hall",
+      "location": "Bali",
+      "rating": "4"
+    },
 
-        {
-            "image_poster": "https://images.unsplash.com/photo-1469371670807-013ccf25f16a?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8d2VkZGluZyUyMHZlbnVlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
-            "title": "jakarta hall",
-            "location": "jakarta"
-            
-        },
-        {
-            "image_poster": "https://images.unsplash.com/photo-1524824267900-2fa9cbf7a506?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8d2VkZGluZyUyMHZlbnVlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
-            "title": "medan hall",
-            "location": "medan"
-        },
-        {
-            "image_poster": "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fHdlZGRpbmclMjB2ZW51ZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
-            "title": "surabaya hall",
-            "location": "surabaya"
-        },
-        {
-            "image_poster": "https://images.unsplash.com/photo-1613067532651-7075a620c900?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fHdlZGRpbmclMjB2ZW51ZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
-            "title": "jogja hall",
-            "location": "jogjakarta"
-        },
-        {
-            "image_poster": "https://images.unsplash.com/photo-1524563485100-78ae0aa46e5a?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTR8fHdlZGRpbmclMjB2ZW51ZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
-            "title": "bandung hall",
-            "location": "bandung"        
-        },
-        {
-            "image_poster": "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OTd8fHdlZGRpbmclMjB2ZW51ZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
-            "title": "makasar hall",
-            "location": "makasar"
-        }
-    ]
+    {
+      "image_poster": "https://images.unsplash.com/photo-1469371670807-013ccf25f16a?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8d2VkZGluZyUyMHZlbnVlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
+      "title": "jakarta hall",
+      "location": "Jakarta",
+      "rating": "5"
+    },
+    {
+      "image_poster": "https://images.unsplash.com/photo-1524824267900-2fa9cbf7a506?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8d2VkZGluZyUyMHZlbnVlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
+      "title": "medan hall",
+      "location": "Medan",
+      "rating": "4"
+    },
+    {
+      "image_poster": "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fHdlZGRpbmclMjB2ZW51ZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
+      "title": "surabaya hall",
+      "location": "Surabaya",
+      "rating": "4.5"
+    },
+    {
+      "image_poster": "https://images.unsplash.com/photo-1613067532651-7075a620c900?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fHdlZGRpbmclMjB2ZW51ZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
+      "title": "jogja hall",
+      "location": "Jogjakarta",
+      "rating": "3.5"
+    },
+    {
+      "image_poster": "https://images.unsplash.com/photo-1524563485100-78ae0aa46e5a?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTR8fHdlZGRpbmclMjB2ZW51ZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
+      "title": "bandung hall",
+      "location": "Bandung",
+      "rating": "4.5"
+    },
+    {
+      "image_poster": "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OTd8fHdlZGRpbmclMjB2ZW51ZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
+      "title": "makasar hall",
+      "location": "Makasar",
+      "rating": "4"
+    }
+  ]
 }

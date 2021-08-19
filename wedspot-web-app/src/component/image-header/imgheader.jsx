@@ -3,6 +3,7 @@ import Typography from "@material-ui/core/Typography";
 import Breadcrumbs from "@material-ui/core/Breadcrumbs";
 import Link from "@material-ui/core/Link";
 import { makeStyles } from "@material-ui/core/styles";
+import grey from "@material-ui/core/colors/grey";
 import { Container } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
@@ -28,7 +29,7 @@ export function ImageHeader() {
     <div className={classes.size}>
       <Breadcrumbs aria-label="breadcrumb" className={classes.bread}>
         <Link color="inherit" href="/">
-          search result
+          <p>search result</p>
         </Link>
         <Link color="inherit" href="/">
           type
