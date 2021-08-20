@@ -1,10 +1,8 @@
-import { createMuiTheme, ThemeProvider } from "@material-ui/core";
-import React, { useState } from "react";
+import React from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Header from "./component/header/header";
-import Footer from "./component/footer/footer";
-import PackageDetail from "./pages/vendor/package";
+import { createMuiTheme } from "@material-ui/core";
+import Homepage from "./pages/Homepage";
 
 function App() {
   const theme = createMuiTheme({
@@ -19,13 +17,9 @@ function App() {
   });
 
   return (
-    <ThemeProvider theme={theme}>
-      <div >
-        <Header />
-        <PackageDetail/>
-        <Footer />
-      </div>
-    </ThemeProvider>
+    <div className="positon" theme={theme}>
+      <Homepage />
+    </div>
   );
 }
 

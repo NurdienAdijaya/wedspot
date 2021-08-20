@@ -3,30 +3,34 @@ import "./modal.css";
 import { Modal, Container } from "react-bootstrap";
 import Button from "@material-ui/core/Button";
 import Login from "./login";
-import pic from "../../image/pic1.png";
 import Register from "./register";
-import { FailedMessage } from "../../message/message";
 
 function SignIn() {
   const [show, setShowLogin] = useState(false);
   const [showreg, setShowRegister] = useState(false);
-
   return (
     <>
       <Button
         onClick={() => setShowLogin(true)}
-        type="submit"
-        variant="contained"
-        color="primary"
-        style={{ marginRight: "12px" }}
+        style={{
+          background: "#455437",
+          color: "white",
+          width: "132px",
+          marginRight: "12px",
+          boxShadow: "#B5AF8F 0px 0px 1px",
+        }}
       >
-        Sign Up
+        Login
       </Button>
       <Button
         onClick={() => setShowRegister(true)}
-        type="submit"
-        variant="contained"
-        color="white"
+        className="bg-light"
+        style={{
+          width: "132px",
+          marginLeft: "12px",
+          boxShadow: "#e5e5e5 0px 0px 1px",
+          color: " #455437",
+        }}
       >
         Register
       </Button>
@@ -45,12 +49,19 @@ function SignIn() {
             <img
               src="https://images.unsplash.com/photo-1609151162377-794faf68b02f?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=560&ixid=MnwxfDB8MXxyYW5kb218MHx8d2VkZGluZ3x8fHx8fDE2MjkyMDk1NjQ&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=600"
               alt="left"
-            ></img>
-            <Container className=" d-flex flex-column p-5 justify-content-center">
+              style={{
+                zIndex: "1",
+                marginTop: "-3.07rem",
+                marginBottom: "-0.015rem",
+                borderRadius: "0.23rem",
+                width: "105%",
+              }}
+            />
+            <Container className=" d-flex flex-column px-5 justify-content-center">
               <h1>Sign in to your account</h1>
               <Login />
 
-              <div className="text-muted fw-bolder mt-5 text-center">
+              <div className="text-muted fw-bolder mt-1 text-center">
                 Don't have an account ?
                 <span
                   className="fw-bolder pink ps-1"
@@ -77,10 +88,17 @@ function SignIn() {
           <img
             src="https://images.unsplash.com/photo-1609151162377-794faf68b02f?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=560&ixid=MnwxfDB8MXxyYW5kb218MHx8d2VkZGluZ3x8fHx8fDE2MjkyMDk1NjQ&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=600"
             alt="left"
-          ></img>
-          <Container className=" d-flex flex-column p-5 justify-content-center">
+            style={{
+              zIndex: "1",
+              marginTop: "-3.07rem",
+              marginBottom: "-0.015rem",
+              borderRadius: "0.23rem",
+              width: "105%",
+            }}
+          />
+          <Container className=" d-flex flex-column px-5 pb-5 justify-content-center">
             <Register />
-            <div className="text-muted fw-bolder mt-5 text-center">
+            <div className="text-muted fw-bolder text-center">
               Already have an account ?
               <span
                 className="fw-bolder pink ps-1"
