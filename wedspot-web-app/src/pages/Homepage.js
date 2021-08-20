@@ -7,6 +7,7 @@ import Venue from "../component/Card/Venue";
 import ExploreBanner from "../component/banner/ExploreBanner";
 import imgv from "../component/asset/Arista.png";
 import HomeSearchType from "../component/HomeSearchType";
+import PackageBanner from "../component/banner/PackageBanner";
 
 const Homepage = () => {
   return (
@@ -201,6 +202,9 @@ const Homepage = () => {
           reviews are from real clients. Use these online referrals to make a decision which vendor you want to work with."
           flexDirection="row-reverse"
         />
+      </div>
+      <div>
+        <PackageBanner />
       </div>
       asdsdasdasdad
     </div>

@@ -59,7 +59,7 @@ const ExploreBanner = () => {
                 display: "flex",
                 width: "12rem",
                 borderRight: "#B5AF8F 2px solid",
-                marginRight: "2rem",
+                marginRight: "3rem",
               }}
             >
               <div
@@ -97,7 +97,7 @@ const ExploreBanner = () => {
                 display: "flex",
                 width: "18rem",
                 borderRight: "#B5AF8F 2px solid",
-                marginRight: "2rem",
+                marginRight: "3rem",
               }}
             >
               <div
@@ -111,7 +111,7 @@ const ExploreBanner = () => {
                   display: "flex",
                   justifyContent: "center",
                   alignContent: "center",
-                  margin: "0 0.5rem",
+                  marginRight: " 0.5rem",
                 }}
               >
                 <LoyaltyOutlinedIcon
@@ -146,7 +146,7 @@ const ExploreBanner = () => {
                   display: "flex",
                   justifyContent: "center",
                   alignContent: "center",
-                  margin: "0 0.5rem",
+                  marginRight: " 0.5rem",
                 }}
               >
                 <StoreMallDirectoryIcon
