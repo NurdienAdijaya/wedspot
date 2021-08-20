@@ -1,7 +1,6 @@
 import React from "react";
 import Header from "../component/header/header";
 import SearchInput from "../component/search/search";
-import NavigateNextIcon from "@material-ui/icons/NavigateNext";
 import TitleBar from "../component/TitleBar";
 import Venue from "../component/Card/Venue";
 import ExploreBanner from "../component/banner/ExploreBanner";
