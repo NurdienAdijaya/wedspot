@@ -5,6 +5,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "./component/header/header";
 import Footer from "./component/footer/footer";
 import PackageDetail from "./pages/vendor/package";
+import DetailPage from "./pages/vendor/detail";
+import SearchPage from "./pages/search/search";
 
 function App() {
   const theme = createMuiTheme({
@@ -20,9 +22,15 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <div >
+      <div>
         <Header />
-        <PackageDetail/>
+        <DetailPage />
+        <Footer />
+        <Header />
+        <PackageDetail />
+        <Footer />
+        <Header />
+        <SearchPage />
         <Footer />
       </div>
     </ThemeProvider>

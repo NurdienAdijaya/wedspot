@@ -5,11 +5,7 @@ import ImageHeader from "../../component/image-header/imgheader";
 import { PackageDetailCard } from "../../component/card/detailcard";
 import { ArrowBackIos } from "@material-ui/icons";
 import ImageCarousel from "../../component/carousel/ImageCarousel";
-import Package from "../../component/card/Package";
-import { Route, Link } from "react-router-dom";
-import { Typography } from "@material-ui/core";
 import Modal from "@material-ui/core/Modal";
-import { classes } from "istanbul-lib-coverage";
 
 const useStyles = makeStyles((theme) => ({
   close: {
