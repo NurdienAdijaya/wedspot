@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { createMuiTheme } from "@material-ui/core";
+import { createMuiTheme, ThemeProvider } from "@material-ui/core";
 import Homepage from "./pages/Homepage";
 
 function App() {
@@ -17,9 +17,11 @@ function App() {
   });
 
   return (
-    <div className="positon" theme={theme}>
-      <Homepage />
-    </div>
+    <ThemeProvider theme={theme}>
+      <div className="positon" theme={theme}>
+        <Homepage />
+      </div>
+    </ThemeProvider>
   );
 }
 

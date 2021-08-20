@@ -1,6 +1,8 @@
 import { createMuiTheme, ThemeProvider } from "@material-ui/core";
 import { BrowserRouter } from "react-router-dom";
 import "./App.css";
+import QuotationNew from "./components/buttons/QuotationNew";
+import QuotationSent from "./components/buttons/QuotationSent";
 import LoginPage from "./pages/Login";
 
 const theme = createMuiTheme({
