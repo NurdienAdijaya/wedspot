@@ -3,7 +3,7 @@ import Slider from 'react-animated-slider';
 import 'react-animated-slider/build/horizontal.css';
 import axios from 'axios';
 import img1 from '../asset/Arista.png';
-import { textAlign } from '@material-ui/system';
+
 
 const SimpleSlider = () => {
     const [data, setData] = useState ([])
