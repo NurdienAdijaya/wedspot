@@ -3,11 +3,13 @@ import Typography from "@material-ui/core/Typography";
 import Breadcrumbs from "@material-ui/core/Breadcrumbs";
 import Link from "@material-ui/core/Link";
 import { makeStyles } from "@material-ui/core/styles";
+import grey from "@material-ui/core/colors/grey";
 import { Container } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 345,
+    color: "white",
   },
   size: {
     backgroundImage: `url(${"https://source.unsplash.com/1440x420/?wedding,hall"})`,
@@ -26,17 +28,29 @@ export function ImageHeader() {
   const classes = useStyles();
   return (
     <div className={classes.size}>
-      <Breadcrumbs aria-label="breadcrumb" className={classes.bread}>
-        <Link color="inherit" href="/">
-          search result
-        </Link>
-        <Link color="inherit" href="/">
-          type
-        </Link>
-        <Typography color="textPrimary">nama vendor</Typography>
-      </Breadcrumbs>
+      <Container className="pt-3">
+        <Breadcrumbs
+          aria-label="breadcrumb"
+          className={classes.bread}
+          classes={{
+            root: classes.root,
+          }}
+        >
+          <Link color="inherit" href="/">
+            <p>search result</p>
+          </Link>
+          <Link color="inherit" href="/">
+            type
+          </Link>
+          <Typography color="white" className={classes.cormorant}>
+            nama vendor
+          </Typography>
+        </Breadcrumbs>
+      </Container>
       <div className={classes.tittle}>
-        <h1>Nama Vendor</h1>
+        <Typography variant="h1" component="h2">
+          Nama Vendor
+        </Typography>
       </div>
     </div>
   );

@@ -1,5 +1,4 @@
-import logo from "./logo.svg";
-import React, { useState } from "react";
+import React from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "./component/header/header";
@@ -12,11 +11,23 @@ import Banner from "./component/banner/banner";
 import ImageCarousel from "./component/carousel/ImageCarousel";
 import Package from "./component/Card/Package";
 import SimpleSlider from "./component/carousel/VendorCarousel";
+import { createMuiTheme } from "@material-ui/core";
 // import CarouselComponent from "./component/carousel/VendorCarousel";
 
 function App() {
+  const theme = createMuiTheme({
+    palette: {
+      primary: {
+        main: "#455437",
+      },
+      secondary: {
+        main: "#C97C68",
+      },
+    },
+  });
+
   return (
-    <div className="positon">
+    <div className="positon" theme={theme}>
       <Header />
       < Banner />
       <ImageHeader />

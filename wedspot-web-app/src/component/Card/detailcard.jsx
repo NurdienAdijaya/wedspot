@@ -9,6 +9,7 @@ import {
   Language,
 } from "@material-ui/icons";
 import { makeStyles } from "@material-ui/core/styles";
+import Button from "@material-ui/core/Button";
 import CardHeader from "@material-ui/core/CardHeader";
 import CardContent from "@material-ui/core/CardContent";
 import Divider from "@material-ui/core/Divider";
@@ -16,6 +17,7 @@ import Rating from "@material-ui/lab/rating";
 import facebook from "./icon/facebook.png";
 import twitter from "./icon/twitter.png";
 import instagram from "./icon/instagram.png";
+import { Container } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -29,6 +31,10 @@ const useStyles = makeStyles((theme) => ({
   },
   logo: {
     display: "flex",
+  },
+  btn: {
+    width: "inherit",
+    height: "55px",
   },
 }));
 
@@ -74,26 +80,31 @@ export function VendorCard() {
           </p>
         </CardContent>
         <Divider variant="middle" className={classes.hr} />
-        <p className={classes.text}>Follow us through our social media</p>
-        <div className={classes.logo}>
-          <p>
-            <img src={instagram} alt="logo" />
-          </p>
-          <p className="ms-3">
-            <img src={facebook} alt="logo" />
-          </p>
-          <p className="ms-3">
-            <img src={twitter} alt="logo" />
-          </p>
-        </div>
-        <div className="d-flex">
-          <button
-            className="text-light btn btn-lg w-100 green fw-bold p-3 mb-5"
+        <Container>
+          <p className={classes.text}>Follow us through our social media</p>
+          <div className={classes.logo}>
+            <p>
+              <img src={instagram} alt="logo" />
+            </p>
+            <p className="ms-3">
+              <img src={facebook} alt="logo" />
+            </p>
+            <p className="ms-3">
+              <img src={twitter} alt="logo" />
+            </p>
+          </div>
+        </Container>
+        <Container className="pb-3">
+          <Button
             type="submit"
+            variant="contained"
+            color="primary"
+            className={classes.btn}
+            style={{ root: classes.root }}
           >
-            Ask for Quotation
-          </button>
-        </div>
+            ask for quotation
+          </Button>
+        </Container>
       </Card>
     </div>
   );
@@ -126,21 +137,23 @@ export function PackageDetailCard() {
         </CardContent>
         <Divider variant="middle" className={classes.hr} />
         <CardContent>
-          <p className={classes.text}>include on package :</p>
-          <ul>
-            <li>(includes)</li>
-            <li>(includes)</li>
-            <li>(includes)</li>
-          </ul>
+            <p className={classes.text}>include on package :</p>
+            <ul>
+              <li>(includes)</li>
+              <li>(includes)</li>
+              <li>(includes)</li>
+            </ul>
         </CardContent>
-        <div className="d-flex">
-          <button
-            className="text-light btn btn-lg w-100 green fw-bold p-3 mb-5"
+        <Container className="pb-3">
+          <Button
             type="submit"
+            variant="contained"
+            color="primary"
+            className={classes.btn}
           >
-            Ask for Quotation
-          </button>
-        </div>
+            ask for quotation
+          </Button>
+        </Container>
       </Card>
     </div>
   );

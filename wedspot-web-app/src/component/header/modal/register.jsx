@@ -53,7 +53,7 @@ function Register({ props }) {
           <Checkbox label="I agree with Wedspot terms & conditions" />
         </div>
         <button
-          className=" text-light w-100 btn btn-lg rounded-4 green watch-btn fw-bold p-3 mb-5"
+          className=" text-light w-100 btn btn-lg rounded-4 green watch-btn fw-bold p-3 mb-2"
           type="submit"
         >
           Sign Up
@@ -62,7 +62,7 @@ function Register({ props }) {
 
       <Divider horizontal>Or</Divider>
 
-      <div className="d-flex mt-5 mb-5">
+      <div className="d-flex mt-4 mb-5">
         <Button fluid basic size="huge" color="red">
           <Icon name="google" />
           Google
