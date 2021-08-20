@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import clsx from "clsx";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
@@ -14,11 +14,12 @@ import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import InboxIcon from "@material-ui/icons/MoveToInbox";
-import MailIcon from "@material-ui/icons/Mail";
 import NotificationsIcon from "@material-ui/icons/Notifications";
+import StorefrontOutlinedIcon from "@material-ui/icons/StorefrontOutlined";
 import PersonIcon from "@material-ui/icons/Person";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
+import DescriptionOutlinedIcon from "@material-ui/icons/DescriptionOutlined";
+import LocalMallOutlinedIcon from "@material-ui/icons/LocalMallOutlined";
 import {
   Avatar,
   Badge,
@@ -28,6 +29,7 @@ import {
   MenuItem,
   Switch,
 } from "@material-ui/core";
+import MyStore from "./MyStore";
 
 const useStylesNav = makeStyles((theme) => ({
   root: {
@@ -56,7 +58,6 @@ const useStyles = makeStyles((theme) => ({
   appBarShift: {
     width: `calc(100% - ${drawerWidth}px)`,
     marginLeft: drawerWidth,
-    background: "white",
     transition: theme.transitions.create(["margin", "width"], {
       easing: theme.transitions.easing.easeOut,
       duration: theme.transitions.duration.enteringScreen,
@@ -122,7 +123,8 @@ export default function Sidebar() {
 
   const classes = useStyles();
   const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
+  const [page, setPage] = useState("store");
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -153,7 +155,7 @@ export default function Sidebar() {
       </FormGroup>
       <CssBaseline />
       <AppBar
-        style={{ background: "white" }}
+        style={{ background: "#f3f3f3" }}
         position="fixed"
         className={clsx(classesNav.appBar, {
           [classes.appBarShift]: open,
@@ -175,7 +177,7 @@ export default function Sidebar() {
             className={classesNav.title}
             style={{ color: "#0F120D" }}
           >
-            Photos
+            My Store
           </Typography>
           <div className={classesNav.sectionDesktop}>
             <IconButton aria-label="show 17 new notifications" color="#0F120D">
@@ -303,14 +305,24 @@ export default function Sidebar() {
           </IconButton>
         </div>
         <List style={{ color: "#B5AF8F" }}>
-          {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon style={{ color: "#B5AF8F" }}>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
+          <ListItem button onClick={() => setPage("store")}>
+            <ListItemIcon style={{ color: "#B5AF8F" }}>
+              <StorefrontOutlinedIcon />
+            </ListItemIcon>
+            <ListItemText primary="My Store" />
+          </ListItem>
+          <ListItem button onClick={() => setPage("quotations")}>
+            <ListItemIcon style={{ color: "#B5AF8F" }}>
+              <DescriptionOutlinedIcon />
+            </ListItemIcon>
+            <ListItemText primary="Quotations" />
+          </ListItem>
+          <ListItem button onClick={() => setPage("packages")}>
+            <ListItemIcon style={{ color: "#B5AF8F" }}>
+              <LocalMallOutlinedIcon />
+            </ListItemIcon>
+            <ListItemText primary="Packages" />
+          </ListItem>
         </List>
       </Drawer>
       <main
@@ -319,6 +331,14 @@ export default function Sidebar() {
         })}
       >
         <div className={classes.drawerHeader} />
+        {page === "store" ? (
+          <MyStore />
+        ) : page === "quotations" ? (
+          "quotations"
+        ) : (
+          "bukan"
+        )}
+
         <Typography paragraph>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus
