@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
@@ -32,23 +32,34 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(5),
     marginBottom: theme.spacing(1),
   },
+  titleFormSignin: {
+    marginTop: theme.spacing(5),
+    marginBottom: theme.spacing(6),
+  },
   form: {
     width: "100%", // Fix IE 11 issue.
     marginBottom: theme.spacing(3),
+  },
+
+  formSignin: {
+    width: "100%", // Fix IE 11 issue.
+    marginBottom: theme.spacing(4),
   },
   submit: {
     fontWeight: "bold",
     margin: theme.spacing(3, 0, 2),
   },
+
+  submitSignin: {
+    fontWeight: "bold",
+    margin: theme.spacing(5, 0, 2),
+  },
 }));
 
 export default function SignUp() {
   const classes = useStyles();
-  const [signup, setSignup] = React.useState(true);
+  const [signup, setSignup] = useState(false);
 
-  const handleClick = (event) => {
-    setSignup(event.target.checked);
-  };
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -105,86 +116,125 @@ export default function SignUp() {
             fill="#D19072"
           />
         </svg>
-        <Typography variant="h5" className={classes.titleForm}>
-          Sign to your account
-        </Typography>
 
         {signup ? (
-          <form className={classes.form} noValidate>
-            <Grid container spacing={2}>
-              <Grid item xs={12}>
-                <TextField
-                  variant="outlined"
-                  required
-                  fullWidth
-                  id="fullName"
-                  label="Full Name"
-                  name="fullName"
-                  autoComplete="fname"
-                />
+          <>
+            <Typography variant="h5" className={classes.titleForm}>
+              Sign to your account
+            </Typography>
+            <form className={classes.form} noValidate>
+              <Grid container spacing={2}>
+                <Grid item xs={12}>
+                  <TextField
+                    variant="outlined"
+                    required
+                    fullWidth
+                    id="fullName"
+                    label="Full Name"
+                    name="fullName"
+                    autoComplete="fname"
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    variant="outlined"
+                    required
+                    fullWidth
+                    id="email"
+                    label="Email Address"
+                    name="email"
+                    autoComplete="email"
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    variant="outlined"
+                    required
+                    fullWidth
+                    name="password"
+                    label="Password"
+                    type="password"
+                    id="password"
+                    autoComplete="current-password"
+                  />
+                </Grid>
               </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  variant="outlined"
-                  required
-                  fullWidth
-                  id="email"
-                  label="Email Address"
-                  name="email"
-                  autoComplete="email"
-                />
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                color="primary"
+                className={classes.submit}
+              >
+                Sign Up
+              </Button>
+              <Grid container justifyContent="center">
+                <Grid item>
+                  {"Already have an account? "}
+                  <Link
+                    onClick={() => setSignup(!signup)}
+                    variant="body2"
+                    style={{ color: "#C97C68", fontWeight: "bold" }}
+                  >
+                    Log In
+                  </Link>
+                </Grid>
               </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  variant="outlined"
-                  required
-                  fullWidth
-                  name="password"
-                  label="Password"
-                  type="password"
-                  id="password"
-                  autoComplete="current-password"
-                />
-              </Grid>
-            </Grid>
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              className={classes.submit}
-            >
-              Sign Up
-            </Button>
-            <Grid container justifyContent="center">
-              <Grid item>
-                {"Already have an account? "}
-                <Link
-                  href="#"
-                  OnClick={handleClick}
-                  variant="body2"
-                  style={{ color: "#C97C68", fontWeight: "bold" }}
-                >
-                  Sign in
-                </Link>
-              </Grid>
-            </Grid>
-          </form>
+            </form>
+          </>
         ) : (
           <>
-            "ini signin"
-            <Grid container justifyContent="center">
-              <Grid item>
-                {"Don't have an account? "}
-                <Link
-                  OnClick={handleClick}
-                  variant="body2"
-                  style={{ color: "#C97C68", fontWeight: "bold" }}
-                >
-                  Sign up
-                </Link>
+            <Typography variant="h5" className={classes.titleFormSignin}>
+              Sign to your account
+            </Typography>
+            <form className={classes.formSignin} noValidate>
+              <Grid container spacing={3}>
+                <Grid item xs={12}>
+                  <TextField
+                    variant="outlined"
+                    required
+                    fullWidth
+                    id="email"
+                    label="Email Address"
+                    name="email"
+                    autoComplete="email"
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    variant="outlined"
+                    required
+                    fullWidth
+                    name="password"
+                    label="Password"
+                    type="password"
+                    id="password"
+                    autoComplete="current-password"
+                  />
+                </Grid>
               </Grid>
-            </Grid>
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                color="primary"
+                className={classes.submitSignin}
+              >
+                Log in
+              </Button>
+              <Grid container justifyContent="center">
+                <Grid item>
+                  {"Don't have an account? "}
+                  <Link
+                    onClick={() => setSignup(!signup)}
+                    variant="body2"
+                    style={{ color: "#C97C68", fontWeight: "bold" }}
+                  >
+                    Sign Up
+                  </Link>
+                </Grid>
+              </Grid>
+            </form>
           </>
         )}
       </div>
