@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Search, Room } from "@material-ui/icons";
 import InputBase from "@material-ui/core/InputBase";
-import Divider from "@material-ui/core/Divider";
 import Button from "@material-ui/core/Button";
 
 function SearchInput() {

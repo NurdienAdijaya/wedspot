@@ -29,6 +29,7 @@ function SignIn() {
           width: "132px",
           marginLeft: "12px",
           boxShadow: "#e5e5e5 0px 0px 1px",
+          color: " #455437",
         }}
       >
         Register

@@ -4,6 +4,7 @@ import SearchInput from "../component/search/search";
 import NavigateNextIcon from "@material-ui/icons/NavigateNext";
 import TitleBar from "../component/TitleBar";
 import Venue from "../component/Card/Venue";
+import ExploreBanner from "../component/banner/ExploreBanner";
 
 const Homepage = () => {
   return (
@@ -44,7 +45,7 @@ const Homepage = () => {
           marginTop: "10rem",
           marginRight: "10rem",
           marginLeft: "10rem",
-          marginBottom: "2rem",
+          marginBottom: "10rem",
         }}
       >
         <TitleBar
@@ -53,6 +54,22 @@ const Homepage = () => {
           description={
             "Look through the most beautiful wedding venues to find the perfect place to host your banquet."
           }
+        />
+        <Venue />
+      </div>
+      <ExploreBanner />
+      <div
+        style={{
+          marginTop: "10rem",
+          marginRight: "10rem",
+          marginLeft: "10rem",
+          marginBottom: "10rem",
+        }}
+      >
+        <TitleBar
+          mb={"2rem"}
+          title={"Best Planner for You"}
+          description={"Handle all the nitty gritties for your big day"}
         />
         <Venue />
       </div>
