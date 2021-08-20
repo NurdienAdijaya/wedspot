@@ -3,39 +3,64 @@
         {
             "image_poster": "https://images.unsplash.com/photo-1510076857177-7470076d4098?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8d2VkZGluZyUyMHZlbnVlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
             "title": "bali hall",
+            "poster_path": "https://images.unsplash.com/photo-1478146059778-26028b07395a?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTQzfHx3ZWRkaW5nJTIwcGFja2FnZSUyRjgwMHB4fGVufDB8MHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
+            "name": "Wedding Dinner Package",
+            "price": "Rp.5.202.000",
             "location": "bali"
         },
 
         {
             "image_poster": "https://images.unsplash.com/photo-1469371670807-013ccf25f16a?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8d2VkZGluZyUyMHZlbnVlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
             "title": "jakarta hall",
+            "poster_path": "https://images.unsplash.com/photo-1508349307373-ab2edc239589?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTUyfHx3ZWRkaW5nJTIwcGFja2FnZSUyRjgwMHB4fGVufDB8MHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
+            "name": "Wedding Dinner Package",
+            "price": "Rp.5.202.000",
             "location": "jakarta"
             
         },
         {
             "image_poster": "https://images.unsplash.com/photo-1524824267900-2fa9cbf7a506?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8d2VkZGluZyUyMHZlbnVlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
             "title": "medan hall",
+            "poster_path":"https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjl8fHdlZGRpbmclMjBwYWNrYWdlJTJGODAwcHh8ZW58MHwwfDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60",
+            "name": "Wedding Dinner Package",
+            "price": "Rp.5.202.000",
             "location": "medan"
         },
         {
             "image_poster": "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fHdlZGRpbmclMjB2ZW51ZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
+            "poster_path":"https://images.unsplash.com/photo-1524824267900-2fa9cbf7a506?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8ODF8fHdlZGRpbmclMjBwYWNrYWdlJTJGODAwcHh8ZW58MHwwfDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60",
             "title": "surabaya hall",
+            "name": "Wedding Dinner Package",
+            "price": "Rp.5.202.000",
             "location": "surabaya"
         },
         {
             "image_poster": "https://images.unsplash.com/photo-1613067532651-7075a620c900?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fHdlZGRpbmclMjB2ZW51ZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
+            "poster_path": "https://images.unsplash.com/photo-1523974715800-1f7cef033969?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OTV8fHdlZGRpbmclMjBwYWNrYWdlJTJGODAwcHh8ZW58MHwwfDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
             "title": "jogja hall",
+            "name": "Wedding Dinner Package",
+            "price": "Rp.5.202.000",
             "location": "jogjakarta"
         },
         {
             "image_poster": "https://images.unsplash.com/photo-1524563485100-78ae0aa46e5a?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTR8fHdlZGRpbmclMjB2ZW51ZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
+            "poster_path": "https://images.unsplash.com/photo-1522413452208-996ff3f3e740?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8d2VkZGluZyUyMHBhY2thZ2UlMkY4MDBweHxlbnwwfDB8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
             "title": "bandung hall",
+            "name": "Wedding Dinner Package",
+            "price": "Rp.5.202.000",
             "location": "bandung"        
         },
         {
             "image_poster": "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OTd8fHdlZGRpbmclMjB2ZW51ZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
+            "poster_path":"https://images.unsplash.com/photo-1525845097200-f98709181e61?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTE5fHx3ZWRkaW5nJTIwcGFja2FnZSUyRjgwMHB4fGVufDB8MHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
             "title": "makasar hall",
+            "name": "Wedding Dinner Package",
+            "price": "Rp.5.202.000",
             "location": "makasar"
         }
     ]
+
 }
+
+
+   
