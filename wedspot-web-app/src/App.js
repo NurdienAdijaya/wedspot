@@ -1,13 +1,9 @@
 import React from "react";
 import "./App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-import Header from "./component/header/header";
-import Footer from "./component/footer/footer";
-import PackageDetail from "./pages/vendor/package";
-import DetailPage from "./pages/vendor/detail";
-import SearchPage from "./pages/search/search2";
+import SignUp from "./component/Quatationform/Request";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core";
-import Homepage from "./pages/Homepage";
+import { BrowserRouter, Route } from "react-router-dom";
+import Routers from "./routes/router";
 
 function App() {
   const theme = createMuiTheme({
@@ -23,17 +19,9 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <div>
-        <Header />
-        <DetailPage />
-        <Footer />
-        <Header />
-        <PackageDetail />
-        <Footer />
-        <Header />
-        <SearchPage />
-        <Footer />
-      </div>  
+      <BrowserRouter>
+        <Routers />
+      </BrowserRouter>
     </ThemeProvider>
   );
 }
