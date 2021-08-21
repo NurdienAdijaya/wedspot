@@ -1,6 +1,7 @@
 import React from "react";
 import logo from "../image/Logo.png";
 import SignIn from "./modal/modal";
+import "bootstrap/dist/css/bootstrap.min.css";
 import { Nav, Navbar, Container } from "react-bootstrap";
 import { Avatar, Notif } from "./dropdown/login";
 function Header({ background = "white" }) {

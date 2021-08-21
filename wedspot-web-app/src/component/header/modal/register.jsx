@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "semantic-ui-css/semantic.min.css";
 import { Divider, Button, Icon, Checkbox } from "semantic-ui-react";
 
 function Register({ props }) {

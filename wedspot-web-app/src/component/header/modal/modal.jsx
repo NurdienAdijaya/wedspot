@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./modal.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 import { Modal, Container } from "react-bootstrap";
 import Button from "@material-ui/core/Button";
 import Login from "./login";

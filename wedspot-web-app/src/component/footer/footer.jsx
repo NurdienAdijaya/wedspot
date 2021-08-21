@@ -1,4 +1,5 @@
 import React from "react";
+import "semantic-ui-css/semantic.min.css";
 import { Container, Divider, Dropdown, Icon } from "semantic-ui-react";
 import logo from "../image/Logo-white.png";
 
