@@ -10,7 +10,7 @@ function Header({ background = "white" }) {
     <div>
       <Navbar bg={background} expand="md">
         <Container className="ps-5">
-          <Navbar.Brand href="/">
+          <Navbar.Brand>
             <div className="d-flex align-items-center ">
               <img src={logo} alt="logo" />
               <Nav.Item className="ps-5">

@@ -1,10 +1,10 @@
 import React from "react";
 import "./Button.css";
 
-const QuotationNew = ({ width, content = "content", onClick }) => {
+const ButtonSecondary = ({ width, content = "Content", onClick }) => {
   return (
     <button
-      className="pill-new"
+      className="secondary"
       style={{
         width: `${width}`,
       }}
@@ -15,4 +15,4 @@ const QuotationNew = ({ width, content = "content", onClick }) => {
   );
 };
 
-export default QuotationNew;
+export default ButtonSecondary;
