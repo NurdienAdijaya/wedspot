@@ -3,7 +3,7 @@ import React from "react";
 import Header from "../component/header/header";
 import SearchInput from "../component/search/search";
 import TitleBar from "../component/TitleBar";
-import Venue from "../component/Card/Venue";
+import Venue from "../component/card/Venue";
 import ExploreBanner from "../component/banner/ExploreBanner";
 import imgv from "../component/asset/Arista.png";
 import HomeSearchType from "../component/HomeSearchType";

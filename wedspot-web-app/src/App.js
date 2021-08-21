@@ -1,6 +1,9 @@
 import React from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import BasicTextFields from "./component/Quatationform/Request";
+import MultilineTextFields from "./component/Quatationform/Request";
+import SignUp from "./component/Quatationform/Request";
 import Header from "./component/header/header";
 import Footer from "./component/footer/footer";
 import PackageDetail from "./pages/vendor/package";
@@ -33,6 +36,7 @@ function App() {
         <Header />
         <SearchPage />
         <Footer />
+        < SignUp />
       </div>  
     </ThemeProvider>
   );
