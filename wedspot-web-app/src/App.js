@@ -1,6 +1,14 @@
 import React from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import BasicTextFields from "./component/Quatationform/Request";
+import MultilineTextFields from "./component/Quatationform/Request";
+import SignUp from "./component/Quatationform/Request";
+import Header from "./component/header/header";
+import Footer from "./component/footer/footer";
+import PackageDetail from "./pages/vendor/package";
+import DetailPage from "./pages/vendor/detail";
+import SearchPage from "./pages/search/search2";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core";
 import Homepage from "./pages/Homepage";
 
@@ -18,9 +26,18 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <div className="positon" theme={theme}>
-        <Homepage />
-      </div>
+      <div>
+        <Header />
+        <DetailPage />
+        <Footer />
+        <Header />
+        <PackageDetail />
+        <Footer />
+        <Header />
+        <SearchPage />
+        <Footer />
+        < SignUp />
+      </div>  
     </ThemeProvider>
   );
 }

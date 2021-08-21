@@ -21,6 +21,7 @@ function App() {
     <ThemeProvider theme={theme} className="App">
       <BrowserRouter>
         <LoginPage />
+        < QuotationNew/>
       </BrowserRouter>
     </ThemeProvider>
   );

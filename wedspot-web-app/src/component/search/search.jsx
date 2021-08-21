@@ -6,6 +6,7 @@ import Button from "@material-ui/core/Button";
 function SearchInput() {
   const [category, setCategory] = useState("");
   const [location, setLocation] = useState("");
+  
   return (
     <div style={{ width: "100vw", background: "transparent" }}>
       <form

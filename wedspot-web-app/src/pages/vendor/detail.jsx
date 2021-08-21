@@ -9,7 +9,7 @@ function DetailPage() {
     <div>
       <ImageHeader />
       <Container className="pt-5 pb-5">
-      <Grid container>
+      <Grid container spacing={1}>
         <Grid item xs={8}>
           <div className="pb-3">
             <h1>All Package</h1>
