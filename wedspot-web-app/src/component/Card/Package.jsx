@@ -9,14 +9,13 @@ import axios from 'axios';
 
 
 const useStyles = makeStyles({
-  card: {
-    maxWidth: 345,
-    display:"flex",
-    justifyContent:"space-between",
-    margin:"10rem"
+  root: {
+    maxWidth:"500px",
+    margin:"1rem"
   },
   media: {
     height: 140,
+    width: "17rem"
   },
 });
 
@@ -25,7 +24,7 @@ export default function Package() {
   const [ data, setData ] = useState([])
   const getData = () => {
     axios
-    .get("http://localhost:3002/data")
+    .get("http://localhost:4000/data")
     .then((res) => {
       console.log(res);
       setData(res.data);
@@ -39,17 +38,20 @@ export default function Package() {
 
 
   return (
-        <Card>
+        <Card style={{
+          display:"flex",
+          overflow:"overlay"
+        }}>
           {data.map((data) => (
             
-            <CardActionArea>
+            <CardActionArea className={classes.root}>
             <CardMedia
             className={classes.media}
             image={data.poster_path}
             title={data.name}
             />
             <CardContent>
-              <Typography style={{fontSize:"24px", fontWeight:"bold", }}>
+              <Typography style={{fontSize:"20px", fontWeight:"bold", }}>
                 {data.name}
               </Typography>
               <p>Start price</p>

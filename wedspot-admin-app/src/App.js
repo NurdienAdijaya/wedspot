@@ -1,6 +1,7 @@
 import { createMuiTheme, ThemeProvider } from "@material-ui/core";
 import { BrowserRouter } from "react-router-dom";
 import "./App.css";
+import QuotationNew from "./components/buttons/QuotationNew";
 import LoginPage from "./pages/Login";
 
 const theme = createMuiTheme({
@@ -19,6 +20,7 @@ function App() {
     <ThemeProvider theme={theme} className="App">
       <BrowserRouter>
         <LoginPage />
+        < QuotationNew/>
       </BrowserRouter>
     </ThemeProvider>
   );
