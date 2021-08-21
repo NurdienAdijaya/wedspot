@@ -5,9 +5,8 @@ import Header from "./component/header/header";
 import Footer from "./component/footer/footer";
 import PackageDetail from "./pages/vendor/package";
 import DetailPage from "./pages/vendor/detail";
-import SearchPage from "./pages/search/search";
+import SearchPage from "./pages/search/search2";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core";
-import Homepage from "./pages/Homepage";
 
 function App() {
   const theme = createMuiTheme({

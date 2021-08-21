@@ -5,7 +5,7 @@ import App from './App';
 import 'semantic-ui-css/semantic.min.css'
 import reportWebVitals from './reportWebVitals';
 import { ThemeProvider } from 'react-bootstrap';
-import theme from './component/Card/theme';
+import theme from './component/card/theme';
 
 ReactDOM.render(
   <React.StrictMode>

@@ -4,12 +4,19 @@ import { Container, Divider } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import Link from "@material-ui/core/Link";
 import { makeStyles } from "@material-ui/core";
-import SimpleMenu from "../../component/dropdown/dropdown";
+import {DropdownPax, DropdownPrice} from "../../component/filter/dropdown";
 
 const useStyles = makeStyles((theme) => ({
   root:{
       height:"10px"
-  },  
+  },
+  filter:{
+    paddingTop:"10px",
+    paddingBottom:"10px",
+    borderTop:"#E1E1E1 2px solid",
+    borderBottom:"#E1E1E1 2px solid",
+    display:'flex'
+  }  
 }));
 
 function SearchPage() {
@@ -27,9 +34,8 @@ function SearchPage() {
           <Typography color="white">nama vendor</Typography>
         </Breadcrumbs>
         <h1>Venue</h1>
-        <Divider variant="middle" />
-        <div>
-            <SimpleMenu/>
+        <div className={classes.filter}>
+            <DropdownPax/><DropdownPrice/>
         </div>
       </Container>
     </div>

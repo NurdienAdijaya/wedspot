@@ -25,7 +25,7 @@ export default function Package() {
   const [ data, setData ] = useState([])
   const getData = () => {
     axios
-    .get("http://localhost:3002/data")
+    .get("http://localhost:4000/data")
     .then((res) => {
       console.log(res);
       setData(res.data);
