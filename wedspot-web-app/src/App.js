@@ -7,6 +7,7 @@ import PackageDetail from "./pages/vendor/package";
 import DetailPage from "./pages/vendor/detail";
 import SearchPage from "./pages/search/search2";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core";
+import Homepage from "./pages/Homepage";
 
 function App() {
   const theme = createMuiTheme({
@@ -32,7 +33,7 @@ function App() {
         <Header />
         <SearchPage />
         <Footer />
-      </div>
+      </div>  
     </ThemeProvider>
   );
 }

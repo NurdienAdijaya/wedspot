@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core";
 import { Container, Grid } from "@material-ui/core";
 import ImageHeader from "../../component/image-header/imgheader";
-import { PackageDetailCard } from "../../component/card/detailcard";
+import { PackageDetailCard } from "../../component/Card/detailcard";
 import { ArrowBackIos } from "@material-ui/icons";
 import ImageCarousel from "../../component/carousel/ImageCarousel";
 import Modal from "@material-ui/core/Modal";
