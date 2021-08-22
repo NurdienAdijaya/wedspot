@@ -8,8 +8,6 @@ import HomeVenueBanner from "../component/banner/HomeVenueBanner";
 import HomeVendorBanner from "../component/banner/HomeVendorBanner";
 import VendorListBanner from "../component/banner/VendorListBanner";
 import WebContentInfo from "../component/WebContentInfo";
-import Header from "../component/header/header";
-import SearchInput from "../component/search/search";
 import Footer from "../component/footer/footer";
 
 const Homepage = () => {

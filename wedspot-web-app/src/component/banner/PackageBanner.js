@@ -37,7 +37,7 @@ const PackageBanner = () => {
         >
           Special Wedding Packages for You
         </h1>
-        <Package />
+        <Package overflow="scroll" wrap="nowrap" />
       </div>
       <div
         style={{
