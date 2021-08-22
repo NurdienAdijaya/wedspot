@@ -17,7 +17,7 @@ function SignIn() {
           background: "#455437",
           color: "white",
           width: "132px",
-          marginRight: "12px",
+          margin: "0 12px",
           boxShadow: "#B5AF8F 0px 0px 1px",
         }}
       >
@@ -28,7 +28,7 @@ function SignIn() {
         className="bg-light"
         style={{
           width: "132px",
-          marginLeft: "12px",
+          margin: "0 12px",
           boxShadow: "#e5e5e5 0px 0px 1px",
           color: " #455437",
         }}

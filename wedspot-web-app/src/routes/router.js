@@ -1,4 +1,5 @@
 import { Switch, Route } from "react-router-dom";
+import Header from "../component/header/header";
 import Homepage from "../pages/Homepage";
 import SearchPage from "../pages/search/search2";
 import DetailPage from "../pages/vendor/detail";
@@ -19,6 +20,10 @@ const Routers = () => {
         </Route>
         <Route exact path="/vendor/package/:id">
           <PackageDetail />
+        </Route>
+
+        <Route exact path="/*">
+          <Header />
         </Route>
       </Switch>
     </div>
