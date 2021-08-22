@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./modal.css";
-import "bootstrap/dist/css/bootstrap.min.css";
 import { Modal, Container } from "react-bootstrap";
 import Button from "@material-ui/core/Button";
 import Login from "./login";
@@ -45,7 +44,6 @@ function SignIn() {
         aria-labelledby="example-custom-modal-styling-title"
       >
         <Modal.Header closeButton></Modal.Header>
-        <div>
           <div className="d-flex">
             <img
               src="https://images.unsplash.com/photo-1609151162377-794faf68b02f?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=560&ixid=MnwxfDB8MXxyYW5kb218MHx8d2VkZGluZ3x8fHx8fDE2MjkyMDk1NjQ&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=600"
@@ -58,7 +56,7 @@ function SignIn() {
                 width: "105%",
               }}
             />
-            <Container className=" d-flex flex-column px-5 justify-content-center">
+            <Container className=" d-flex flex-column p-5 justify-content-center">
               <h1>Sign in to your account</h1>
 
               <Login />
@@ -74,7 +72,6 @@ function SignIn() {
               </div>
             </Container>
           </div>
-        </div>
       </Modal>
 
       {/* SIGN UP MODAL */}
@@ -98,7 +95,7 @@ function SignIn() {
               width: "105%",
             }}
           />
-          <Container className=" d-flex flex-column px-5 pb-5 justify-content-center">
+          <Container className=" d-flex flex-column p-5 justify-content-center">
             <Register />
             <div className="text-muted fw-bolder text-center">
               Already have an account ?

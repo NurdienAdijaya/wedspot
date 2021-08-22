@@ -206,7 +206,6 @@ const Homepage = () => {
       <div>
         <PackageBanner />
       </div>
-      asdsdasdasdad
     </div>
   );
 };

@@ -1,18 +1,24 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Dropdown } from "react-bootstrap";
-import { Person, AttachMoney } from "@material-ui/icons";
+import { Person, AttachMoney, Layers } from "@material-ui/icons";
 import { TextField, Container, Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+import FormLabel from "@material-ui/core/FormLabel";
+import FormControl from "@material-ui/core/FormControl";
+import FormGroup from "@material-ui/core/FormGroup";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import FormHelperText from "@material-ui/core/FormHelperText";
+import Checkbox from "@material-ui/core/Checkbox";
 
 const useStyles = makeStyles((theme) => ({
   input: {
-    maxWidth: "50px",
+    width: "50px",
     marginLeft: "10px",
     marginRight: "10px",
   },
   inputPrice: {
-    maxWidth: "80px",
+    width: "80px",
     marginLeft: "10px",
     marginRight: "10px",
   },
@@ -140,5 +146,61 @@ export function DropdownPrice() {
         </Dropdown.Menu>
       </Dropdown>
     </div>
+  );
+}
+
+export function DropdownType() {
+  const [venue, setVenue] = useState(true);
+  const [wo, setWo] = useState(true);
+  console.log(venue, wo);
+  return (
+    <Dropdown>
+      <Dropdown.Toggle variant="light" id="dropdown-basic">
+        <Layers className="me-2" />
+        All Categories
+      </Dropdown.Toggle>
+      <Dropdown.Menu>
+        <Container>
+          <FormControl component="fieldset">
+            <FormGroup>
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    color="primary"
+                    checked={venue}
+                    onChange={(e) => {
+                      setVenue(e.target.checked);
+                    }}
+                  />
+                }
+                label="Venue"
+              />
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    color="primary"
+                    checked={wo}
+                    onChange={(e) => {
+                      setWo(e.target.checked);
+                    }}
+                  />
+                }
+                label="Wedding Organizer"
+              />
+            </FormGroup>
+          </FormControl>
+          <div className="d-flex flex-column">
+            <Button
+              type="submit"
+              variant="contained"
+              color="primary"
+              className="mt-4"
+            >
+              Ok
+            </Button>
+          </div>
+        </Container>
+      </Dropdown.Menu>
+    </Dropdown>
   );
 }
