@@ -15,8 +15,11 @@ function DetailPage() {
               <h1>All Package</h1>
               <p>Which one that fits to your preference?</p>
             </div>
-            <Grid container spacing={3}>
-              <Grid item xs={6}>
+            <Grid container spacing={5}>
+              <Grid item>
+                <Package />
+              </Grid>
+              {/* <Grid item xs={6}>
                 <Package />
               </Grid>
               <Grid item xs={6}>
@@ -24,10 +27,7 @@ function DetailPage() {
               </Grid>
               <Grid item xs={6}>
                 <Package />
-              </Grid>
-              <Grid item xs={6}>
-                <Package />
-              </Grid>
+              </Grid> */}
             </Grid>
           </Grid>
           <Grid item xs={4}>

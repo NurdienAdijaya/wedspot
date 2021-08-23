@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Venue() {
+export default function Venue({ overflow, wrap = "wrap", flexDirection }) {
   const classes = useStyles();
   const [data, setData] = useState([]);
   const getData = () => {
@@ -47,7 +47,9 @@ export default function Venue() {
       <Card
         style={{
           display: "flex",
-          overflow: "overlay",
+          flexWrap: `${wrap}`,
+          overflow: `${overflow}`,
+          flexDirection: `${flexDirection}`,
         }}
       >
         {data.map((data) => (
