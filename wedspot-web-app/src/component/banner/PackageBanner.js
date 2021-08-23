@@ -2,6 +2,7 @@
 import React from "react";
 import frame from "../../assets/Frame.png";
 import Package from "../card/Package";
+import Button from "@material-ui/core/Button";
 
 const PackageBanner = () => {
   return (
@@ -23,11 +24,38 @@ const PackageBanner = () => {
       />
       <div
         style={{
-          padding: "4.75rem",
+          paddingTop: "4.75rem",
+          paddingLeft: "4.75rem",
+          paddingRight: "4.75rem",
         }}
       >
-        <h1>Special Wedding Packages for You</h1>
-        <Package />
+        <h1
+          style={{
+            color: "white",
+            fontSize: "2rem",
+          }}
+        >
+          Special Wedding Packages for You
+        </h1>
+        <Package overflow="scroll" wrap="nowrap" />
+      </div>
+      <div
+        style={{
+          textAlign: "center",
+          marginTop: "1rem",
+        }}
+      >
+        <Button
+          variant="outlined"
+          style={{
+            color: "white",
+            borderColor: "white",
+            width: "262px",
+            height: "55px",
+          }}
+        >
+          Browse All The Packages
+        </Button>
       </div>
     </div>
   );

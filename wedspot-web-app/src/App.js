@@ -1,8 +1,7 @@
 import React from "react";
 import "./App.css";
-import SignUp from "./component/Quatationform/Request";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core";
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import Routers from "./routes/router";
 
 function App() {
@@ -13,6 +12,9 @@ function App() {
       },
       secondary: {
         main: "#C97C68",
+      },
+      grey: {
+        main: "#ffffff",
       },
     },
   });

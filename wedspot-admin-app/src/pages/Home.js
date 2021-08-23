@@ -2,7 +2,7 @@ import { Grid } from "@material-ui/core";
 import React from "react";
 import SignUp from "../components/Login";
 
-const LoginPage = () => {
+const Home = () => {
   return (
     <Grid container>
       <Grid item xs={6}>
@@ -20,4 +20,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default Home;

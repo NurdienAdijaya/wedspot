@@ -11,7 +11,7 @@ function Register({ props }) {
     <div>
       <h1>Sign up to your account</h1>
       <form>
-        <div className="form-floating mb-3">
+        <div className="form-floating mb-2">
           <input
             type="text"
             className="form-control rounded-4"
@@ -24,7 +24,7 @@ function Register({ props }) {
           />
           <label htmlFor="floatingInput">Full Name</label>
         </div>
-        <div className="form-floating mb-3">
+        <div className="form-floating mb-2">
           <input
             type="email"
             className="form-control rounded-4"
@@ -56,6 +56,10 @@ function Register({ props }) {
         <button
           className=" text-light w-100 btn btn-lg rounded-4 green watch-btn fw-bold p-3 mb-2"
           type="submit"
+          style={{
+            background: "#455437",
+            fontSize: "1.1rem",
+          }}
         >
           Sign Up
         </button>

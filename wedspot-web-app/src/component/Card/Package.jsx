@@ -9,7 +9,7 @@ import QuotationNew from "../buttons/QuotationNew";
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: "350px",
+    width: "300px",
     margin: "1rem",
     background: "white",
     display: "flex",
@@ -17,12 +17,12 @@ const useStyles = makeStyles({
     flexDirection: "column",
   },
   media: {
-    height: 140,
-    width: 300,
+    height: "140px",
+    width: "300px",
   },
 });
 
-export default function Package() {
+export default function Package({ overflow, wrap = "wrap", flexDirection }) {
   const classes = useStyles();
   const [data, setData] = useState([]);
   const getData = () => {
@@ -43,7 +43,9 @@ export default function Package() {
     <div
       style={{
         display: "flex",
-        overflow: "scroll",
+        flexWrap: `${wrap}`,
+        overflow: `${overflow}`,
+        flexDirection: `${flexDirection}`,
       }}
     >
       {data.map((data) => (
@@ -54,23 +56,29 @@ export default function Package() {
             title={data.name}
           />
           <CardContent>
-            <Typography style={{ fontSize: "16px", fontWeight: "bold" }}>
+            <Typography style={{ fontSize: "1.5rem", fontWeight: "bold" }}>
               {data.name}
             </Typography>
             <Typography
               style={{
                 color: "#80848D",
-                fontSize: "12px",
+                fontSize: "11px",
                 fontWeight: "600",
-                marginTop: "4px",
+                marginTop: "1rem",
               }}
             >
               Start from
             </Typography>
-            <Typography style={{ color: "#C97C68", fontWeight: "600" }}>
+            <Typography
+              style={{ color: "#C97C68", fontWeight: "600", fontSize: "16px" }}
+            >
               {data.price}
             </Typography>
-            <div>
+            <div
+              style={{
+                marginTop: "1rem",
+              }}
+            >
               {data.tag.map((tag) => (
                 <QuotationNew content={tag} margin="0.1rem" />
               ))}
