@@ -9,7 +9,7 @@ const ButtonPrimary = ({ width, content = "content", onClick }) => (
       color: "white",
       width: `${width}`,
     }}
-    onClick={(event) => onClick(event)}
+    onClick={onClick}
   >
     {content}
   </Button>

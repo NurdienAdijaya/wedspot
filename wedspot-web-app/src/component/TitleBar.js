@@ -3,7 +3,7 @@ import NavigateNextIcon from "@material-ui/icons/NavigateNext";
 
 const TitleBar = ({
   title = "title",
-  description = "description",
+  description,
   showAll = "#",
   margin,
   mt,
