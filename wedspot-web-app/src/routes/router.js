@@ -14,10 +14,10 @@ const Routers = () => {
         <Route exact path="/search">
           <SearchPage />
         </Route>
-        <Route exact path="/vendor/:id">
+        <Route exact path="/vendor">
           <DetailPage />
         </Route>
-        <Route exact path="/vendor/package/:id">
+        <Route exact path="/package">
           <PackageDetail />
         </Route>
       </Switch>
