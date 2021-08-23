@@ -19,7 +19,7 @@ const HomeVenueBanner = () => {
           "Look through the most beautiful wedding venues to find the perfect place to host your banquet."
         }
       />
-      <Venue />
+      <Venue overflow="scroll" wrap="nowrap" />
     </div>
   );
 };

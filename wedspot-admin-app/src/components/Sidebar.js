@@ -29,7 +29,7 @@ import {
   MenuItem,
   Switch,
 } from "@material-ui/core";
-import MyStore from "./MyStore";
+import MyStore from "./mystore/MyStore";
 
 const useStylesNav = makeStyles((theme) => ({
   root: {

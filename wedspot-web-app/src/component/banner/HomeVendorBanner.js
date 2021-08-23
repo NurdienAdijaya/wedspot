@@ -17,7 +17,7 @@ const HomeVendorBanner = () => {
         title={"Best Planner for You"}
         description={"Handle all the nitty gritties for your big day"}
       />
-      <Venue />
+      <Venue overflow="scroll" wrap="nowrap" />
     </div>
   );
 };
