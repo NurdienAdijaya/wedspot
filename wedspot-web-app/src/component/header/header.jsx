@@ -4,6 +4,7 @@ import SignIn from "./modal/modal";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Nav, Navbar, Container } from "react-bootstrap";
 import { Avatar, Notif } from "./dropdown/login";
+import { Link } from "react-router-dom";
 
 function Header({ background = "white" }) {
   const token = localStorage.getItem("");
@@ -14,7 +15,9 @@ function Header({ background = "white" }) {
         <Container className="ps-5">
           <Navbar.Brand>
             <div className="d-flex align-items-center ">
-              <img src={logo} alt="logo" />
+              <Link to="/">
+                <img src={logo} alt="logo" />
+              </Link>
               <Nav.Item className="ps-5">
                 <h3>Search Venue or Wedding Organizer</h3>
               </Nav.Item>

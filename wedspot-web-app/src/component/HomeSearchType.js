@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from "react";
+import { Link } from "react-router-dom";
 import ButtonPrimary from "./buttons/ButtonPrimary";
 
 const HomeSearchType = ({
@@ -44,7 +45,9 @@ const HomeSearchType = ({
         >
           {content}
         </p>
-        <ButtonPrimary content="Search" width="157px" />
+        <Link to="/search">
+          <ButtonPrimary content="Search" width="157px" />
+        </Link>
       </div>
     </div>
   );

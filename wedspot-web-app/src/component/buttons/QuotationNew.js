@@ -7,6 +7,7 @@ const QuotationNew = ({
   onClick,
   margin,
   fontSize = "10px",
+  background,
 }) => {
   return (
     <button
@@ -15,8 +16,9 @@ const QuotationNew = ({
         width: `${width}`,
         margin: `${margin}`,
         fontSize: `${fontSize}`,
+        background: `${background}`,
       }}
-      onClick={(event) => onClick(event)}
+      onClick={onClick}
     >
       {content}
     </button>

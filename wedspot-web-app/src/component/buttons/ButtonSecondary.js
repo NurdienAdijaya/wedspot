@@ -8,7 +8,7 @@ const ButtonSecondary = ({ width, content = "Content", onClick }) => {
       style={{
         width: `${width}`,
       }}
-      onClick={(event) => onClick(event)}
+      onClick={onClick}
     >
       {content}
     </button>

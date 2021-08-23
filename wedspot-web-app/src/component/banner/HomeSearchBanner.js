@@ -2,7 +2,7 @@ import React from "react";
 import Header from "../header/header";
 import SearchInput from "../search/search";
 
-const HomeHeaderBanner = () => {
+const HomeSearchBanner = () => {
   return (
     <div>
       <div
@@ -15,30 +15,29 @@ const HomeHeaderBanner = () => {
         }}
       >
         <Header background="transparent" />
-        <h1
+        <div
           style={{
-            fontSize: "100px",
-            color: "white",
-            textShadow: "#80848D 0px 0px 5px",
+            height: "80%",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
           }}
         >
-          Once in a<br />
-          life time moments
-        </h1>
-        <p
-          style={{
-            fontSize: "16px",
-            color: "white",
-            textShadow: "#80848D 0px 0px 5px",
-          }}
-        >
-          Try “Best Wedding Planner” or “Outdoor venue”
-        </p>
+          <p
+            style={{
+              fontSize: "24px",
+              color: "white",
+              textShadow: "#80848D 0px 0px 5px",
+              marginTop: "",
+            }}
+          >
+            All Search Results
+          </p>
+          <SearchInput />
+        </div>
       </div>
-
-      <SearchInput marginTop="-2.7rem" />
     </div>
   );
 };
 
-export default HomeHeaderBanner;
+export default HomeSearchBanner;
