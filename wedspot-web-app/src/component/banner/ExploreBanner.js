@@ -7,7 +7,7 @@ import green from "@material-ui/core/colors/green";
 
 const ExploreBanner = () => {
   return (
-    <div style={{ backgroundColor: "#455437", height: "391px" }}>
+    <div style={{ backgroundColor: "#455437", height: "391px", width: "100%" }}>
       <svg
         width="319"
         height="391"
@@ -29,18 +29,31 @@ const ExploreBanner = () => {
       <div
         style={{
           display: "flex",
+          width: "100%",
+          height: "inherit",
+          position: "absolute",
+          flexWrap: "wrap",
+          justifyContent: "space-around",
         }}
       >
-        <div>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            margin: "1rem 0",
+            justifyContent: "center",
+          }}
+        >
           <div
             style={{
-              padding: "0rem 10rem",
-              paddingTop: "8rem",
+              display: "flex",
+              flexDirection: "column",
             }}
           >
             <h1
               style={{
                 color: "white",
+                fontSize: "31px",
               }}
             >
               Preparing Your Big Day
@@ -49,7 +62,7 @@ const ExploreBanner = () => {
           </div>
           <div
             style={{
-              margin: "3rem 10rem",
+              margin: "3rem 0",
               color: "#B5AF8F",
               display: "flex",
             }}
@@ -58,7 +71,6 @@ const ExploreBanner = () => {
               style={{
                 display: "flex",
                 width: "12rem",
-                borderRight: "#B5AF8F 2px solid",
                 marginRight: "3rem",
               }}
             >
@@ -85,6 +97,7 @@ const ExploreBanner = () => {
               <h4
                 style={{
                   margin: "0",
+                  fontSize: "1.15rem",
                 }}
               >
                 Fast & East
@@ -96,7 +109,6 @@ const ExploreBanner = () => {
               style={{
                 display: "flex",
                 width: "18rem",
-                borderRight: "#B5AF8F 2px solid",
                 marginRight: "3rem",
               }}
             >
@@ -111,7 +123,7 @@ const ExploreBanner = () => {
                   display: "flex",
                   justifyContent: "center",
                   alignContent: "center",
-                  marginRight: " 0.5rem",
+                  margin: "0 0.5rem",
                 }}
               >
                 <LoyaltyOutlinedIcon
@@ -123,6 +135,7 @@ const ExploreBanner = () => {
               <h4
                 style={{
                   margin: "0",
+                  fontSize: "1.15rem",
                 }}
               >
                 Exclusive Promo & <br />
@@ -146,7 +159,7 @@ const ExploreBanner = () => {
                   display: "flex",
                   justifyContent: "center",
                   alignContent: "center",
-                  marginRight: " 0.5rem",
+                  margin: "0 0.5rem",
                 }}
               >
                 <StoreMallDirectoryIcon
@@ -159,6 +172,7 @@ const ExploreBanner = () => {
               <h4
                 style={{
                   margin: "0",
+                  fontSize: "1.15rem",
                 }}
               >
                 Top vendor
@@ -170,7 +184,13 @@ const ExploreBanner = () => {
         </div>
         <div
           style={{
-            padding: " 12rem 10rem",
+            margin: "1rem 0",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            flexWrap: "wrap",
+            alignContent: "center",
+            width: "30vw",
           }}
         >
           <Button

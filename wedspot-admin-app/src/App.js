@@ -1,9 +1,8 @@
 import { createMuiTheme, ThemeProvider } from "@material-ui/core";
 import { BrowserRouter } from "react-router-dom";
 import "./App.css";
-import QuotationNew from "./components/buttons/QuotationNew";
-import QuotationSent from "./components/buttons/QuotationSent";
-import LoginPage from "./pages/Login";
+import Sidebar from "./components/Sidebar";
+import Routers from "./routers/router";
 
 const theme = createMuiTheme({
   palette: {
@@ -20,8 +19,7 @@ function App() {
   return (
     <ThemeProvider theme={theme} className="App">
       <BrowserRouter>
-        <LoginPage />
-        < QuotationNew/>
+        <Routers />
       </BrowserRouter>
     </ThemeProvider>
   );

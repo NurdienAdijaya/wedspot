@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React from "react";
 import ButtonPrimary from "./buttons/ButtonPrimary";
 
@@ -12,20 +13,19 @@ const HomeSearchType = ({
       style={{
         display: "flex",
         flexDirection: `${flexDirection}`,
+        width: "100%",
       }}
     >
-      <div
-        style={{
-          maxWidth: "50%",
-        }}
-      >
-        <img src={img} />
+      <div style={{ width: "50%" }}>
+        <img src={img} width="100%" />
       </div>
       <div
         style={{
-          width: "50%",
-          padding: "0 7rem",
           alignSelf: "center",
+          width: "50%",
+          display: "flex",
+          flexDirection: "column",
+          padding: "0 5%",
         }}
       >
         <h1

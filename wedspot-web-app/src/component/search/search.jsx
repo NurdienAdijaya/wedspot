@@ -6,7 +6,7 @@ import Button from "@material-ui/core/Button";
 function SearchInput() {
   const [category, setCategory] = useState("");
   const [location, setLocation] = useState("");
-  
+
   return (
     <div style={{ width: "100vw", background: "transparent" }}>
       <form
@@ -19,7 +19,7 @@ function SearchInput() {
           className="d-flex"
           style={{
             background: "white",
-            marginTop: "2.7rem",
+            marginTop: "-2.7rem",
             boxShadow: "#80848D 0px 1px 2px",
             width: "52.5rem",
             height: "5rem",
