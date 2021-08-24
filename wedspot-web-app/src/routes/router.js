@@ -28,6 +28,9 @@ const Routers = () => {
         <Route exact path="/search">
           <HomeSearch />
         </Route>
+        <Route exact path="/searchdetail">
+          <SearchPage />
+        </Route>
         <Route exact path="/vendor">
           <DetailPage />
         </Route>

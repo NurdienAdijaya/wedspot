@@ -1,17 +1,13 @@
 import React from "react";
 import "./App.css";
 // import SignUp from "./component/Quatationform/Request";
-import { createMuiTheme, ThemeProvider } from "@material-ui/core";
+import { createTheme, ThemeProvider } from "@material-ui/core";
 import { BrowserRouter } from "react-router-dom";
 import Routers from "./routes/router";
-import { VendorCard } from "./component/card/detailcard";
-import ExploreBanner from "./component/banner/ExploreBanner";
-import SignUp from "./component/Quatationform/register";
-import Homepage from "./pages/Homepage";
-import Venue from "./component/card/Venue";
+import SearchPage from "./pages/search/search2";
 
 function App() {
-  const theme = createMuiTheme({
+  const theme = createTheme({
     palette: {
       primary: {
         main: "#455437",
@@ -27,15 +23,9 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      {/* <BrowserRouter>
+      <BrowserRouter>
         <Routers />
-      </BrowserRouter> */}
-      {/* <VendorCard/>
-      <ExploreBanner/>
-      <SignUp />
-      < Homepage/> */}
-      <Venue/>
-      < SignUp/>
+      </BrowserRouter>
     </ThemeProvider>
   );
 }

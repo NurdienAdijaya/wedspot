@@ -23,8 +23,9 @@ const useStyles = makeStyles({
   },
 });
 
-export default function Package({ image, title, price, data }) {
+export default function Package({ image, title, price, data}) {
   const classes = useStyles();
+  console.log(title)
 
   return (
     <div>
@@ -54,9 +55,9 @@ export default function Package({ image, title, price, data }) {
               marginTop: "1rem",
             }}
           >
-            {data.tag.map((tag) => (
+            {/* {data.tag.map((tag) => (
               <QuotationNew content={tag} margin="0.1rem" />
-            ))}
+            ))} */}
           </div>
         </CardContent>
       </CardActionArea>
