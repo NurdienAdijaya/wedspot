@@ -16,13 +16,11 @@ const Routers = () => {
   return (
     <div>
       {window.location.pathname !== "/" &&
-      window.location.pathname !== "/search" ? (
+      window.location.pathname !== "/search" && window.location.pathname !== "/profile" ? (
         <Header />
       ) : null}
       <Switch>
         <Route exact path="/">
-          <RecipeReviewCard/>
-          < SignUp />
           <Homepage />
         </Route>
         <Route exact path="/search">
@@ -31,10 +29,10 @@ const Routers = () => {
         <Route exact path="/searchdetail">
           <SearchPage />
         </Route>
-        <Route exact path="/vendor">
+        <Route exact path="/vendor/:id">
           <DetailPage />
         </Route>
-        <Route exact path="/package">
+        <Route exact path="/package/:id">
           <PackageDetail />
         </Route>
         <Route exact path="/profile">

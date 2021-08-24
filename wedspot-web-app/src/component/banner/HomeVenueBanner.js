@@ -43,12 +43,14 @@ const HomeVenueBanner = () => {
         }}
       >
         {data.map((data) => (
+          <div className="ps-3">
           <Venue
             image={data.image_poster}
             title={data.title}
             location={data.location}
             rating={data.rating}
           />
+          </div>
         ))}
       </div>
     </div>
