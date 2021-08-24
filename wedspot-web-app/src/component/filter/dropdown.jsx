@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Dropdown } from "react-bootstrap";
-import { Person, AttachMoney, Layers } from "@material-ui/icons";
+import { Person, AttachMoney, Layers, Room } from "@material-ui/icons";
 import { TextField, Container, Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import FormLabel from "@material-ui/core/FormLabel";
@@ -10,6 +10,7 @@ import FormGroup from "@material-ui/core/FormGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormHelperText from "@material-ui/core/FormHelperText";
 import Checkbox from "@material-ui/core/Checkbox";
+import { useEffect } from "react";
 
 const useStyles = makeStyles((theme) => ({
   input: {
@@ -50,7 +51,7 @@ export function DropdownPax() {
     <Dropdown>
       <Dropdown.Toggle variant="light" id="dropdown-basic">
         <Person className="me-2" />
-        {minpax} - {maxpax} pax
+        0 - 1.000 pax
       </Dropdown.Toggle>
 
       <Dropdown.Menu>
@@ -104,7 +105,7 @@ export function DropdownPrice() {
       <Dropdown>
         <Dropdown.Toggle variant="light">
           <AttachMoney className="me-2" />
-          {minPrice} - {maxPrice} pax
+          0 - 100.000.000 pax
         </Dropdown.Toggle>
 
         <Dropdown.Menu>
@@ -150,8 +151,9 @@ export function DropdownPrice() {
 }
 
 export function DropdownType() {
-  const [venue, setVenue] = useState(true);
-  const [wo, setWo] = useState(true);
+  const [venue, setVenue] = useState('');
+  const [wo, setWo] = useState('');
+
   console.log(venue, wo);
   return (
     <Dropdown>
@@ -167,9 +169,9 @@ export function DropdownType() {
                 control={
                   <Checkbox
                     color="primary"
-                    checked={venue}
+                    value="venue"
                     onChange={(e) => {
-                      setVenue(e.target.checked);
+                      {e.target.checked ? setVenue(e.target.value) : setVenue('') }
                     }}
                   />
                 }
@@ -179,13 +181,56 @@ export function DropdownType() {
                 control={
                   <Checkbox
                     color="primary"
-                    checked={wo}
+                    value="wo"
                     onChange={(e) => {
-                      setWo(e.target.checked);
+                      {e.target.checked ? setWo(e.target.value) : setWo('') }
                     }}
                   />
                 }
                 label="Wedding Organizer"
+              />
+            </FormGroup>
+          </FormControl>
+          <div className="d-flex flex-column">
+            <Button
+              type="submit"
+              variant="contained"
+              color="primary"
+              className="mt-4"
+            >
+              Ok
+            </Button>
+          </div>
+        </Container>
+      </Dropdown.Menu>
+    </Dropdown>
+  );
+}
+export function DropdownCity() {
+  const [city, setCity] = useState('');
+
+  console.log(city);
+  return (
+    <Dropdown>
+      <Dropdown.Toggle variant="light" id="dropdown-basic">
+        <Room className="me-2" />
+        All Cities
+      </Dropdown.Toggle>
+      <Dropdown.Menu>
+        <Container>
+          <FormControl component="fieldset">
+            <FormGroup>
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    color="primary"
+                    value="bandung"
+                    onChange={(e) => {
+                      {e.target.checked ? setCity(e.target.value) : setCity('') }
+                    }}
+                  />
+                }
+                label="Bandung"
               />
             </FormGroup>
           </FormControl>

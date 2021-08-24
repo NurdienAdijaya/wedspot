@@ -7,6 +7,8 @@ import HomeSearch from "../pages/search/search1";
 import SearchPage from "../pages/search/search2";
 import DetailPage from "../pages/vendor/detail";
 import PackageDetail from "../pages/vendor/package";
+import Sidebar from "../pages/profile";
+import VerticalTabs from "../pages/profile/notification";
 import Request from "../component/Quatationform/Request";
 import RecipeReviewCard from "../component/Quatationform/Request";
 
@@ -26,13 +28,16 @@ const Routers = () => {
         <Route exact path="/search">
           <HomeSearch />
         </Route>
-        <Route exact path="/vendor/:id">
+        <Route exact path="/vendor">
           <DetailPage />
         </Route>
-        <Route exact path="/vendor/package/:id">
+        <Route exact path="/package">
           <PackageDetail />
         </Route>
-
+        <Route exact path="/profile">
+          <Sidebar />
+          <VerticalTabs/>
+        </Route>
         <Route exact path="/*">
           <HomeSearch />
         </Route>
