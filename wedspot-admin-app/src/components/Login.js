@@ -8,6 +8,7 @@ import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
+import axios from "axios";
 
 function Copyright() {
   return (
@@ -58,8 +59,55 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignUp() {
   const classes = useStyles();
-  const [signup, setSignup] = useState(false);
+  const [sign, setSign] = useState(false);
 
+  const [login, setlogin] = useState({
+    email: "",
+    password: "",
+  });
+
+  const [signup, setSignup] = useState({
+    fullname: "",
+    email: "",
+    password: "",
+  });
+
+  const refreshPage = () => {
+    window.location.reload();
+  };
+
+  const Login = (e) => {
+    e.preventDefault();
+    if ((login.email === "") | (login.password === "")) {
+      alert("please fill all form");
+      return;
+    } else {
+      axios.post("", login).then((res) => {
+        localStorage.setItem("Token", res.data.token);
+        localStorage.setItem("USERID", res.data._id);
+        refreshPage();
+      });
+    }
+  };
+
+  const add = (e) => {
+    e.preventDefault();
+    if (
+      signup.fullname === "" ||
+      signup.email === "" ||
+      signup.password === ""
+    ) {
+      alert("please fill all form");
+    } else {
+      axios
+        .post("", signup)
+        .then((res) => {
+          alert("register successfully, please Login");
+          refreshPage();
+        })
+        .catch((error) => console.log("error signup", error.message));
+    }
+  };
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -117,8 +165,8 @@ export default function SignUp() {
           />
         </svg>
 
-        {signup ? (
-          <>
+        {sign ? (
+          <div onSubmit={add}>
             <Typography variant="h5" className={classes.titleForm}>
               Sign to your account
             </Typography>
@@ -133,6 +181,9 @@ export default function SignUp() {
                     label="Full Name"
                     name="fullName"
                     autoComplete="fname"
+                    onChange={(e) =>
+                      setSignup({ ...signup, fullname: e.target.value })
+                    }
                   />
                 </Grid>
                 <Grid item xs={12}>
@@ -144,6 +195,9 @@ export default function SignUp() {
                     label="Email Address"
                     name="email"
                     autoComplete="email"
+                    onChange={(e) =>
+                      setSignup({ ...signup, email: e.target.value })
+                    }
                   />
                 </Grid>
                 <Grid item xs={12}>
@@ -156,6 +210,9 @@ export default function SignUp() {
                     type="password"
                     id="password"
                     autoComplete="current-password"
+                    onChange={(e) =>
+                      setSignup({ ...signup, password: e.target.value })
+                    }
                   />
                 </Grid>
               </Grid>
@@ -172,7 +229,7 @@ export default function SignUp() {
                 <Grid item>
                   {"Already have an account? "}
                   <Link
-                    onClick={() => setSignup(!signup)}
+                    onClick={() => setSign(!sign)}
                     variant="body2"
                     style={{ color: "#C97C68", fontWeight: "bold" }}
                   >
@@ -181,9 +238,9 @@ export default function SignUp() {
                 </Grid>
               </Grid>
             </form>
-          </>
+          </div>
         ) : (
-          <>
+          <div onSubmit={Login}>
             <Typography variant="h5" className={classes.titleFormSignin}>
               Sign to your account
             </Typography>
@@ -198,6 +255,9 @@ export default function SignUp() {
                     label="Email Address"
                     name="email"
                     autoComplete="email"
+                    onChange={(e) =>
+                      setlogin({ ...login, email: e.target.value })
+                    }
                   />
                 </Grid>
                 <Grid item xs={12}>
@@ -210,6 +270,9 @@ export default function SignUp() {
                     type="password"
                     id="password"
                     autoComplete="current-password"
+                    onChange={(e) =>
+                      setlogin({ ...login, password: e.target.value })
+                    }
                   />
                 </Grid>
               </Grid>
@@ -226,7 +289,7 @@ export default function SignUp() {
                 <Grid item>
                   {"Don't have an account? "}
                   <Link
-                    onClick={() => setSignup(!signup)}
+                    onClick={() => setSign(!sign)}
                     variant="body2"
                     style={{ color: "#C97C68", fontWeight: "bold" }}
                   >
@@ -235,7 +298,7 @@ export default function SignUp() {
                 </Grid>
               </Grid>
             </form>
-          </>
+          </div>
         )}
       </div>
       <Box mt={5}>

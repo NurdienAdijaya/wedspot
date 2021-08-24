@@ -1,12 +1,28 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import HomeSearchBanner from "../../component/banner/HomeSearchBanner";
 import SearchPackageBanner from "../../component/banner/SearchPackageBanner";
 import Venue from "../../component/card/Venue";
-import Footer from "../../component/footer/footer";
 import SearchTitle from "../../component/search/SearchTitle";
 import TitleBar from "../../component/TitleBar";
 
 const HomeSearch = () => {
+  const [data, setData] = useState([]);
+  const getData = () => {
+    axios
+      .get("http://localhost:4000/data")
+      .then((res) => {
+        console.log(res);
+        setData(res.data);
+      })
+      .catch((err) => console.log(err));
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
   return (
     <div>
       <HomeSearchBanner />
@@ -19,7 +35,30 @@ const HomeSearch = () => {
         }}
       >
         <TitleBar title="Venue" />
-        <Venue overflow="scroll" wrap="nowrap" />
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "nowrap",
+            overflow: "scroll",
+          }}
+        >
+          {data.map((data) => (
+            <Link
+              to={`/package/${data.id}`}
+              style={{
+                textDecoration: "none",
+                color: "black",
+              }}
+            >
+              <Venue
+                image={data.image_poster}
+                title={data.title}
+                location={data.location}
+                rating={data.rating}
+              />
+            </Link>
+          ))}
+        </div>
       </div>
       <div
         style={{
@@ -28,7 +67,30 @@ const HomeSearch = () => {
         }}
       >
         <TitleBar title="Wedding Organizer" />
-        <Venue overflow="scroll" wrap="nowrap" />
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "nowrap",
+            overflow: "scroll",
+          }}
+        >
+          {data.map((data) => (
+            <Link
+              to={`/package/${data.id}`}
+              style={{
+                textDecoration: "none",
+                color: "black",
+              }}
+            >
+              <Venue
+                image={data.image_poster}
+                title={data.title}
+                location={data.location}
+                rating={data.rating}
+              />
+            </Link>
+          ))}
+        </div>
       </div>
     </div>
   );

@@ -4,6 +4,7 @@ import frame from "../../assets/Frame.png";
 import Package from "../card/Package";
 import Button from "@material-ui/core/Button";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const PackageBanner = () => {
   const [data, setData] = useState([]);
@@ -60,12 +61,20 @@ const PackageBanner = () => {
           }}
         >
           {data.map((data) => (
-            <Package
-              image={data.poster_path}
-              title={data.name}
-              price={data.price}
-              data={data}
-            />
+            <Link
+              to={`/package/${data.id}`}
+              style={{
+                textDecoration: "none",
+                color: "black",
+              }}
+            >
+              <Package
+                image={data.poster_path}
+                title={data.name}
+                price={data.price}
+                data={data}
+              />
+            </Link>
           ))}
         </div>
       </div>

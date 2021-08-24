@@ -40,6 +40,7 @@ export default function Venue({ image, title, location, rating }) {
           <div
             style={{
               display: "flex",
+              alignItems: "flex-end",
             }}
           >
             <Rating
