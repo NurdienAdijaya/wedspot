@@ -1,8 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Venue from "../card/Venue";
 import TitleBar from "../TitleBar";
+import axios from "axios";
 
 const HomeVendorBanner = () => {
+  const [data, setData] = useState([]);
+  const getData = () => {
+    axios
+      .get("http://localhost:4000/data")
+      .then((res) => {
+        console.log(res);
+        setData(res.data);
+      })
+      .catch((err) => console.log(err));
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
   return (
     <div
       style={{
@@ -17,7 +33,22 @@ const HomeVendorBanner = () => {
         title={"Best Planner for You"}
         description={"Handle all the nitty gritties for your big day"}
       />
-      <Venue overflow="scroll" wrap="nowrap" />
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "nowrap",
+          overflow: "scroll",
+        }}
+      >
+        {data.map((data) => (
+          <Venue
+            image={data.image_poster}
+            title={data.title}
+            location={data.location}
+            rating={data.rating}
+          />
+        ))}
+      </div>
     </div>
   );
 };

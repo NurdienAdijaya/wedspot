@@ -4,6 +4,7 @@ import LoyaltyOutlinedIcon from "@material-ui/icons/LoyaltyOutlined";
 import StoreMallDirectoryIcon from "@material-ui/icons/StoreMallDirectory";
 import Button from "@material-ui/core/Button";
 import green from "@material-ui/core/colors/green";
+import { Link } from "react-router-dom";
 
 const ExploreBanner = () => {
   return (
@@ -193,17 +194,19 @@ const ExploreBanner = () => {
             width: "30vw",
           }}
         >
-          <Button
-            variant="contained"
-            color={green[50]}
-            style={{
-              color: " #455437",
-              width: "13rem",
-              height: "3.5rem",
-            }}
-          >
-            Explore
-          </Button>
+          <Link to="/search">
+            <Button
+              variant="contained"
+              color={green[50]}
+              style={{
+                color: " #455437",
+                width: "13rem",
+                height: "3.5rem",
+              }}
+            >
+              Explore
+            </Button>
+          </Link>
         </div>
       </div>
     </div>

@@ -3,7 +3,7 @@ import { Search, Room } from "@material-ui/icons";
 import InputBase from "@material-ui/core/InputBase";
 import Button from "@material-ui/core/Button";
 
-function SearchInput() {
+function SearchInput({ marginTop }) {
   const [category, setCategory] = useState("");
   const [location, setLocation] = useState("");
 
@@ -19,7 +19,7 @@ function SearchInput() {
           className="d-flex"
           style={{
             background: "white",
-            marginTop: "-2.7rem",
+            marginTop: `${marginTop}`,
             boxShadow: "#80848D 0px 1px 2px",
             width: "52.5rem",
             height: "5rem",

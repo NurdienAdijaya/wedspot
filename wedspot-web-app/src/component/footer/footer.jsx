@@ -5,7 +5,7 @@ import logo from "../image/Logo-white.png";
 
 function Footer({
   background = "#455437",
-  color = "white",
+  color = "#F8EEE8",
   logoColor = "#D6DDCD",
 }) {
   return (
