@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
@@ -25,69 +23,39 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Venue({ overflow, wrap = "wrap", flexDirection }) {
+export default function Venue({ image, title, location, rating }) {
   const classes = useStyles();
-  const [data, setData] = useState([]);
-  const getData = () => {
-    axios
-      .get("http://localhost:4000/data")
-      .then((res) => {
-        console.log(res);
-        setData(res.data);
-      })
-      .catch((err) => console.log(err));
-  };
-
-  useEffect(() => {
-    getData();
-  }, []);
 
   return (
     <div>
-      <Card
-        style={{
-          display: "flex",
-          flexWrap: `${wrap}`,
-          overflow: `${overflow}`,
-          flexDirection: `${flexDirection}`,
-        }}
-      >
-        {data.map((data) => (
-          <CardActionArea className={classes.root}>
-            <CardMedia
-              className={classes.media}
-              image={data.image_poster}
-              title={data.title}
+      <CardActionArea className={classes.root}>
+        <CardMedia className={classes.media} image={image} title={title} />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="h2">
+            {title}
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+            <LocationOnIcon /> {location}
+          </Typography>
+          <div
+            style={{
+              display: "flex",
+            }}
+          >
+            <Rating
+              name="half-rating-read"
+              defaultValue={rating}
+              precision={0.5}
+              readOnly
+              style={{
+                paddingTop: "1.6rem",
+                marginRight: "1rem",
+              }}
             />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="h2">
-                {data.title}
-              </Typography>
-              <Typography variant="body2" color="textSecondary" component="p">
-                <LocationOnIcon /> {data.location}
-              </Typography>
-              {/* <HoverRating /> */}
-              <div
-                style={{
-                  display: "flex",
-                }}
-              >
-                <Rating
-                  name="half-rating-read"
-                  defaultValue={data.rating}
-                  precision={0.5}
-                  readOnly
-                  style={{
-                    paddingTop: "1.6rem",
-                    marginRight: "1rem",
-                  }}
-                />
-                <h5>{data.rating}/5</h5>
-              </div>
-            </CardContent>
-          </CardActionArea>
-        ))}
-      </Card>
+            <h5>{rating}/5</h5>
+          </div>
+        </CardContent>
+      </CardActionArea>
     </div>
   );
 }
