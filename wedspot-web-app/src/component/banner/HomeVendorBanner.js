@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Venue from "../card/Venue";
 import TitleBar from "../TitleBar";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const HomeVendorBanner = () => {
   const [data, setData] = useState([]);
@@ -41,12 +42,20 @@ const HomeVendorBanner = () => {
         }}
       >
         {data.map((data) => (
-          <Venue
-            image={data.image_poster}
-            title={data.title}
-            location={data.location}
-            rating={data.rating}
-          />
+          <Link
+            to={`/package/${data.id}`}
+            style={{
+              textDecoration: "none",
+              color: "black",
+            }}
+          >
+            <Venue
+              image={data.image_poster}
+              title={data.title}
+              location={data.location}
+              rating={data.rating}
+            />
+          </Link>
         ))}
       </div>
     </div>
