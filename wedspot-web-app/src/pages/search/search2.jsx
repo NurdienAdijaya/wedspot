@@ -12,7 +12,7 @@ import {
   DropdownCity,
 } from "../../component/filter/dropdown";
 import { Grid } from "@material-ui/core";
-import Package from '../../component/card/Package'
+import Package from "../../component/card/Package";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -55,13 +55,11 @@ function SearchPage() {
           </div>
         </div>
         <div className="pt-5 pb-3">
-          <h1>Showing All (jumlah result) packages</h1>
+          <h3>Showing All (jumlah result) packages</h3>
         </div>
-        <Grid container spacing={3}>
+        
+            <Package />
           
-            <Package/>
-
-        </Grid>
       </Container>
     </div>
   );

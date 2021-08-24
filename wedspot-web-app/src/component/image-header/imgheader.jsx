@@ -12,6 +12,7 @@ const useStyles = makeStyles((theme) => ({
     color: "white",
   },
   size: {
+    // filter:"brightness(50%)",
     backgroundImage: `url(${"https://source.unsplash.com/1440x420/?wedding,hall"})`,
     backgroundSize: "cover",
     color: "white",

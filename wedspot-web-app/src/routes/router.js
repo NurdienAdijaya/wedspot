@@ -4,6 +4,8 @@ import Homepage from "../pages/Homepage";
 import SearchPage from "../pages/search/search2";
 import DetailPage from "../pages/vendor/detail";
 import PackageDetail from "../pages/vendor/package";
+import Sidebar from "../pages/profile";
+import VerticalTabs from "../pages/profile/notification";
 
 const Routers = () => {
   return (
@@ -21,7 +23,10 @@ const Routers = () => {
         <Route exact path="/package">
           <PackageDetail />
         </Route>
-
+        <Route exact path="/profile">
+          <Sidebar />
+          <VerticalTabs/>
+        </Route>
         <Route exact path="/*">
           <Header />
         </Route>
