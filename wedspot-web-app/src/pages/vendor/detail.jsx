@@ -15,7 +15,7 @@ function DetailPage() {
               <h1>All Package</h1>
               <p>Which one that fits to your preference?</p>
             </div>
-            <Grid container spacing={5}>
+            <Grid container spacing={0}>
               <Grid item>
                 <Package />
               </Grid>

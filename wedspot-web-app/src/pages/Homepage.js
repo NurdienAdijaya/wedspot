@@ -23,6 +23,7 @@ const Homepage = () => {
       <MobileDownloadBanner />
       <Footer background="#EBDFD6" color="#0F120D" logoColor="#F8EEE8" />
     </div>
+   
   );
 };
 
