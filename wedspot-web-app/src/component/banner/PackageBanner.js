@@ -1,10 +1,25 @@
 /* eslint-disable jsx-a11y/alt-text */
-import React from "react";
+import React, { useEffect, useState } from "react";
 import frame from "../../assets/Frame.png";
 import Package from "../card/Package";
 import Button from "@material-ui/core/Button";
+import axios from "axios";
 
 const PackageBanner = () => {
+  const [data, setData] = useState([]);
+  const getData = () => {
+    axios
+      .get("http://localhost:4000/data")
+      .then((res) => {
+        console.log(res);
+        setData(res.data);
+      })
+      .catch((err) => console.log(err));
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
   return (
     <div
       style={{
@@ -37,7 +52,22 @@ const PackageBanner = () => {
         >
           Special Wedding Packages for You
         </h1>
-        <Package overflow="scroll" wrap="nowrap" />
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "nowrap",
+            overflow: "scroll",
+          }}
+        >
+          {data.map((data) => (
+            <Package
+              image={data.poster_path}
+              title={data.name}
+              price={data.price}
+              data={data}
+            />
+          ))}
+        </div>
       </div>
       <div
         style={{

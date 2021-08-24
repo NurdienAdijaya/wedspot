@@ -10,6 +10,7 @@ import QuotationNew from "../buttons/QuotationNew";
 const useStyles = makeStyles({
   root: {
     width: "300px",
+    height: "inherit",
     margin: "1rem",
     background: "white",
     display: "flex",
@@ -22,70 +23,43 @@ const useStyles = makeStyles({
   },
 });
 
-export default function Package({ overflow, wrap = "wrap", flexDirection }) {
+export default function Package({ image, title, price, data }) {
   const classes = useStyles();
-  const [data, setData] = useState([]);
-  const getData = () => {
-    axios
-      .get("http://localhost:4000/data")
-      .then((res) => {
-        console.log(res);
-        setData(res.data);
-      })
-      .catch((err) => console.log(err));
-  };
-
-  useEffect(() => {
-    getData();
-  }, []);
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexWrap: `${wrap}`,
-        overflow: `${overflow}`,
-        flexDirection: `${flexDirection}`,
-      }}
-    >
-      {data.map((data) => (
-        <CardActionArea className={classes.root}>
-          <CardMedia
-            className={classes.media}
-            image={data.poster_path}
-            title={data.name}
-          />
-          <CardContent>
-            <Typography style={{ fontSize: "1.5rem", fontWeight: "bold" }}>
-              {data.name}
-            </Typography>
-            <Typography
-              style={{
-                color: "#80848D",
-                fontSize: "11px",
-                fontWeight: "600",
-                marginTop: "1rem",
-              }}
-            >
-              Start from
-            </Typography>
-            <Typography
-              style={{ color: "#C97C68", fontWeight: "600", fontSize: "16px" }}
-            >
-              {data.price}
-            </Typography>
-            <div
-              style={{
-                marginTop: "1rem",
-              }}
-            >
-              {data.tag.map((tag) => (
-                <QuotationNew content={tag} margin="0.1rem" />
-              ))}
-            </div>
-          </CardContent>
-        </CardActionArea>
-      ))}
+    <div>
+      <CardActionArea className={classes.root}>
+        <CardMedia className={classes.media} image={image} title={title} />
+        <CardContent>
+          <Typography style={{ fontSize: "1.5rem", fontWeight: "bold" }}>
+            {title}
+          </Typography>
+          <Typography
+            style={{
+              color: "#80848D",
+              fontSize: "11px",
+              fontWeight: "600",
+              marginTop: "1rem",
+            }}
+          >
+            Start from
+          </Typography>
+          <Typography
+            style={{ color: "#C97C68", fontWeight: "600", fontSize: "16px" }}
+          >
+            {price}
+          </Typography>
+          <div
+            style={{
+              marginTop: "1rem",
+            }}
+          >
+            {data.tag.map((tag) => (
+              <QuotationNew content={tag} margin="0.1rem" />
+            ))}
+          </div>
+        </CardContent>
+      </CardActionArea>
     </div>
   );
 }
