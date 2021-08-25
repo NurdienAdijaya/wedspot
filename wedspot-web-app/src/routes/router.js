@@ -5,39 +5,38 @@ import Homepage from "../pages/Homepage";
 import HomeSearch from "../pages/search/search1";
 import DetailPage from "../pages/vendor/detail";
 import PackageDetail from "../pages/vendor/package";
-import Sidebar from "../pages/profile";
-import VerticalTabs from "../pages/profile/notification";
+import ProfileHeader from "../pages/profile/header";
+import Sidebar from "../pages/profile/sidebar";
 import SearchPage from "../pages/search/search2";
 
 const Routers = () => {
   return (
     <>
       {window.location.pathname !== "/" &&
-      window.location.pathname !== "/search" && window.location.pathname !== "/profile" ? (
+      window.location.pathname !== "/search" && window.location.pathname !== "/account" ? (
         <Header />
       ) : null}
       <Switch>
         <Route exact path="/">
           <Homepage />
         </Route>
-        <Route exact path="/search">
+        <Route path="/search">
           <HomeSearch />
         </Route>
-        <Route exact path="/searchdetail">
+        <Route path="/searchdetail">
           <SearchPage />
         </Route>
-        <Route exact path="/vendor/:id">
+        <Route path="/vendor/:id">
           <DetailPage />
         </Route>
-        <Route exact path="/package/:id">
+        <Route path="/package/:id">
           <PackageDetail />
         </Route>
-        <Route exact path="/profile">
+        <Route path="/account">
           <ProfileHeader />
           <Sidebar />
-          <VerticalTabs />
         </Route>
-        <Route exact path="/*">
+        <Route path="/*">
           not found
         </Route>
       </Switch>

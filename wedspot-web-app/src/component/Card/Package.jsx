@@ -19,7 +19,7 @@ const useStyles = makeStyles({
   },
   media: {
     height: "140px",
-    width: "300px",
+    width: "100%",
   },
 });
 
@@ -38,7 +38,7 @@ export default function Package({ image, title, price, data}) {
           <Typography
             style={{
               color: "#80848D",
-              fontSize: "11px",
+              fontSize: "10px",
               fontWeight: "600",
               marginTop: "1rem",
             }}

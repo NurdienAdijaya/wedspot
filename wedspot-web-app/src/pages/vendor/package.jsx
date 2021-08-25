@@ -26,8 +26,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function PackageDetail() {
-  const [open, setOpen] = useState(false);
   const classes = useStyles();
+  const [open, setOpen] = useState(false);
+
   const handleOpen = () => {
     setOpen(true);
   };
@@ -94,7 +95,6 @@ function PackageDetail() {
                   className={classes.image}
                 />
               </Grid>
-
               <Modal open={open} onClose={handleClose}>
                 <div>
                   <h1 onClick={handleClose} className={classes.close}>
