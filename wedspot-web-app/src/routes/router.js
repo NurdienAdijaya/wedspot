@@ -33,6 +33,7 @@ const Routers = () => {
           <PackageDetail />
         </Route>
         <Route exact path="/profile">
+          <ProfileHeader />
           <Sidebar />
           <VerticalTabs />
         </Route>
