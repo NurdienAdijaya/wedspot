@@ -1,16 +1,27 @@
 import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { Redirect } from "react-router-dom";
 import "semantic-ui-css/semantic.min.css";
 import { Divider, Button, Icon, Checkbox } from "semantic-ui-react";
+import {userRegister} from '../../../store/action/user'
 
-function Register({ props }) {
+function Register() {
   const [fullname, setFullname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
+  const { isSuccess } = useSelector((state) => state.userData);
+
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+    dispatch(userRegister(email, password));
+  };
 
   return (
     <div>
       <h1>Sign up to your account</h1>
-      <form>
+      <form onSubmit={handleRegister}>
         <div className="form-floating mb-2">
           <input
             type="text"

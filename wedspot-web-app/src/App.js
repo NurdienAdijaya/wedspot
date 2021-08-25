@@ -1,11 +1,13 @@
 import React from "react";
 import "./App.css";
-import { createMuiTheme, ThemeProvider } from "@material-ui/core";
+// import SignUp from "./component/Quatationform/Request";
+import { createTheme, ThemeProvider } from "@material-ui/core";
 import { BrowserRouter } from "react-router-dom";
 import Routers from "./routes/router";
+import SearchPage from "./pages/search/search2";
 
 function App() {
-  const theme = createMuiTheme({
+  const theme = createTheme({
     palette: {
       primary: {
         main: "#455437",

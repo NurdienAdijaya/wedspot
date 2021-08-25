@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import Breadcrumbs from "@material-ui/core/Breadcrumbs";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Divider } from "@material-ui/core";
@@ -13,6 +14,7 @@ import {
 } from "../../component/filter/dropdown";
 import { Grid } from "@material-ui/core";
 import Package from "../../component/card/Package";
+import Venue from "../../component/card/Venue";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -30,6 +32,21 @@ const useStyles = makeStyles((theme) => ({
 
 function SearchPage() {
   const classes = useStyles();
+  const [data, setData] = useState([]);
+  const getData = () => {
+    axios
+      .get("http://localhost:4000/data")
+      .then((res) => {
+        console.log(res);
+        setData(res.data);
+      })
+      .catch((err) => console.log(err));
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
   return (
     <div>
       <Container className="pb-5 pt-5">
@@ -57,9 +74,19 @@ function SearchPage() {
         <div className="pt-5 pb-3">
           <h3>Showing All (jumlah result) packages</h3>
         </div>
-        
-            <Package />
-          
+        <Grid container spacing={3}>
+          {data.map((data) => (
+            <Grid item xs={4}>
+              <Venue
+                image={data.image_poster}
+                title={data.title}
+                location={data.location}
+                rating={data.rating}
+              />
+            </Grid>
+          ))}
+        </Grid>
+        <Package />
       </Container>
     </div>
   );
