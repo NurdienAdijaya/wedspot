@@ -105,7 +105,7 @@ export function DropdownPrice() {
       <Dropdown>
         <Dropdown.Toggle variant="light">
           <AttachMoney className="me-2" />
-          0 - 100.000.000 pax
+          {minPrice} - {maxPrice} pax
         </Dropdown.Toggle>
 
         <Dropdown.Menu>

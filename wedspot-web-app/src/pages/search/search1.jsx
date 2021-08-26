@@ -4,6 +4,9 @@ import { Link } from "react-router-dom";
 import HomeSearchBanner from "../../component/banner/HomeSearchBanner";
 import SearchPackageBanner from "../../component/banner/SearchPackageBanner";
 import Venue from "../../component/card/Venue";
+import NoresultBell from "../../component/noresult/NoresultBell";
+import NoresultHand from "../../component/noresult/NoresultHand";
+import NoresultPhone from "../../component/noresult/NoresultPhone";
 import SearchTitle from "../../component/search/SearchTitle";
 import TitleBar from "../../component/TitleBar";
 
@@ -28,6 +31,15 @@ const HomeSearch = () => {
       <HomeSearchBanner />
       <SearchTitle />
       <SearchPackageBanner />
+      <NoresultBell title="coba title" description="coba description" />
+      <NoresultHand
+        title="coba title tangan"
+        description="coba description tangan"
+      />
+      <NoresultPhone
+        title="coba title phone"
+        description="coba description phone"
+      />
       <div
         style={{
           padding: "0 9.1%",

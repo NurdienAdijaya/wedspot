@@ -1,13 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import "semantic-ui-css/semantic.min.css";
 import { Divider, Button, Icon } from "semantic-ui-react";
+import { Redirect } from "react-router-dom";
+import {userLogin} from '../../../store/action/user'
+import {FailedMessage} from '../../message/message'
 
-function Login({ props }) {
+function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
+  const { isError, message, isLoading } = useSelector((state) => state.userData);
+
+  useEffect(() => {
+    console.log("loading")
+  }, [isLoading])
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    dispatch(userLogin(email, password));
+  };
+
   return (
     <div>
-      <form>
+      <form onSubmit={(e) => handleLogin(e)}> 
         <div className="form-floating mb-0">
           <input
             type="email"
@@ -41,6 +57,7 @@ function Login({ props }) {
             background: "#455437",
             fontSize: "1.1rem",
           }}
+          onClick={handleLogin}
         >
           Sign In
         </button>
@@ -59,6 +76,11 @@ function Login({ props }) {
           </Button>
         </div>
       </form>
+      {isError ? (
+        <div>
+          <FailedMessage message={message[0]}/>
+        </div>
+      ) : null}
     </div>
   );
 }

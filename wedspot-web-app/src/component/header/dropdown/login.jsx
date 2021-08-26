@@ -2,9 +2,12 @@ import React from "react";
 import Button from "@material-ui/core/Button";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
+import {Avatar} from '@material-ui/core'
 import { Notifications } from "@material-ui/icons";
+import {logout} from '../../../store/action/user'
+import { useSelector, useDispatch } from "react-redux";
 
-export function Avatar() {
+export function Notif() {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {
@@ -14,6 +17,8 @@ export function Avatar() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  
 
   return (
     <div>
@@ -31,15 +36,15 @@ export function Avatar() {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <MenuItem onClick={handleClose}>notif</MenuItem>
-        <MenuItem onClick={handleClose}>Logout</MenuItem>
+        <MenuItem onClick={handleClose}>content</MenuItem>
       </Menu>
     </div>
   );
 }
 
-export function Notif() {
+export function AvatarIcon({avatar}) {
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const dispatch = useDispatch()
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -49,6 +54,12 @@ export function Notif() {
     setAnchorEl(null);
   };
 
+  const handleLogout = (e) => {
+    e.preventDefault();
+    localStorage.clear();
+    window.location.replace("/")
+  };
+
   return (
     <div>
       <Button
@@ -56,7 +67,7 @@ export function Notif() {
         aria-haspopup="true"
         onClick={handleClick}
       >
-        avatar
+        <Avatar src={avatar} onClick={handleClick}/>
       </Button>
       <Menu
         id="simple-menu"
@@ -66,7 +77,7 @@ export function Notif() {
         onClose={handleClose}
       >
         <MenuItem onClick={handleClose}>Profile</MenuItem>
-        <MenuItem onClick={handleClose}>Logout</MenuItem>
+        <MenuItem onClick={handleClose}><p onClick={handleLogout}>Logout</p></MenuItem>
       </Menu>
     </div>
   );

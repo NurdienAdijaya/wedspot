@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { useSelector, useDispatch } from "react-redux";
 import { Button, Alert } from "react-bootstrap";
 import "./message.css";
 
@@ -20,15 +21,19 @@ export function SuccessMessage(message) {
   );
 }
 
-export function FailedMessage(props) {
+export function FailedMessage({message}) {
   const [show, setShow] = useState(true);
-  console.log(props);
+  const {  isLoading } = useSelector((state) => state.userData);
+
+  useEffect(() => {
+    setShow(true)
+  }, [isLoading])
 
   return (
     <div className="position">
       <Alert show={show} variant="danger">
-        <div className="d-flex justify-content-between ">
-          <h3 className="pe-5">{props.message}</h3>
+        <div className="d-flex justify-content-between align-items-center">
+          <h3 className="pe-5">{message}</h3>
           <Button onClick={() => setShow(false)} variant="" className="fw-bold">
             DISMISS
           </Button>

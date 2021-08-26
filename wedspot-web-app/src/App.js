@@ -6,7 +6,7 @@ import Routers from "./routes/router";
 import { createTheme } from "@material-ui/core/styles";
 
 function App() {
-  const theme = createMuiTheme({
+  const theme = createTheme({
     palette: {
       primary: {
         main: "#455437",

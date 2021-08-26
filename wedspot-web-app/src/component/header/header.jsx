@@ -3,11 +3,12 @@ import logo from "../image/Logo.png";
 import SignIn from "./modal/modal";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Nav, Navbar, Container } from "react-bootstrap";
-import { Avatar, Notif } from "./dropdown/login";
+import { AvatarIcon, Notif } from "./dropdown/login";
+import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
 function Header({ background = "white" }) {
-  const token = localStorage.getItem("");
+  const { isSuccess, data } = useSelector((state) => state.userData);
 
   return (
     <div>
@@ -23,11 +24,11 @@ function Header({ background = "white" }) {
               </Nav.Item>
             </div>
           </Navbar.Brand>
-          {token ? (
+          {isSuccess ? (
             <Nav.Item>
               <div className="d-flex">
-                <Avatar />
                 <Notif />
+                <AvatarIcon avatar={data.user_avatar} />
               </div>
             </Nav.Item>
           ) : (

@@ -20,6 +20,8 @@ const HomeVendorBanner = () => {
     getData();
   }, []);
 
+  console.log(data)
+
   return (
     <div
       style={{
