@@ -57,7 +57,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const QuotionList = () => {
+const InboxThumbnail = () => {
   const classes = useStyles();
   return (
     <div>
@@ -197,4 +197,4 @@ const QuotionList = () => {
   );
 };
 
-export default QuotionList;
+export default InboxThumbnail;

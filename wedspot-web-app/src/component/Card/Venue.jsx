@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Venue({ image, title, location, rating }) {
+export default function Venue({image, title, location, rating}) {
   const classes = useStyles();
 
   return (

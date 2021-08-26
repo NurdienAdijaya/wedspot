@@ -1,4 +1,4 @@
-import React from "react";
+import React,{ useState} from "react";
 import Card from "@material-ui/core/Card";
 import {
   Room,
@@ -111,6 +111,9 @@ export function VendorCard() {
 }
 
 export function PackageDetailCard() {
+  const [show, setShow] = useState(false);
+  const openModal = () => setShow(true);
+  const closeModal = () => setShow(false);
   const classes = useStyles();
   return (
     <div>
@@ -145,14 +148,14 @@ export function PackageDetailCard() {
             </ul>
         </CardContent>
         <Container className="pb-3">
-          <Button
+          {!show &&<Button onClick={openModal}
             type="submit"
             variant="contained"
             color="primary"
             className={classes.btn}
           >
             ask for quotation
-          </Button>
+          </Button>}
         </Container>
       </Card>
     </div>
