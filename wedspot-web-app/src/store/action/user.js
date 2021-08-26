@@ -8,19 +8,14 @@ export const userLogin = (email, password) => {
     };
 }           
   
-export const userRegister = ( email, password) => {
+export const userRegister = ( email, password, fullname) => {
     return {
       type: types.REGISTER_PENDING,
       user_email: email,
-      user_password: password
+      user_password: password,
+      user_fullname: fullname
     };
 };
-
-export const logout = () =>{
-     return {
-        type:types.LOGOUT
-    }
-}
 
 export const getUser = () =>{
     return{

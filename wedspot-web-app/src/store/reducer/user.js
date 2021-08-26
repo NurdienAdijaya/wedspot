@@ -5,6 +5,7 @@ const initialState = {
   isSuccess: false,
   isError: false,
   data: [],
+  message:[],
 };
 
 const userData = (state = initialState, action) => {
@@ -19,12 +20,15 @@ const userData = (state = initialState, action) => {
       return {
         ...state,
         isSuccess: true,
+        isLoading:false,
         data: payload,
       };
     case types.LOGIN_FAIL:
       return {
         ...state,
         isError: true,
+        isLoading:false,
+        message:payload
       };
     case types.REGISTER_PENDING:
       return {
@@ -35,21 +39,19 @@ const userData = (state = initialState, action) => {
       return {
         ...state,
         isSuccess: true,
+        isLoading:false,
         data: payload,
       };
     case types.REGISTER_FAIL:
       return {
         ...state,
         isError: true,
-      };
-    case types.LOGOUT:
-      return {
-        state,
+        isLoading:false,
+        message:payload
       };
     case types.GET_USER:
       return {
         ...state,
-        isSuccess: true,
         data: payload,
       };
     default:

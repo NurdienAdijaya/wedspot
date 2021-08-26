@@ -56,7 +56,8 @@ export function AvatarIcon({avatar}) {
 
   const handleLogout = (e) => {
     e.preventDefault();
-    dispatch(logout());
+    localStorage.clear();
+    window.location.replace("/")
   };
 
   return (
@@ -76,7 +77,7 @@ export function AvatarIcon({avatar}) {
         onClose={handleClose}
       >
         <MenuItem onClick={handleClose}>Profile</MenuItem>
-        <MenuItem onClick={handleLogout}>Logout</MenuItem>
+        <MenuItem onClick={handleClose}><p onClick={handleLogout}>Logout</p></MenuItem>
       </Menu>
     </div>
   );
