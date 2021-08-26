@@ -1,7 +1,7 @@
 import { all } from "@redux-saga/core/effects";
-import { watchLogin, watchLogout, watchRegister} from "./user";
+import { watchLogin, watchRegister} from "./user";
 
 export default function* rootSaga() {
   // function generator
-  yield all([watchLogin(), watchRegister(), watchLogout()]);
+  yield all([watchLogin(), watchRegister() ]);
 }

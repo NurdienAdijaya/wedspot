@@ -12,41 +12,34 @@ function* userLogin(action) {
       type: types.LOGIN_SUCCESS,
       payload: res.data.current_user,
     });
-  } catch (errors) {
-    console.log(errors)
+  } catch (error) {
+    console.log(error.response.data.errors[0])
     yield put({
       type: types.LOGIN_FAIL,
-      payload: errors,
+      payload: error.response.data.errors,
     });
   }
 }
 
 function* userRegister(action) {
-  const { user_email, user_password } = action;
+  const { user_email, user_password, user_fullname } = action;
   try {
     const res = yield axios.post(`${BASE_URL}/user/register`, {
       user_email,
       user_password,
+      user_fullname,
     });
     yield put({
       type: types.REGISTER_SUCCESS,
       payload: res.data.current_user,
     });
   } catch (error) {
-    console.log(error)
     yield put({
       type: types.REGISTER_FAIL,
-      payload: error,
+      payload: error.response.data.errors,
     });
   }
 }
-
-function* logout() {
-  yield put({
-    type: types.LOGOUT,
-  });
-}
-
 
 
 export function* watchLogin() {
@@ -57,6 +50,3 @@ export function* watchRegister() {
   yield takeEvery(types.REGISTER_PENDING, userRegister);
 }
 
-export function* watchLogout() {
-  yield takeEvery(types.LOGOUT, logout);
-}

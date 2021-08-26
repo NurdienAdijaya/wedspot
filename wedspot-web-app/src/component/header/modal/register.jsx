@@ -4,18 +4,19 @@ import { Redirect } from "react-router-dom";
 import "semantic-ui-css/semantic.min.css";
 import { Divider, Button, Icon, Checkbox } from "semantic-ui-react";
 import {userRegister} from '../../../store/action/user'
+import {FailedMessage} from '../../message/message'
 
 function Register() {
   const [fullname, setFullname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
-  const { isSuccess } = useSelector((state) => state.userData);
+  const { isSuccess, isError, message } = useSelector((state) => state.userData);
 
 
   const handleRegister = (e) => {
     e.preventDefault();
-    dispatch(userRegister(email, password));
+    dispatch(userRegister(email, password, fullname));
   };
 
   return (
@@ -88,6 +89,11 @@ function Register() {
           Facebook
         </Button>
       </div>
+      {isError ? (
+        <div>
+          <FailedMessage message={message[0]}/>
+        </div>
+      ) : null}
     </div>
   );
 }
