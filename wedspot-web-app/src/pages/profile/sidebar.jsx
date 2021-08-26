@@ -25,6 +25,8 @@ import {
 } from "@material-ui/icons";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Profile from "./profile";
+import Quotation from "./quotation";
+import Notification from "./notification";  
 
 const useStyles = makeStyles((theme) => ({
   close: {
@@ -89,7 +91,7 @@ export default function Sidebar() {
                   activeStyle={{
                     color: "#C97C68",
                   }}
-                >
+                  >
                   <Assignment className="me-3" />
                   <p>Quotations</p>
                 </NavLink>
@@ -110,10 +112,10 @@ export default function Sidebar() {
                   <Profile />
                 </Route>
                 <Route path={`${path}/notification`}>
-                  <h1>notification</h1>
+                  < Notification/>
                 </Route>
                 <Route path={`${path}/quotation`}>
-                  <h1>quotation</h1>
+                 < Quotation/>
                 </Route>
               </Switch>
             </div>

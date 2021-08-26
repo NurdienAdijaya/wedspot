@@ -48,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignUp() {
+export default function RequestQuotation() {
   const classes = useStyles();
   const [currency, setCurrency] = React.useState('EUR');
 

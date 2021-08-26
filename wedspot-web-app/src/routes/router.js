@@ -8,6 +8,8 @@ import PackageDetail from "../pages/vendor/package";
 import ProfileHeader from "../pages/profile/header";
 import Sidebar from "../pages/profile/sidebar";
 import SearchPage from "../pages/search/search2";
+import SimpleTabs from "../pages/profile/quotation";
+import DownloadQuotation from "../component/card/quotation/DownloadQuotationmodal";
 
 const Routers = () => {
   return (
@@ -18,6 +20,7 @@ const Routers = () => {
       ) : null}
       <Switch>
         <Route exact path="/">
+          < DownloadQuotation/>
           <Homepage />
         </Route>
         <Route path="/search">
@@ -35,6 +38,7 @@ const Routers = () => {
         <Route path="/account">
           <ProfileHeader />
           <Sidebar />
+          {/* < SimpleTabs/> */}
         </Route>
         <Route path="/*">
           not found

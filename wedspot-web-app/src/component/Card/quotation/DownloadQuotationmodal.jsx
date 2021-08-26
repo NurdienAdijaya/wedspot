@@ -50,8 +50,9 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function RecipeCard() {
+export default function DownloadQuotation({onClick}) {
   const classes = useStyles();
+  
 
   return (
     <Container component="main" maxWidth="sm">
@@ -60,18 +61,20 @@ export default function RecipeCard() {
       <div className="title">
         <div className="closeIcon">
           <IconButton
-          className={classes.icon} 
-          aria-label="close">
+          className={classes.icon}
+          aria-label="close"
+          onClick={onClick}
+          >
             <Close/>
           </IconButton>
         </div>
       <div style={{textAlign:"start"}}>
-        <h1>Request Quotation</h1>
+        <h1 id="transition-modal-title">Request Quotation</h1>
         </div>
           {/* <Typography className={classes.text} style={{ fontSize: "30px" }}>
             Quotation Request
           </Typography> */}
-          <div className="container-1" style={{display:"flex", marginTop:"100px"}}>
+          <div className="container-1" style={{display:"flex", marginTop:"100px"}} id="transition-modal-description">
           <div className="content" style={{marginLeft:"30px"}}>
               <Avatar aria-label="recipe" className={classes.avatar}>
                 R
