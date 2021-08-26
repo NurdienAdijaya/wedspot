@@ -20,6 +20,9 @@ const HomeHeaderBanner = () => {
             fontSize: "100px",
             color: "white",
             textShadow: "#80848D 0px 0px 5px",
+
+            fontFamily: "Cormorant",
+            fontWeight: "600",
           }}
         >
           Once in a<br />

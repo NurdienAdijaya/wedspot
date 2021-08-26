@@ -20,6 +20,8 @@ const WebContentInfo = () => {
         <h1
           style={{
             fontSize: "39px",
+            fontFamily: "Cormorant",
+            fontWeight: "600",
           }}
         >
           Resourceful wedding directory

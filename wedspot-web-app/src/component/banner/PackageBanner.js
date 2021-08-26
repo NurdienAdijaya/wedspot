@@ -49,6 +49,7 @@ const PackageBanner = () => {
           style={{
             color: "white",
             fontSize: "2rem",
+            fontFamily: "Cormorant",
           }}
         >
           Special Wedding Packages for You

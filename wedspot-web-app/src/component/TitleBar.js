@@ -32,7 +32,14 @@ const TitleBar = ({
             height: "3rem",
           }}
         >
-          <h1>{title}</h1>
+          <h1
+            style={{
+              fontFamily: "Cormorant",
+              fontWeight: "600",
+            }}
+          >
+            {title}
+          </h1>
         </div>
         <div
           style={{

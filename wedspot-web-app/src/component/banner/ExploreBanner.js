@@ -55,6 +55,7 @@ const ExploreBanner = () => {
               style={{
                 color: "white",
                 fontSize: "31px",
+                fontFamily: "Cormorant",
               }}
             >
               Preparing Your Big Day
