@@ -29,7 +29,12 @@ const MobileDownloadBanner = () => {
           paddingTop: "4rem",
         }}
       >
-        <h1>
+        <h1
+          style={{
+            fontFamily: "Cormorant",
+            fontWeight: "600",
+          }}
+        >
           You focus on the big day,
           <br />
           leave us to focus on you

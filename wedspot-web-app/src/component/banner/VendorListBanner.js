@@ -35,6 +35,8 @@ const VendorListBanner = () => {
         <h1
           style={{
             fontSize: "3rem",
+            fontFamily: "Cormorant",
+            fontWeight: "600",
           }}
         >
           Browse a large and growing database

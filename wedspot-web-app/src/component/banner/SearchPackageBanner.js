@@ -30,7 +30,14 @@ const SearchPackageBanner = () => {
         justifyContent: "center",
       }}
     >
-      <h1>Special Wedding Packages for You</h1>
+      <h1
+        style={{
+          fontFamily: "Cormorant",
+          fontWeight: "600",
+        }}
+      >
+        Special Wedding Packages for You
+      </h1>
       <div
         style={{
           display: "flex",

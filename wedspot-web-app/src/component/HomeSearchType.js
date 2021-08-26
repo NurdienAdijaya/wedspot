@@ -33,6 +33,9 @@ const HomeSearchType = ({
           style={{
             fontSize: "28px",
             marginBottom: "1rem",
+            fontFamily: "Cormorant",
+            fontWeight: "600",
+            lineHeight: "36px",
           }}
         >
           {title}
