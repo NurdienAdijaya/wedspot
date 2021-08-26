@@ -31,9 +31,15 @@ const HomeSearch = () => {
       <HomeSearchBanner />
       <SearchTitle />
       <SearchPackageBanner />
-      < NoresultBell title = "coba title" description= "coba description"/>
-      < NoresultHand title = "coba title tangan" description= "coba description tangan"/>
-      < NoresultPhone title = "coba title phone" description= "coba description phone"/>
+      <NoresultBell title="coba title" description="coba description" />
+      <NoresultHand
+        title="coba title tangan"
+        description="coba description tangan"
+      />
+      <NoresultPhone
+        title="coba title phone"
+        description="coba description phone"
+      />
       <div
         style={{
           padding: "0 9.1%",

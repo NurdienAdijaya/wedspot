@@ -29,6 +29,8 @@ const HomeSearchBanner = () => {
               color: "white",
               textShadow: "#80848D 0px 0px 5px",
               marginTop: "",
+              fontFamily: "Cormorant",
+              fontWeight: "600",
             }}
           >
             All Search Results
