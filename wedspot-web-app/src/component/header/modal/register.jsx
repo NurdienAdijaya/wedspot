@@ -89,11 +89,11 @@ function Register() {
           Facebook
         </Button>
       </div>
-      {isError ? (
+      {isError && (
         <div>
           <FailedMessage message={message[0]}/>
         </div>
-      ) : null}
+      )}
     </div>
   );
 }

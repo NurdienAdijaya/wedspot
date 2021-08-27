@@ -76,11 +76,11 @@ function Login() {
           </Button>
         </div>
       </form>
-      {isError ? (
+      {isError && (
         <div>
           <FailedMessage message={message[0]}/>
         </div>
-      ) : null}
+      )}
     </div>
   );
 }

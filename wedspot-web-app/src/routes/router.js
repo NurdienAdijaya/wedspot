@@ -5,12 +5,9 @@ import Homepage from "../pages/Homepage";
 import HomeSearch from "../pages/search/search1";
 import DetailPage from "../pages/vendor/detail";
 import PackageDetail from "../pages/vendor/package";
-import Sidebar from "../pages/profile";
-import VerticalTabs from "../pages/profile/notification";
+import Sidebar from "../pages/profile/sidebar";
 import ProfileHeader from "../pages/profile/header";
 import SearchPage from "../pages/search/search2";
-import SimpleTabs from "../pages/profile/quotation";
-import DownloadQuotation from "../component/card/quotation/DownloadQuotationmodal";
 
 const Routers = () => {
   return (
@@ -22,7 +19,6 @@ const Routers = () => {
       ) : null}
       <Switch>
         <Route exact path="/">
-          <DownloadQuotation />
           <Homepage />
         </Route>
         <Route path="/search">
@@ -43,7 +39,6 @@ const Routers = () => {
         <Route path="/account">
           <ProfileHeader />
           <Sidebar />
-          <VerticalTabs />
         </Route>
         <Route exact path="/*">
           {/* < SimpleTabs/> */}

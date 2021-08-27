@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 
 function Header({ background = "white" }) {
   const { isSuccess, data } = useSelector((state) => state.userData);
+  const token = JSON.parse(localStorage.getItem('token'))
 
   return (
     <div>
@@ -24,7 +25,7 @@ function Header({ background = "white" }) {
               </Nav.Item>
             </div>
           </Navbar.Brand>
-          {isSuccess ? (
+          {token ? (
             <Nav.Item>
               <div className="d-flex">
                 <Notif />
