@@ -9,7 +9,7 @@
       "price": "Rp.50.202.000",
       "location": "bali",
       "rating": "4.5",
-      "tag": [
+      "package_services": [
         "Venue",
         "Cleaning Service",
         "Organizer",
@@ -27,7 +27,7 @@
       "price": "Rp.75.202.000",
       "location": "jakarta",
       "rating": "5",
-      "tag": [
+      "package_services": [
         "Venue",
         "Cleaning Service",
         "Security",
@@ -45,7 +45,7 @@
       "price": "Rp.10.202.000",
       "location": "medan",
       "rating": "1.5",
-      "tag": ["Venue", "Cleaning Service", "Electricity"]
+      "package_services": ["Venue", "Cleaning Service", "Electricity"]
     },
     {
       "id": "4",
@@ -56,7 +56,12 @@
       "price": "Rp.15.202.000",
       "location": "surabaya",
       "rating": "2.5",
-      "tag": ["Venue", "Cleaning Service", "Security", "Electricity"]
+      "package_services": [
+        "Venue",
+        "Cleaning Service",
+        "Security",
+        "Electricity"
+      ]
     },
     {
       "id": "5",
@@ -67,7 +72,12 @@
       "price": "Rp.15.502.000",
       "location": "jogjakarta",
       "rating": "3.5",
-      "tag": ["Venue", "Cleaning Service", "Organizer", "Electricity"]
+      "package_services": [
+        "Venue",
+        "Cleaning Service",
+        "Organizer",
+        "Electricity"
+      ]
     },
     {
       "id": "5",
@@ -78,7 +88,7 @@
       "price": "Rp.35.202.000",
       "location": "bandung",
       "rating": "4.5",
-      "tag": [
+      "package_services": [
         "Venue",
         "Cleaning Service",
         "Security",
@@ -95,7 +105,12 @@
       "price": "Rp.9.202.000",
       "location": "makasar",
       "rating": "2.5",
-      "tag": ["Venue", "Cleaning Service", "Security", "Electricity"]
+      "package_services": [
+        "Venue",
+        "Cleaning Service",
+        "Security",
+        "Electricity"
+      ]
     }
   ]
 }
