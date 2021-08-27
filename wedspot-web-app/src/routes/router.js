@@ -6,9 +6,10 @@ import HomeSearch from "../pages/search/search1";
 import DetailPage from "../pages/vendor/detail";
 import PackageDetail from "../pages/vendor/package";
 import VerticalTabs from "../pages/profile/notification";
+import Sidebar from "../pages/profile";
+import ProfileHeader from "../pages/profile/header";
 import SearchPage from "../pages/search/search2";
 import Profile from "../pages/profile/profile";
-import Sidebar from "../pages/profile/sidebar";
 
 const Routers = () => {
   const location = useLocation();
@@ -46,6 +47,7 @@ const Routers = () => {
         <Route exact path="/*">
           {/* < SimpleTabs/> */}
         </Route>
+        <Route path="/*">not found</Route>
       </Switch>
       <Footer />
       {/* {location.pathname !== "/" ? <Footer /> : null} */}
