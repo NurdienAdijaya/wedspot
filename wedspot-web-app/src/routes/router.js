@@ -41,7 +41,6 @@ const Routers = () => {
         <Route path="/account">
           <Profile />
           <Sidebar />
-          <VerticalTabs />
         </Route>
         <Route exact path="/*">
           {/* < SimpleTabs/> */}

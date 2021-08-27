@@ -9,6 +9,7 @@ import {
   Modal,
 } from "@material-ui/core";
 import ChangePassword from "./changePasswordModal";
+import { useSelector, useDispatch } from "react-redux";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -37,6 +38,9 @@ const useStyles = makeStyles((theme) => ({
 export default function Profile() {
   const classes = useStyles();
   const [showChange, setShowChange] = useState(false);
+  const dispatch = useDispatch();
+  const { isError, data } = useSelector((state) => state.userData);
+  
   console.log(showChange);
 
   return (
@@ -48,7 +52,7 @@ export default function Profile() {
         </p>
       </div>
       <div className="pt-5 d-flex align-items-center">
-        <Avatar className={classes.avatar}>H</Avatar>
+        <Avatar className={classes.avatar} src={data.user_avatar}/>
         <div className="ps-5">
           <Button variant="outlined" color="white" className="mb-3">
             <strong>Upload</strong>

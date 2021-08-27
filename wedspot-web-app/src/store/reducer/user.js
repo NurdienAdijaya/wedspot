@@ -54,6 +54,23 @@ const userData = (state = initialState, action) => {
         ...state,
         data: payload,
       };
+    case types.UPDATE_PROFILE_PENDING:
+      return{
+        ...state,
+        isLoading:true
+      }  
+    case types.UPDATE_PROFILE_SUCCESS:
+      return{
+        ...state,
+        isLoading:false,
+        data:payload
+      }  
+    case types.UPDATE_PROFILE_FAIL:
+      return{
+        ...state,
+        isError:true,
+        message:payload,
+      }  
     default:
       return state;
   }

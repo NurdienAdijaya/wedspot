@@ -6,6 +6,7 @@ import {
   NavLink,
   useLocation,
 } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 import {
   Container,
   Grid,
@@ -53,6 +54,8 @@ const useStyles = makeStyles((theme) => ({
 export default function Sidebar() {
   const { path, url } = useRouteMatch();
   const [show, setShow] = useState(false);
+  const { data } = useSelector((state) => state.userData);
+
   const classes = useStyles();
 
   return (
@@ -62,8 +65,8 @@ export default function Sidebar() {
           <Grid item xs={2}>
             <div className="pt-5 pb-5">
               <div className="d-flex align-items-center pb-3 border-bottom border-2">
-                <Avatar className="me-3">H</Avatar>
-                <h3>Hogie</h3>
+                <Avatar className="me-3" src={data.user_avatar}/>
+                <h3>{data.user_fullname}</h3>
               </div>
               <div className="ps-3 pb-3 border-bottom border-2">
                 <NavLink
