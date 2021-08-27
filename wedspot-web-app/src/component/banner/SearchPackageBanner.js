@@ -58,6 +58,7 @@ const SearchPackageBanner = () => {
               title={data.name}
               price={data.price}
               data={data}
+              height="330px"
             />
           </Link>
         ))}

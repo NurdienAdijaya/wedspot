@@ -3,6 +3,9 @@ import {
   watchGetOrganizerHome,
   watchGetVenueHome,
   watchGetPackagesHome,
+  watchGetVenueSearch,
+  watchGetOrganizerSearch,
+  watchGetPackagesSearch,
 } from "./package";
 import { watchLogin, watchRegister } from "./user";
 
@@ -14,5 +17,8 @@ export default function* rootSaga() {
     watchGetVenueHome(),
     watchGetOrganizerHome(),
     watchGetPackagesHome(),
+    watchGetVenueSearch(),
+    watchGetOrganizerSearch(),
+    watchGetPackagesSearch(),
   ]);
 }

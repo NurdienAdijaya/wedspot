@@ -19,8 +19,13 @@ const useStyles = makeStyles({
     alignItems: "stretch",
   },
   media: {
-    height: "260px",
+    height: "250px",
     width: "100%",
+  },
+  cardAction: {
+    display: "flex",
+    margin: "0 10px",
+    justifyContent: "space-between",
   },
 });
 
@@ -48,7 +53,12 @@ export default function Package({ image, title, price, data, height }) {
             {title}
           </Typography>
 
-          <div>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+            }}
+          >
             <Typography
               style={{
                 color: "#80848D",

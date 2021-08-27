@@ -16,6 +16,23 @@ const HomeVendorBanner = () => {
     dispatch(getOrganizerHome());
   }, [dispatch]);
 
+  // const [data, setData] = useState([]);
+  // const getData = () => {
+  //   axios
+  //     .get("http://localhost:4000/data")
+  //     .then((res) => {
+  //       console.log(res);
+  //       setData(res.data);
+  //     })
+  //     .catch((err) => console.log(err));
+  // };
+
+  // useEffect(() => {
+  //   getData();
+  // }, []);
+
+
+
   return (
     <div
       style={{
