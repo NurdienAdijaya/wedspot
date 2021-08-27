@@ -2,19 +2,20 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import "semantic-ui-css/semantic.min.css";
 import { Divider, Button, Icon } from "semantic-ui-react";
-import { Redirect } from "react-router-dom";
-import {userLogin} from '../../../store/action/user'
-import {FailedMessage} from '../../message/message'
+import { userLogin } from "../../../store/action/user";
+import { FailedMessage } from "../../message/message";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
-  const { isError, message, isLoading } = useSelector((state) => state.userData);
+  const { isError, message, isLoading } = useSelector(
+    (state) => state.userData
+  );
 
   useEffect(() => {
-    console.log("loading")
-  }, [isLoading])
+    console.log("loading");
+  }, [isLoading]);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -23,7 +24,7 @@ function Login() {
 
   return (
     <div>
-      <form onSubmit={(e) => handleLogin(e)}> 
+      <form onSubmit={(e) => handleLogin(e)}>
         <div className="form-floating mb-0">
           <input
             type="email"
@@ -78,7 +79,7 @@ function Login() {
       </form>
       {isError ? (
         <div>
-          <FailedMessage message={message[0]}/>
+          <FailedMessage message={message[0]} />
         </div>
       ) : null}
     </div>

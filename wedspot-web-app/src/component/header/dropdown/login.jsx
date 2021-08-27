@@ -2,10 +2,9 @@ import React from "react";
 import Button from "@material-ui/core/Button";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
-import {Avatar} from '@material-ui/core'
+import { Avatar } from "@material-ui/core";
 import { Notifications } from "@material-ui/icons";
-import {logout} from '../../../store/action/user'
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 
 export function Notif() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -17,8 +16,6 @@ export function Notif() {
   const handleClose = () => {
     setAnchorEl(null);
   };
-
-  
 
   return (
     <div>
@@ -42,9 +39,9 @@ export function Notif() {
   );
 }
 
-export function AvatarIcon({avatar}) {
+export function AvatarIcon({ avatar }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -57,7 +54,7 @@ export function AvatarIcon({avatar}) {
   const handleLogout = (e) => {
     e.preventDefault();
     localStorage.clear();
-    window.location.replace("/")
+    window.location.replace("/");
   };
 
   return (
@@ -67,7 +64,7 @@ export function AvatarIcon({avatar}) {
         aria-haspopup="true"
         onClick={handleClick}
       >
-        <Avatar src={avatar} onClick={handleClick}/>
+        <Avatar src={avatar} onClick={handleClick} />
       </Button>
       <Menu
         id="simple-menu"
@@ -77,7 +74,9 @@ export function AvatarIcon({avatar}) {
         onClose={handleClose}
       >
         <MenuItem onClick={handleClose}>Profile</MenuItem>
-        <MenuItem onClick={handleClose}><p onClick={handleLogout}>Logout</p></MenuItem>
+        <MenuItem onClick={handleClose}>
+          <p onClick={handleLogout}>Logout</p>
+        </MenuItem>
       </Menu>
     </div>
   );

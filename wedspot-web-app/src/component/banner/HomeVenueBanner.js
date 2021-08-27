@@ -1,24 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Venue from "../card/Venue";
 import TitleBar from "../TitleBar";
-import axios from "axios";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { getVenueHome } from "../../store/action/package";
+import { CircularProgress } from "@material-ui/core";
 
 const HomeVenueBanner = () => {
-  const [data, setData] = useState([]);
-  const getData = () => {
-    axios
-      .get("http://localhost:4000/data")
-      .then((res) => {
-        console.log(res);
-        setData(res.data);
-      })
-      .catch((err) => console.log(err));
-  };
+  const dispatch = useDispatch();
+  const { packages, isLoading } = useSelector(
+    (state) => state.packages.listVenueExample
+  );
 
   useEffect(() => {
-    getData();
-  }, []);
+    dispatch(getVenueHome());
+  }, [dispatch]);
 
   return (
     <div
@@ -36,30 +32,40 @@ const HomeVenueBanner = () => {
           "Look through the most beautiful wedding venues to find the perfect place to host your banquet."
         }
       />
-      <div
-        style={{
-          display: "flex",
-          flexWrap: "nowrap",
-          overflow: "scroll",
-        }}
-      >
-        {data.map((data) => (
-          <Link
-            to={`/package/${data.id}`}
+      {isLoading ? (
+        <div style={{ width: "100%", textAlign: "center" }}>
+          <CircularProgress color="secondary" />
+        </div>
+      ) : (
+        <div>
+          <div
             style={{
-              textDecoration: "none",
-              color: "black",
+              display: "flex",
+              flexWrap: "nowrap",
+              overflow: "scroll",
             }}
           >
-            <Venue
-              image={data.image_poster}
-              title={data.title}
-              location={data.location}
-              rating={data.rating}
-            />
-          </Link>
-        ))}
-      </div>
+            {packages?.data?.map((data, index) => (
+              <Link
+                key={index}
+                to={`/package/${data.package_id}`}
+                style={{
+                  textDecoration: "none",
+                  color: "black",
+                }}
+              >
+                <Venue
+                  image={data.package_album[0]}
+                  title={data.package_name}
+                  location={data.package_location}
+                  rating={data.package_rating}
+                  width="300px"
+                />
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 };

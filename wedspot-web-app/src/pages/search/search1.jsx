@@ -31,15 +31,6 @@ const HomeSearch = () => {
       <HomeSearchBanner />
       <SearchTitle />
       <SearchPackageBanner />
-      <NoresultBell title="coba title" description="coba description" />
-      <NoresultHand
-        title="coba title tangan"
-        description="coba description tangan"
-      />
-      <NoresultPhone
-        title="coba title phone"
-        description="coba description phone"
-      />
       <div
         style={{
           padding: "0 9.1%",
@@ -54,7 +45,7 @@ const HomeSearch = () => {
             overflow: "scroll",
           }}
         >
-          {data.map((data) => (
+          {data?.map((data) => (
             <Link
               to={`/package/${data.id}`}
               style={{
@@ -67,6 +58,7 @@ const HomeSearch = () => {
                 title={data.title}
                 location={data.location}
                 rating={data.rating}
+                width="300px"
               />
             </Link>
           ))}
@@ -99,6 +91,7 @@ const HomeSearch = () => {
                 title={data.title}
                 location={data.location}
                 rating={data.rating}
+                width="300px"
               />
             </Link>
           ))}

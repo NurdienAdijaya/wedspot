@@ -1,28 +1,27 @@
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, useLocation } from "react-router-dom";
 import Footer from "../component/footer/footer";
 import Header from "../component/header/header";
 import Homepage from "../pages/Homepage";
 import HomeSearch from "../pages/search/search1";
 import DetailPage from "../pages/vendor/detail";
 import PackageDetail from "../pages/vendor/package";
-import Sidebar from "../pages/profile";
 import VerticalTabs from "../pages/profile/notification";
+import Sidebar from "../pages/profile";
 import ProfileHeader from "../pages/profile/header";
 import SearchPage from "../pages/search/search2";
-import SimpleTabs from "../pages/profile/quotation";
-import DownloadQuotation from "../component/card/quotation/DownloadQuotationmodal";
+import Profile from "../pages/profile/profile";
 
 const Routers = () => {
+  const location = useLocation();
   return (
     <>
-      {window.location.pathname !== "/" &&
-      window.location.pathname !== "/search" &&
-      window.location.pathname !== "/account" ? (
+      {location.pathname !== "/" &&
+      location.pathname !== "/search" &&
+      location.pathname !== "/account" ? (
         <Header />
       ) : null}
       <Switch>
         <Route exact path="/">
-          <DownloadQuotation />
           <Homepage />
         </Route>
         <Route path="/search">
@@ -41,7 +40,7 @@ const Routers = () => {
           <PackageDetail />
         </Route>
         <Route path="/account">
-          <ProfileHeader />
+          <Profile />
           <Sidebar />
           <VerticalTabs />
         </Route>
@@ -50,7 +49,8 @@ const Routers = () => {
         </Route>
         <Route path="/*">not found</Route>
       </Switch>
-      {window.location.pathname !== "/" ? <Footer /> : null}
+      <Footer />
+      {/* {location.pathname !== "/" ? <Footer /> : null} */}
     </>
   );
 };
