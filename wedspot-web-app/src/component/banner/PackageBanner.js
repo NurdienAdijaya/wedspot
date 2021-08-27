@@ -1,26 +1,23 @@
 /* eslint-disable jsx-a11y/alt-text */
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import frame from "../../assets/Frame.png";
 import Package from "../card/Package";
 import Button from "@material-ui/core/Button";
-import axios from "axios";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { getPackageHome } from "../../store/action/package";
+import { CircularProgress } from "@material-ui/core";
 
 const PackageBanner = () => {
-  const [data, setData] = useState([]);
-  const getData = () => {
-    axios
-      .get("http://localhost:4000/data")
-      .then((res) => {
-        console.log(res);
-        setData(res.data);
-      })
-      .catch((err) => console.log(err));
-  };
+  const dispatch = useDispatch();
+  const { packages, isLoading } = useSelector(
+    (state) => state.packages.listPackageExample
+  );
 
   useEffect(() => {
-    getData();
-  }, []);
+    dispatch(getPackageHome());
+  }, [dispatch]);
+
   return (
     <div
       style={{
@@ -54,30 +51,38 @@ const PackageBanner = () => {
         >
           Special Wedding Packages for You
         </h1>
-        <div
-          style={{
-            display: "flex",
-            flexWrap: "nowrap",
-            overflow: "scroll",
-          }}
-        >
-          {data.map((data) => (
-            <Link
-              to={`/package/${data.id}`}
-              style={{
-                textDecoration: "none",
-                color: "black",
-              }}
-            >
-              <Package
-                image={data.poster_path}
-                title={data.name}
-                price={data.price}
-                data={data}
-              />
-            </Link>
-          ))}
-        </div>
+        {isLoading ? (
+          <div style={{ width: "100%", textAlign: "center" }}>
+            <CircularProgress color="secondary" />
+          </div>
+        ) : (
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "nowrap",
+              overflow: "scroll",
+            }}
+          >
+            {packages?.data?.map((data, index) => (
+              <Link
+                key={index}
+                to={`/package/${data.package_id}`}
+                style={{
+                  textDecoration: "none",
+                  color: "black",
+                }}
+              >
+                <Package
+                  image={data.package_album[0]}
+                  title={data.package_name}
+                  price={data.package_price}
+                  data={data}
+                  height="330px"
+                />
+              </Link>
+            ))}
+          </div>
+        )}
       </div>
       <div
         style={{

@@ -8,7 +8,6 @@ import HomeVenueBanner from "../component/banner/HomeVenueBanner";
 import HomeVendorBanner from "../component/banner/HomeVendorBanner";
 import VendorListBanner from "../component/banner/VendorListBanner";
 import WebContentInfo from "../component/WebContentInfo";
-import Footer from "../component/footer/footer";
 
 const Homepage = () => {
   return (
@@ -21,9 +20,7 @@ const Homepage = () => {
       <WebContentInfo />
       <PackageBanner />
       <MobileDownloadBanner />
-      <Footer background="#EBDFD6" color="#0F120D" logoColor="#F8EEE8" />
     </div>
-   
   );
 };
 
