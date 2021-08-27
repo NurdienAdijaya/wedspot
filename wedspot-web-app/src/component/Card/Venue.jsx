@@ -23,18 +23,28 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Venue({image, title, location, rating}) {
+export default function Venue({ image, title, location, rating, width }) {
   const classes = useStyles();
 
   return (
     <div>
       <CardActionArea className={classes.root}>
-        <CardMedia className={classes.media} image={image} title={title} />
+        <CardMedia
+          className={classes.media}
+          image={image}
+          title={title}
+          style={{ width: `${width}` }}
+        />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
             {title}
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
+          <Typography
+            variant="body2"
+            color="textSecondary"
+            component="p"
+            style={{ textTransform: "capitalize" }}
+          >
             <LocationOnIcon /> {location}
           </Typography>
           <div

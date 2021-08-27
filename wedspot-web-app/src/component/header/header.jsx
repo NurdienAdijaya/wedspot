@@ -4,7 +4,7 @@ import SignIn from "./modal/modal";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Nav, Navbar, Container } from "react-bootstrap";
 import { AvatarIcon, Notif } from "./dropdown/login";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 function Header({ background = "white" }) {

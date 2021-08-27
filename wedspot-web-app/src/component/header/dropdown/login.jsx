@@ -2,9 +2,13 @@ import React from "react";
 import Button from "@material-ui/core/Button";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
-import {Avatar} from '@material-ui/core'
+import { Avatar } from "@material-ui/core";
 import { Notifications } from "@material-ui/icons";
+<<<<<<< HEAD
 import { Link } from "react-router-dom";
+=======
+import { useDispatch } from "react-redux";
+>>>>>>> 9b0c065cc70dff54b01626eda33b400d63a38907
 
 export function Notif() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -16,7 +20,11 @@ export function Notif() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> 9b0c065cc70dff54b01626eda33b400d63a38907
   return (
     <div>
       <Button
@@ -39,8 +47,12 @@ export function Notif() {
   );
 }
 
-export function AvatarIcon({avatar}) {
+export function AvatarIcon({ avatar }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
+<<<<<<< HEAD
+=======
+  const dispatch = useDispatch();
+>>>>>>> 9b0c065cc70dff54b01626eda33b400d63a38907
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -53,7 +65,7 @@ export function AvatarIcon({avatar}) {
   const handleLogout = (e) => {
     e.preventDefault();
     localStorage.clear();
-    window.location.replace("/")
+    window.location.replace("/");
   };
 
   return (
@@ -63,7 +75,7 @@ export function AvatarIcon({avatar}) {
         aria-haspopup="true"
         onClick={handleClick}
       >
-        <Avatar src={avatar} onClick={handleClick}/>
+        <Avatar src={avatar} onClick={handleClick} />
       </Button>
       <Menu
         id="simple-menu"
@@ -72,8 +84,15 @@ export function AvatarIcon({avatar}) {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
+<<<<<<< HEAD
         <MenuItem onClick={handleClose}><Link to="/account">Profile</Link></MenuItem>
         <MenuItem onClick={handleLogout}>Logout</MenuItem>
+=======
+        <MenuItem onClick={handleClose}>Profile</MenuItem>
+        <MenuItem onClick={handleClose}>
+          <p onClick={handleLogout}>Logout</p>
+        </MenuItem>
+>>>>>>> 9b0c065cc70dff54b01626eda33b400d63a38907
       </Menu>
     </div>
   );
