@@ -6,8 +6,7 @@ import HomeSearch from "../pages/search/search1";
 import DetailPage from "../pages/vendor/detail";
 import PackageDetail from "../pages/vendor/package";
 import VerticalTabs from "../pages/profile/notification";
-import Sidebar from "../pages/profile";
-import ProfileHeader from "../pages/profile/header";
+import Sidebar from "../pages/profile/sidebar";
 import SearchPage from "../pages/search/search2";
 import Profile from "../pages/profile/profile";
 

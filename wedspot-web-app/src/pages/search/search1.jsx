@@ -1,14 +1,15 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import HomeSearchBanner from "../../component/banner/HomeSearchBanner";
 import SearchPackageBanner from "../../component/banner/SearchPackageBanner";
 import Venue from "../../component/card/Venue";
-import NoresultBell from "../../component/noresult/NoresultBell";
 import NoresultHand from "../../component/noresult/NoresultHand";
-import NoresultPhone from "../../component/noresult/NoresultPhone";
 import SearchTitle from "../../component/search/SearchTitle";
 import TitleBar from "../../component/TitleBar";
+
+import { getPackagesSearch } from "../../store/action/package";
 
 const HomeSearch = () => {
   const [data, setData] = useState([]);
@@ -25,6 +26,15 @@ const HomeSearch = () => {
   useEffect(() => {
     getData();
   }, []);
+
+  // const dispatch = useDispatch();
+  // const { resultPackages, isLoading } = useSelector(
+  //   (state) => state?.packages?.listPackageSearch
+  // );
+
+  // useEffect(() => {
+  //   dispatch(getPackagesSearch());
+  // }, [dispatch]);
 
   return (
     <div>
