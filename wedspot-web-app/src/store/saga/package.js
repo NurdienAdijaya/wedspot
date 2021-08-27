@@ -58,10 +58,10 @@ function* getPackagesHome(actions) {
 }
 
 function* getVenueSearch(actions) {
-  const { error, page = 1 } = actions;
+  const { error, page = 1, body, location } = actions;
   try {
     const res = yield axios.get(
-      `${BASE_URL}/packages?page=${page}&limit=5&type=venue`
+      `${BASE_URL}/packages?page=${page}&limit=5&type=venue&search=${body}&location=${location}`
     );
     yield put({
       type: types.GET_SEARCH_VENUE_SUCCESS,
@@ -76,10 +76,10 @@ function* getVenueSearch(actions) {
 }
 
 function* getOrganizerSearch(actions) {
-  const { error, page = 1 } = actions;
+  const { error, page = 1, body, location } = actions;
   try {
     const res = yield axios.get(
-      `${BASE_URL}/packages?page=${page}&limit=5&type=organizer`
+      `${BASE_URL}/packages?page=${page}&limit=5&type=organizer&search=${body}&location=${location}`
     );
     yield put({
       type: types.GET_SEARCH_ORGANIZER_SUCCESS,
@@ -94,10 +94,10 @@ function* getOrganizerSearch(actions) {
 }
 
 function* getPackagesSearch(actions) {
-  const { error, page = 2 } = actions;
+  const { error, page = 2, body, location } = actions;
   try {
     const res = yield axios.get(
-      `${BASE_URL}/packages?page=${page}&limit=6&type=`
+      `${BASE_URL}/packages?page=${page}&limit=6&type=&search=${body}&location=${location}`
     );
     yield put({
       type: types.GET_SEARCH_PACKAGES_SUCCESS,
