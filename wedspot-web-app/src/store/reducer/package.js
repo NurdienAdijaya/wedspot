@@ -24,6 +24,7 @@ const initialState = {
     isError: null,
     message: [],
   },
+  
   listPackageSearch: {
     resultPackages: [],
     isLoading: false,

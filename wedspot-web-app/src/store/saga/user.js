@@ -6,14 +6,17 @@ import { put, takeEvery } from "redux-saga/effects";
 function* userLogin(action) {
   const { user_email, user_password } = action;
   try {
-    const res = yield axios.post(`${BASE_URL}/user/login`, { user_email, user_password });
+    const res = yield axios.post(`${BASE_URL}/user/login`, {
+      user_email,
+      user_password,
+    });
     yield localStorage.setItem("token", JSON.stringify(res));
     yield put({
       type: types.LOGIN_SUCCESS,
       payload: res.data.current_user,
     });
   } catch (error) {
-    console.log(error.response.data.errors[0])
+    console.log(error.response.data.errors[0]);
     yield put({
       type: types.LOGIN_FAIL,
       payload: error.response.data.errors,
@@ -41,6 +44,38 @@ function* userRegister(action) {
   }
 }
 
+function* userUpdateProfile(action) {
+  const {
+    user_email,
+    user_password,
+    user_fullname,
+    user_birthday,
+    user_avatar,
+    user_old_password,
+  } = action;
+  let dataToSend = new FormData();
+  dataToSend.append("user_fullname", user_fullname);
+  dataToSend.append("user_email", user_email);
+  dataToSend.append("user_password", user_password);
+  dataToSend.append("user_birthday", user_birthday);
+  dataToSend.append("user_avatar", user_avatar);
+  dataToSend.append("user_old_password", user_old_password);
+  const token = localStorage.getItem('token')
+  try {
+    const res = yield axios.put(`${BASE_URL}/user/edit`, dataToSend,{headers:{
+      'Authorization': `Bearer ${token}`
+    }} );
+    yield put({
+      type: types.UPDATE_PROFILE_SUCCESS,
+      payload: res.new_data,
+    });
+  } catch (error) {
+    yield put({
+      type: types.UPDATE_PROFILE_FAIL,
+      payload: error.response.data.errors
+    })
+  }
+}
 
 export function* watchLogin() {
   yield takeEvery(types.LOGIN_PENDING, userLogin);
@@ -49,4 +84,3 @@ export function* watchLogin() {
 export function* watchRegister() {
   yield takeEvery(types.REGISTER_PENDING, userRegister);
 }
-

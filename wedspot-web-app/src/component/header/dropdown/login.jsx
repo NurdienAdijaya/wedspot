@@ -4,6 +4,7 @@ import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import { Avatar } from "@material-ui/core";
 import { Notifications } from "@material-ui/icons";
+import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 export function Notif() {
@@ -16,7 +17,6 @@ export function Notif() {
   const handleClose = () => {
     setAnchorEl(null);
   };
-
   return (
     <div>
       <Button
@@ -41,7 +41,6 @@ export function Notif() {
 
 export function AvatarIcon({ avatar }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const dispatch = useDispatch();
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -73,10 +72,8 @@ export function AvatarIcon({ avatar }) {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <MenuItem onClick={handleClose}>Profile</MenuItem>
-        <MenuItem onClick={handleClose}>
-          <p onClick={handleLogout}>Logout</p>
-        </MenuItem>
+        <MenuItem onClick={handleClose}><Link to="/account">Profile</Link></MenuItem>
+        <MenuItem onClick={handleLogout}>Logout</MenuItem>
       </Menu>
     </div>
   );
