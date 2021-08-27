@@ -25,7 +25,7 @@ const initialState = {
     message: [],
   },
   listPackageSearch: {
-    packages: [],
+    resultPackages: [],
     isLoading: false,
     isSuccess: null,
     isError: null,
@@ -33,7 +33,7 @@ const initialState = {
   },
 
   listOrganizerSearch: {
-    packages: [],
+    resultOrganizers: [],
     isLoading: false,
     isSuccess: null,
     isError: null,
@@ -41,7 +41,7 @@ const initialState = {
   },
 
   listVenueSearch: {
-    packages: [],
+    resultVenues: [],
     isLoading: false,
     isSuccess: null,
     isError: null,
