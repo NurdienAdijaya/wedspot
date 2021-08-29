@@ -5,6 +5,7 @@ import vendors from "./vendor";
 import search from "./search";
 import vendorDetail from "./vendordetail";
 import packageDetail from "./packagedetail";
+import config from "./config";
 
 export default combineReducers({
   userData,
@@ -13,4 +14,5 @@ export default combineReducers({
   search,
   vendorDetail,
   packageDetail,
+  config,
 });
