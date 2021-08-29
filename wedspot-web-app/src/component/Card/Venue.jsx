@@ -25,13 +25,17 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Venue({ image, title, location, rating, width }) {
   const classes = useStyles();
-
+  const dummyRating = (Math.floor(Math.random() * 5) + 6) / 2;
   return (
     <div>
       <CardActionArea className={classes.root}>
         <CardMedia
           className={classes.media}
           image={image}
+          // image={`${image}?${Math.floor(Math.random() * 10000)}`}
+          // image={`https://source.unsplash.com/640x480?wedding?${Math.floor(
+          //   Math.random() * 10000
+          // )}`}
           title={title}
           style={{ width: `${width}` }}
         />
@@ -56,6 +60,7 @@ export default function Venue({ image, title, location, rating, width }) {
             <Rating
               name="half-rating-read"
               defaultValue={rating}
+              // defaultValue={dummyRating}
               precision={0.5}
               readOnly
               style={{
@@ -63,7 +68,11 @@ export default function Venue({ image, title, location, rating, width }) {
                 marginRight: "1rem",
               }}
             />
-            <h5>{rating}/5</h5>
+            <h5>
+              {rating}
+              {/* {dummyRating} */}
+              /5
+            </h5>
           </div>
         </CardContent>
       </CardActionArea>
