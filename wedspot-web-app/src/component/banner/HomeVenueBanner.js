@@ -31,6 +31,7 @@ const HomeVenueBanner = () => {
         description={
           "Look through the most beautiful wedding venues to find the perfect place to host your banquet."
         }
+        link="searchdetail/venue"
       />
       {isLoading ? (
         <div style={{ width: "100%", textAlign: "center" }}>
