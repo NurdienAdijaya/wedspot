@@ -9,13 +9,28 @@ import { getOrganizerHome } from "../../store/action/package";
 
 const HomeVendorBanner = () => {
   const dispatch = useDispatch();
-  const { packages, isLoading } = useSelector(
-    (state) => state.packages.listOrganizerExample
+  const { vendors, isLoading } = useSelector(
+    (state) => state.vendors.allVendorList
   );
 
   useEffect(() => {
-    dispatch(getOrganizerHome());
+    dispatch(getAllVendor());
   }, [dispatch]);
+
+  // const [data, setData] = useState([]);
+  // const getData = () => {
+  //   axios
+  //     .get("http://localhost:4000/data")
+  //     .then((res) => {
+  //       console.log(res);
+  //       setData(res.data);
+  //     })
+  //     .catch((err) => console.log(err));
+  // };
+
+  // useEffect(() => {
+  //   getData();
+  // }, []);
 
   return (
     <div
@@ -45,7 +60,7 @@ const HomeVendorBanner = () => {
               overflow: "scroll",
             }}
           >
-            {packages?.data?.map((data, index) => (
+            {vendors?.data?.map((data, index) => (
               <Link
                 key={index}
                 to={`/vendor/${data.vendor_id}`}
