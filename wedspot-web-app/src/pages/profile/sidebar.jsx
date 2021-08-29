@@ -27,7 +27,7 @@ import {
 import "bootstrap/dist/css/bootstrap.min.css";
 import Profile from "./profile";
 import Quotation from "./quotation";
-import Notification from "./notification";  
+import Notification from "./notification";
 
 const useStyles = makeStyles((theme) => ({
   close: {
@@ -42,13 +42,13 @@ const useStyles = makeStyles((theme) => ({
     margin: "1em",
     height: "55px",
   },
-  logout:{
-    display:"flex",
-    alignItems:"center",
-    paddingLeft:"1rem",
-    paddingTop:"1rem",
-    cursor:"pointer"
-  }
+  logout: {
+    display: "flex",
+    alignItems: "center",
+    paddingLeft: "1rem",
+    paddingTop: "1rem",
+    cursor: "pointer",
+  },
 }));
 
 export default function Sidebar() {
@@ -65,7 +65,7 @@ export default function Sidebar() {
           <Grid item xs={2}>
             <div className="pt-5 pb-5">
               <div className="d-flex align-items-center pb-3 border-bottom border-2">
-                <Avatar className="me-3" src={data.user_avatar}/>
+                <Avatar className="me-3" src={data.user_avatar} />
                 <h3>{data.user_fullname}</h3>
               </div>
               <div className="ps-3 pb-3 border-bottom border-2">
@@ -94,15 +94,12 @@ export default function Sidebar() {
                   activeStyle={{
                     color: "#C97C68",
                   }}
-                  >
+                >
                   <Assignment className="me-3" />
                   <p>Quotations</p>
                 </NavLink>
               </div>
-              <div
-                className={classes.logout}
-                onClick={() => setShow(true)}
-              >
+              <div className={classes.logout} onClick={() => setShow(true)}>
                 <ExitToApp className="me-3" />
                 <p>Log Out</p>
               </div>
@@ -115,10 +112,10 @@ export default function Sidebar() {
                   <Profile />
                 </Route>
                 <Route path={`${path}/notification`}>
-                  < Notification/>
+                  <Notification />
                 </Route>
                 <Route path={`${path}/quotation`}>
-                 < Quotation/>
+                  <Quotation />
                 </Route>
               </Switch>
             </div>

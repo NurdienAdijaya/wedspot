@@ -24,29 +24,29 @@ const initialState = {
     isError: null,
     message: [],
   },
-  
+
   listPackageSearch: {
     resultPackages: [],
-    isLoading: false,
-    isSuccess: null,
-    isError: null,
-    message: [],
+    packageLoading: false,
+    packageSuccess: null,
+    packageError: null,
+    packageMessage: [],
   },
 
   listOrganizerSearch: {
     resultOrganizers: [],
-    isLoading: false,
-    isSuccess: null,
-    isError: null,
-    message: [],
+    organizerLoading: false,
+    organizerSuccess: null,
+    organizerError: null,
+    organizerMessage: [],
   },
 
   listVenueSearch: {
     resultVenues: [],
-    isLoading: false,
-    isSuccess: null,
-    isError: null,
-    message: [],
+    venueLoading: false,
+    venueSuccess: null,
+    venueError: null,
+    venueMessage: [],
   },
 };
 
@@ -140,24 +140,24 @@ const packages = (state = initialState, action) => {
       return {
         ...state,
         listPackageSearch: {
-          isLoading: true,
+          packageLoading: true,
         },
       };
     case types.GET_SEARCH_PACKAGES_SUCCESS:
       return {
         ...state,
         listPackageSearch: {
-          packages: payload,
-          isLoading: false,
+          resultPackages: payload,
+          packageLoading: false,
         },
       };
     case types.GET_SEARCH_PACKAGES_FAIL:
       return {
         ...state,
         listPackageSearch: {
-          isError: true,
-          isLoading: false,
-          message: payload,
+          packageError: true,
+          packageLoading: false,
+          packageMessage: payload,
           error: error,
         },
       };
@@ -166,24 +166,24 @@ const packages = (state = initialState, action) => {
       return {
         ...state,
         listOrganizerSearch: {
-          isLoading: true,
+          organizerLoading: true,
         },
       };
     case types.GET_SEARCH_ORGANIZER_SUCCESS:
       return {
         ...state,
         listOrganizerSearch: {
-          packages: payload,
-          isLoading: false,
+          resultOrganizers: payload,
+          organizerLoading: false,
         },
       };
     case types.GET_SEARCH_ORGANIZER_FAIL:
       return {
         ...state,
         listOrganizerSearch: {
-          isError: true,
-          isLoading: false,
-          message: payload,
+          organizerError: true,
+          organizerLoading: false,
+          organizerMessage: payload,
           error: error,
         },
       };
@@ -192,24 +192,24 @@ const packages = (state = initialState, action) => {
       return {
         ...state,
         listVenueSearch: {
-          isLoading: true,
+          venueLoading: true,
         },
       };
     case types.GET_SEARCH_VENUE_SUCCESS:
       return {
         ...state,
         listVenueSearch: {
-          packages: payload,
-          isLoading: false,
+          resultVenues: payload,
+          venueLoading: false,
         },
       };
     case types.GET_SEARCH_VENUE_FAIL:
       return {
         ...state,
         listVenueSearch: {
-          isError: true,
-          isLoading: false,
-          message: payload,
+          venueError: true,
+          venueLoading: false,
+          venueMessage: payload,
           error: error,
         },
       };

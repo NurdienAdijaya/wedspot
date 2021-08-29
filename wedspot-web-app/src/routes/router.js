@@ -23,13 +23,19 @@ const Routers = () => {
         <Route exact path="/">
           <Homepage />
         </Route>
+        <Route path="/search/:keyword/:location">
+          <HomeSearch />
+        </Route>
+        <Route path="/search/:keyword">
+          <HomeSearch />
+        </Route>
         <Route path="/search">
           <HomeSearch />
         </Route>
         <Route exact path="/vendor/:id">
           <DetailPage />
         </Route>
-        <Route path="/searchdetail">
+        <Route path="/searchdetail/:id">
           <SearchPage />
         </Route>
         <Route path="/vendor/:id">

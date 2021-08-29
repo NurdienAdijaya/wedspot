@@ -46,12 +46,12 @@ const useStyles = makeStyles((theme) => ({
 export function DropdownPax() {
   const classes = useStyles();
   const [minpax, setMinpax] = useState("0");
-  const [maxpax, setMaxpax] = useState("10000");
+  const [maxpax, setMaxpax] = useState("5000");
   return (
     <Dropdown>
       <Dropdown.Toggle variant="light" id="dropdown-basic">
         <Person className="me-2" />
-        0 - 1.000 pax
+        {minpax} - {maxpax} pax
       </Dropdown.Toggle>
 
       <Dropdown.Menu>
@@ -60,7 +60,7 @@ export function DropdownPax() {
             <div className={classes.form}>
               <TextField
                 id="standard-search"
-                type="search"
+                type="number"
                 value={minpax}
                 onChange={(e) => {
                   setMinpax(e.target.value);
@@ -151,8 +151,8 @@ export function DropdownPrice() {
 }
 
 export function DropdownType() {
-  const [venue, setVenue] = useState('');
-  const [wo, setWo] = useState('');
+  const [venue, setVenue] = useState("");
+  const [wo, setWo] = useState("");
 
   console.log(venue, wo);
   return (
@@ -171,7 +171,11 @@ export function DropdownType() {
                     color="primary"
                     value="venue"
                     onChange={(e) => {
-                      {e.target.checked ? setVenue(e.target.value) : setVenue('') }
+                      {
+                        e.target.checked
+                          ? setVenue(e.target.value)
+                          : setVenue("");
+                      }
                     }}
                   />
                 }
@@ -183,7 +187,9 @@ export function DropdownType() {
                     color="primary"
                     value="wo"
                     onChange={(e) => {
-                      {e.target.checked ? setWo(e.target.value) : setWo('') }
+                      {
+                        e.target.checked ? setWo(e.target.value) : setWo("");
+                      }
                     }}
                   />
                 }
@@ -207,7 +213,7 @@ export function DropdownType() {
   );
 }
 export function DropdownCity() {
-  const [city, setCity] = useState('');
+  const [city, setCity] = useState("");
 
   console.log(city);
   return (
@@ -226,7 +232,11 @@ export function DropdownCity() {
                     color="primary"
                     value="bandung"
                     onChange={(e) => {
-                      {e.target.checked ? setCity(e.target.value) : setCity('') }
+                      {
+                        e.target.checked
+                          ? setCity(e.target.value)
+                          : setCity("");
+                      }
                     }}
                   />
                 }

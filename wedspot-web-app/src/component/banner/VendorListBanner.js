@@ -51,7 +51,7 @@ const VendorListBanner = () => {
           We have been collaborated with many great wedding platforms to ensure
           your dream wedding come true
         </p>
-        <div
+        {/* <div
           style={{
             display: "flex",
             justifyContent: "space-between",
@@ -95,7 +95,7 @@ const VendorListBanner = () => {
           >
             <img src={imgv} height="80px" />
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

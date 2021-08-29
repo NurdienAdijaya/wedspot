@@ -5,9 +5,11 @@ import {
   watchGetPackagesHome,
   watchGetVenueSearch,
   watchGetOrganizerSearch,
-  watchGetPackagesSearch,
+  watchGetPackageSearch,
 } from "./package";
+import { watchGetSearch } from "./search";
 import { watchLogin, watchRegister } from "./user";
+import { watchGetAllVendor } from "./vendor";
 
 export default function* rootSaga() {
   // function generator
@@ -19,6 +21,8 @@ export default function* rootSaga() {
     watchGetPackagesHome(),
     watchGetVenueSearch(),
     watchGetOrganizerSearch(),
-    watchGetPackagesSearch(),
+    watchGetPackageSearch(),
+    watchGetAllVendor(),
+    watchGetSearch(),
   ]);
 }

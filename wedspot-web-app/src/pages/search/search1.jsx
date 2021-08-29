@@ -1,53 +1,63 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import HomeSearchBanner from "../../component/banner/HomeSearchBanner";
 import SearchPackageBanner from "../../component/banner/SearchPackageBanner";
 import Venue from "../../component/card/Venue";
 import NoresultHand from "../../component/noresult/NoresultHand";
 import SearchTitle from "../../component/search/SearchTitle";
 import TitleBar from "../../component/TitleBar";
-
-import { getPackagesSearch } from "../../store/action/package";
+import {
+  getOrganizerSearch,
+  getPackageSearch,
+  getVenueSearch,
+} from "../../store/action/package";
 
 const HomeSearch = () => {
-  const [data, setData] = useState([]);
-  const getData = () => {
-    axios
-      .get("http://localhost:4000/data")
-      .then((res) => {
-        console.log(res);
-        setData(res.data);
-      })
-      .catch((err) => console.log(err));
-  };
+  const { keyword, location } = useParams();
+  console.log("keyword", keyword);
+  console.log("location", location);
+
+  const dispatch = useDispatch();
+  const { resultPackages, packageLoading } = useSelector(
+    (state) => state.packages.listPackageSearch
+  );
+
+  const { resultVenues, venueLoading } = useSelector(
+    (state) => state.packages.listVenueSearch
+  );
+  const { resultOrganizers, organizerLoading } = useSelector(
+    (state) => state.packages.listOrganizerSearch
+  );
+
+  console.log("resultPackages", resultPackages);
+  console.log("resultVenues", resultVenues);
+  console.log("resultOrganizers", resultOrganizers);
 
   useEffect(() => {
-    getData();
-  }, []);
+    dispatch(getPackageSearch(1, keyword, location));
+  }, [dispatch]);
 
-  // const dispatch = useDispatch();
-  // const { resultPackages, isLoading } = useSelector(
-  //   (state) => state?.packages?.listPackageSearch
-  // );
+  useEffect(() => {
+    dispatch(getVenueSearch(1, keyword, location));
+  }, [dispatch]);
 
-  // useEffect(() => {
-  //   dispatch(getPackagesSearch());
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(getOrganizerSearch(1, keyword, location));
+  }, [dispatch]);
 
   return (
     <div>
       <HomeSearchBanner />
       <SearchTitle />
-      <SearchPackageBanner />
+      {/* <SearchPackageBanner datas={resultPackages} /> */}
       <div
         style={{
           padding: "0 9.1%",
           margin: "6.4rem 0",
         }}
       >
-        <TitleBar title="Venue" />
+        <TitleBar title="Venue" link="/searchdetail/venue" />
         <div
           style={{
             display: "flex",
@@ -55,19 +65,19 @@ const HomeSearch = () => {
             overflow: "scroll",
           }}
         >
-          {data?.map((data) => (
+          {resultPackages?.data?.map((data) => (
             <Link
-              to={`/package/${data.id}`}
+              to={`/package/${data.package_id}`}
               style={{
                 textDecoration: "none",
                 color: "black",
               }}
             >
               <Venue
-                image={data.image_poster}
-                title={data.title}
-                location={data.location}
-                rating={data.rating}
+                image={data.package_album[0]}
+                title={data.package_name}
+                location={data.package_location}
+                rating={data.package_vendor_id.vendor_rating}
                 width="300px"
               />
             </Link>
@@ -80,7 +90,7 @@ const HomeSearch = () => {
           margin: "6.4rem 0",
         }}
       >
-        <TitleBar title="Wedding Organizer" />
+        <TitleBar title="Wedding Organizer" link="/searchdetail/organizer" />
         <div
           style={{
             display: "flex",
@@ -88,19 +98,19 @@ const HomeSearch = () => {
             overflow: "scroll",
           }}
         >
-          {data.map((data) => (
+          {resultOrganizers?.data?.map((data) => (
             <Link
-              to={`/package/${data.id}`}
+              to={`/package/${data.vendor_id}`}
               style={{
                 textDecoration: "none",
                 color: "black",
               }}
             >
               <Venue
-                image={data.image_poster}
-                title={data.title}
-                location={data.location}
-                rating={data.rating}
+                image={data.vendor_header}
+                title={data.vendor_name}
+                location={data.vendor_location}
+                rating={data.vendor_rating}
                 width="300px"
               />
             </Link>

@@ -1,10 +1,11 @@
 import React from "react";
 import NavigateNextIcon from "@material-ui/icons/NavigateNext";
+import { Link } from "react-router-dom";
 
 const TitleBar = ({
   title = "title",
   description,
-  showAll = "#",
+  link = "#",
   margin,
   mt,
   mr,
@@ -49,15 +50,15 @@ const TitleBar = ({
             alignContent: "center",
           }}
         >
-          <a
-            href={showAll}
+          <Link
+            to={link}
             style={{
               color: "#C97C68",
             }}
           >
             Show All
             <NavigateNextIcon />
-          </a>
+          </Link>
         </div>
       </div>
       <p
