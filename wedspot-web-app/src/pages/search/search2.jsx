@@ -1,16 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Breadcrumbs from "@material-ui/core/Breadcrumbs";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Container, Divider } from "@material-ui/core";
+import { Container } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import Link from "@material-ui/core/Link";
 import { makeStyles, TextField, Button } from "@material-ui/core";
-import {
-  DropdownPax,
-  DropdownPrice,
-  DropdownType,
-  DropdownCity,
-} from "../../component/filter/dropdown";
 import { Grid } from "@material-ui/core";
 import Package from "../../component/card/Package";
 import Venue from "../../component/card/Venue";
@@ -20,13 +14,13 @@ import { getSearch } from "../../store/action/search";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Dropdown } from "react-bootstrap";
 import { Person, AttachMoney, Layers, Room } from "@material-ui/icons";
-import FormLabel from "@material-ui/core/FormLabel";
 import FormControl from "@material-ui/core/FormControl";
 import FormGroup from "@material-ui/core/FormGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import Radio from "@material-ui/core/Radio";
+import { getLocation } from "../../store/action/config";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -81,15 +75,16 @@ function SearchPage() {
   const [maxPax, setmaxPax] = useState("5000");
   const [minPrice, setMinPrice] = useState("0");
   const [maxPrice, setMaxPrice] = useState("1000000000");
-
-  const { items, isLoading } = useSelector(
-    (state) => state.search.allSearchList
-  );
-
   const tipe = id === "packages" ? "packages" : "vendors";
   const limit = "12";
 
-  console.log("category1", category);
+  const { items, isLoading } = useSelector(
+    (state) => state?.search?.allSearchList
+  );
+  const { citys, cityLoading } = useSelector(
+    (state) => state?.config?.allLocationList
+  );
+
   console.log("items", items);
 
   useEffect(() => {
@@ -105,13 +100,27 @@ function SearchPage() {
         limit
       )
     );
+  }, [
+    dispatch,
+    tipe,
+    location,
+    category,
+    minPax,
+    maxPax,
+    minPrice,
+    maxPrice,
+    limit,
+  ]);
+
+  useEffect(() => {
+    dispatch(getLocation());
   }, [dispatch]);
 
   return (
     <div>
       <Container className="pb-5 pt-5">
         <Breadcrumbs aria-label="breadcrumb">
-          <Link color="inherit" href="/">
+          <Link color="inherit" href={`/searchdetail/${id}`}>
             <p>search result</p>
           </Link>
           <Typography color="white">{id}</Typography>
@@ -158,7 +167,7 @@ function SearchPage() {
                         control={
                           <Radio
                             color="primary"
-                            value="wo"
+                            value="organizer"
                             onChange={(e) => {
                               {
                                 e.target.checked
@@ -196,24 +205,27 @@ function SearchPage() {
               <Dropdown.Menu>
                 <Container>
                   <FormControl component="fieldset">
-                    <FormGroup>
-                      <FormControlLabel
-                        control={
-                          <Checkbox
-                            color="primary"
-                            value="bandung"
-                            onChange={(e) => {
-                              {
-                                e.target.checked
-                                  ? setLocation(e.target.value)
-                                  : setLocation("");
-                              }
-                            }}
-                          />
-                        }
-                        label="Bandung"
-                      />
-                    </FormGroup>
+                    <RadioGroup>
+                      {citys?.locations?.map((data) => (
+                        <FormControlLabel
+                          style={{ textTransform: "capitalize" }}
+                          control={
+                            <Radio
+                              color="primary"
+                              value={data}
+                              onChange={(e) => {
+                                {
+                                  e.target.checked
+                                    ? setLocation(e.target.value)
+                                    : setLocation("");
+                                }
+                              }}
+                            />
+                          }
+                          label={data}
+                        />
+                      ))}
+                    </RadioGroup>
                   </FormControl>
                   <div className="d-flex flex-column">
                     <Button
@@ -326,23 +338,23 @@ function SearchPage() {
           </div>
         </div>
         <div className="pt-5 pb-3">
-          <h3>Showing All (jumlah result) packages</h3>
+          <h3>Showing All {items?.count} packages</h3>
         </div>
         <Grid container spacing={3}>
           {items?.data?.map((data) => (
             <Grid item xs={4}>
               {tipe === "vendors" ? (
                 <Venue
-                  image={data.vendor_header}
-                  title={data.vendor_name}
-                  location={data.vendor_location}
-                  rating={data.vendor_rating}
+                  image={data?.vendor_header}
+                  title={data?.vendor_name}
+                  location={data?.vendor_location}
+                  rating={data?.vendor_rating}
                 />
               ) : (
                 <Package
-                  image={data.package_album[1]}
-                  title={data.package_name}
-                  price={data.package_price}
+                  image={data?.package_album[1]}
+                  title={data?.package_name}
+                  price={data?.package_price}
                   data={data}
                   height="330px"
                 />
