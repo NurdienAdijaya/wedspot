@@ -71,30 +71,6 @@ function PackageDetail() {
                   className={classes.image}
                 />
               </Grid>
-              <Grid item xs={6}>
-                <img
-                  src="https://source.unsplash.com/550x400/?bride"
-                  alt=""
-                  onClick={handleOpen}
-                  className={classes.image}
-                />
-              </Grid>
-              <Grid item xs={6}>
-                <img
-                  src="https://source.unsplash.com/550x400/?bride"
-                  alt=""
-                  onClick={handleOpen}
-                  className={classes.image}
-                />
-              </Grid>
-              <Grid item xs={6}>
-                <img
-                  src="https://source.unsplash.com/550x400/?bride"
-                  alt=""
-                  onClick={handleOpen}
-                  className={classes.image}
-                />
-              </Grid>
               <Modal open={open} onClose={handleClose}>
                 <div>
                   <h1 onClick={handleClose} className={classes.close}>

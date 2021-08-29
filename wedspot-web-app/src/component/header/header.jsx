@@ -1,21 +1,27 @@
-import React from "react";
+import React, {useEffect} from "react";
 import logo from "../image/Logo.png";
 import SignIn from "./modal/modal";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Nav, Navbar, Container } from "react-bootstrap";
 import { AvatarIcon, Notif } from "./dropdown/login";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { getUser } from "../../store/action/user";
 
 function Header({ background = "white" }) {
+  const dispatch = useDispatch()
   const { isSuccess, data } = useSelector((state) => state.userData);
-  const token = JSON.parse(localStorage.getItem('token'))
+  const token = localStorage.getItem('token')
+
+
+  useEffect(() => {
+   dispatch(getUser())
+  }, [])
 
   return (
     <div>
-      <Navbar bg={background} expand="md">
-        <Container className="ps-5">
-          <Navbar.Brand>
+      <Navbar bg={background} className="d-flex justify-content-between">
+          <Navbar.Brand className="ps-5">
             <div className="d-flex align-items-center ">
               <Link to="/">
                 <img src={logo} alt="logo" />
@@ -26,18 +32,17 @@ function Header({ background = "white" }) {
             </div>
           </Navbar.Brand>
           {token ? (
-            <Nav.Item>
+            <Nav.Item className="pe-5">
               <div className="d-flex">
                 <Notif />
-                <AvatarIcon avatar={data.user_avatar} />
+                <AvatarIcon avatar={data?.user_avatar} />
               </div>
             </Nav.Item>
           ) : (
-            <Nav.Item>
+            <Nav.Item className="pe-5">
               <SignIn />
             </Nav.Item>
           )}
-        </Container>
       </Navbar>
     </div>
   );

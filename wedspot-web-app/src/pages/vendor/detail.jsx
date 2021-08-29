@@ -4,22 +4,11 @@ import { VendorCard } from "../../component/card/detailcard";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Package from "../../component/card/Package";
+import { useParams } from "react-router-dom";
 
 function DetailPage() {
-  const [data, setData] = useState([]);
-  const getData = () => {
-    axios
-      .get("http://localhost:4000/data")
-      .then((res) => {
-        console.log(res);
-        setData(res.data);
-      })
-      .catch((err) => console.log(err));
-  };
-
-  useEffect(() => {
-    getData();
-  }, []);
+  const params = useParams()
+  console.log(params)
 
   return (
     <div>
@@ -32,7 +21,7 @@ function DetailPage() {
               <p>Which one that fits to your preference?</p>
             </div>
             <Grid container spacing={5}>
-              {data.map((data) => (
+              {/* {data.map((data) => (
                 <Grid item xs={6}>
                   <Package
                     image={data.poster_path}
@@ -41,7 +30,7 @@ function DetailPage() {
                     data={data}
                   />
                 </Grid>
-              ))}
+              ))} */}
             </Grid>
           </Grid>
           <Grid item xs={4}>
