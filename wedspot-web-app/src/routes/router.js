@@ -5,10 +5,9 @@ import Homepage from "../pages/Homepage";
 import HomeSearch from "../pages/search/search1";
 import DetailPage from "../pages/vendor/detail";
 import PackageDetail from "../pages/vendor/package";
-import VerticalTabs from "../pages/profile/notification";
 import Sidebar from "../pages/profile/sidebar";
 import SearchPage from "../pages/search/search2";
-import Profile from "../pages/profile/profile";
+import ProfileHeader from "../pages/profile/header";
 
 const Routers = () => {
   const location = useLocation();
@@ -16,9 +15,10 @@ const Routers = () => {
     <>
       {location.pathname !== "/" &&
       location.pathname !== "/search" &&
-      location.pathname !== "/account" ? (
+      location.pathname !== "/account" &&
+      location.pathname !== "/account/notification" && location.pathname !== "/account/quotation" && (
         <Header />
-      ) : null}
+      ) }
       <Switch>
         <Route exact path="/">
           <Homepage />
@@ -39,13 +39,10 @@ const Routers = () => {
           <PackageDetail />
         </Route>
         <Route path="/account">
-          <Profile />
+          <ProfileHeader/>
           <Sidebar />
         </Route>
-        <Route exact path="/*">
-          {/* < SimpleTabs/> */}
-        </Route>
-        <Route path="/*">not found</Route>
+        <Route path="*">not found</Route>
       </Switch>
       <Footer />
       {/* {location.pathname !== "/" ? <Footer /> : null} */}

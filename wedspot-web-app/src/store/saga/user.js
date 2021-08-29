@@ -3,6 +3,8 @@ import * as types from "../const/types";
 import { BASE_URL } from "../const/server";
 import { put, takeEvery } from "redux-saga/effects";
 
+const token = localStorage.getItem('token')
+
 function* userLogin(action) {
   const { user_email, user_password } = action;
   try {
@@ -10,7 +12,7 @@ function* userLogin(action) {
       user_email,
       user_password,
     });
-    yield localStorage.setItem("token", JSON.stringify(res));
+    yield localStorage.setItem("token",res.data.token);
     yield put({
       type: types.LOGIN_SUCCESS,
       payload: res.data.current_user,
@@ -32,6 +34,7 @@ function* userRegister(action) {
       user_password,
       user_fullname,
     });
+    yield localStorage.setItem("token", res.data.token);
     yield put({
       type: types.REGISTER_SUCCESS,
       payload: res.data.current_user,
@@ -60,10 +63,10 @@ function* userUpdateProfile(action) {
   dataToSend.append("user_birthday", user_birthday);
   dataToSend.append("user_avatar", user_avatar);
   dataToSend.append("user_old_password", user_old_password);
-  const token = localStorage.getItem('token')
+
   try {
     const res = yield axios.put(`${BASE_URL}/user/edit`, dataToSend,{headers:{
-      'Authorization': `Bearer ${token}`
+      Authorization: `Bearer ${token}`
     }} );
     yield put({
       type: types.UPDATE_PROFILE_SUCCESS,
@@ -77,10 +80,31 @@ function* userUpdateProfile(action) {
   }
 }
 
+function* getUser() {
+  console.log(`Bearer ${token}`)
+  try {
+    const res = yield axios.get(`${BASE_URL}/user/getprofil`,
+    {headers:{Authorization: `Bearer ${token}`}});
+    yield put({
+      type: types.GET_USER_SUCCESS,
+      payload: res.data,
+    });
+  } catch (error) {
+    yield put({
+      type: types.GET_USER_FAIL,
+      payload: error.response
+    })
+  }
+}
+
 export function* watchLogin() {
   yield takeEvery(types.LOGIN_PENDING, userLogin);
 }
 
 export function* watchRegister() {
   yield takeEvery(types.REGISTER_PENDING, userRegister);
+}
+
+export function* watchGetUser() {
+  yield takeEvery(types.GET_USER, getUser);
 }

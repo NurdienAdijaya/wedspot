@@ -13,10 +13,12 @@ function Register() {
   const dispatch = useDispatch();
   const { isSuccess, isError, message } = useSelector((state) => state.userData);
 
+ 
 
   const handleRegister = (e) => {
     e.preventDefault();
     dispatch(userRegister(email, password, fullname));
+    
   };
 
   return (

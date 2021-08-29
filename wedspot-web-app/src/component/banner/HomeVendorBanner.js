@@ -63,7 +63,7 @@ const HomeVendorBanner = () => {
             {packages?.data?.map((data, index) => (
               <Link
                 key={index}
-                to={`/package/${data.package_id}`}
+                to={`/vendor/${data.package_id}`}
                 style={{
                   textDecoration: "none",
                   color: "black",

@@ -23,8 +23,9 @@ export function Notif() {
         aria-controls="simple-menu"
         aria-haspopup="true"
         onClick={handleClick}
+        style={{ color: "#C97C68"}}
       >
-        <Notifications />
+        <Notifications style={{ fontSize: "3em", textShadow: "green 0px 0px 10px" }}/>
       </Button>
       <Menu
         id="simple-menu"
@@ -72,7 +73,9 @@ export function AvatarIcon({ avatar }) {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <MenuItem onClick={handleClose}><Link to="/account">Profile</Link></MenuItem>
+        <MenuItem onClick={handleClose}>
+          <Link to="/account" style={{textDecoration:"none", color:"black"}}>Profile</Link>
+        </MenuItem>
         <MenuItem onClick={handleLogout}>Logout</MenuItem>
       </Menu>
     </div>

@@ -58,6 +58,12 @@ export default function Sidebar() {
 
   const classes = useStyles();
 
+  const handleLogout = (e) => {
+    e.preventDefault();
+    localStorage.clear();
+    window.location.replace("/");
+  };
+
   return (
     <div className="bg-light">
       <Container className="pb-5">
@@ -143,7 +149,7 @@ export default function Sidebar() {
               Ooops, No
             </Button>
             <Button
-              onClick={() => setShow(false)}
+              onClick={() => setShow(false), handleLogout}
               variant="outlined"
               color="white"
               className={classes.button}

@@ -7,7 +7,7 @@ import {
   watchGetOrganizerSearch,
   watchGetPackagesSearch,
 } from "./package";
-import { watchLogin, watchRegister } from "./user";
+import { watchLogin, watchRegister, watchGetUser } from "./user";
 
 export default function* rootSaga() {
   // function generator
@@ -20,5 +20,6 @@ export default function* rootSaga() {
     watchGetVenueSearch(),
     watchGetOrganizerSearch(),
     watchGetPackagesSearch(),
+    watchGetUser(),
   ]);
 }
