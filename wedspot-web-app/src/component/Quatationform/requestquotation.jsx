@@ -157,15 +157,6 @@ export default function RequestQuotation() {
               />
             </Grid>
           </Grid>
-          <Button
-            type="Send Request"
-            fullWidth
-            variant="contained"
-            color="primary"
-            className={classes.submit}
-          >
-            Send Request
-          </Button>
         </form>
       </div>
     </Container>

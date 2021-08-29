@@ -1,11 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core";
-import { Container, Grid } from "@material-ui/core";
+import { Container, Grid, CircularProgress } from "@material-ui/core";
 import ImageHeader from "../../component/image-header/imgheader";
 import { PackageDetailCard } from "../../component/card/detailcard";
 import { ArrowBackIos } from "@material-ui/icons";
 import ImageCarousel from "../../component/carousel/ImageCarousel";
 import Modal from "@material-ui/core/Modal";
+import { useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { getPackageId } from "../../store/action/detail";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   close: {
@@ -26,8 +30,16 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function PackageDetail() {
+  const { id } = useParams();
+  const dispatch = useDispatch();
   const classes = useStyles();
   const [open, setOpen] = useState(false);
+  const { data, isLoading } = useSelector((state) => state.packageDetail);
+  console.log(isLoading)
+
+  useEffect(() => {
+    dispatch(getPackageId(id));
+  }, [dispatch]);
 
   const handleOpen = () => {
     setOpen(true);
@@ -39,53 +51,72 @@ function PackageDetail() {
 
   return (
     <div>
-      <ImageHeader />
-      <Container className="pt-5 pb-5">
-        <Grid container spacing={1}>
-          <Grid item xs={8}>
-            <div>
-              <p>
-                <ArrowBackIos />
-                Back to All package
-              </p>
-            </div>
-            <h1>Nama Package</h1>
-            <h3>Details</h3>
-            <ul className="pb-3">
-              <li>(keterangan detail)</li>
-              <li>(keterangan detail)</li>
-              <li>(keterangan detail)</li>
-              <li>(keterangan detail)</li>
-              <li>(keterangan detail)</li>
-              <li>(keterangan detail)</li>
-              <li>(keterangan detail)</li>
-              <li>(keterangan detail)</li>
-            </ul>
-            <h3>Take a look inside Gedong Putih</h3>
-            <Grid container spacing={3}>
-              <Grid item xs={6}>
-                <img
-                  src="https://source.unsplash.com/550x400/?bride"
-                  alt=""
-                  onClick={handleOpen}
-                  className={classes.image}
+      {isLoading ? (
+        <div style={{ width: "100vw", height:"100vh", textAlign: "center" }}>
+          <CircularProgress color="secondary" />
+        </div>
+      ) : (
+        <>
+          <ImageHeader
+            type={data?.package_vendor_id.vendor_type}
+            name={data?.package_vendor_id.vendor_name}
+            header={data?.package_vendor_id.vendor_header}
+            
+          />
+          <Container className="pt-5 pb-5">
+            <Grid container spacing={5}>
+              <Grid item xs={8}>
+                <div>
+                  <Link
+                    to={`/vendor/${data?.package_vendor_id.vendor_id}`}
+                    className="text-black text-decoration-none"
+                  >
+                    <ArrowBackIos />
+                    Back to All package
+                  </Link>
+                </div>
+                <h1 className="pb-3 pt-5">Nama Package</h1>
+                <h4>Details</h4>
+                <p className="pb-3 pe-3">{data?.package_details}</p>
+                <h3 className="pb-2">Take a look inside Gedong Putih</h3>
+                <Grid container spacing={5}>
+                  {data.package_album.map((img, idx) => (
+                    <Grid item xs={6} key={idx}>
+                      <img
+                        src={img}
+                        alt=""
+                        onClick={handleOpen}
+                        className={classes.image}
+                      />
+                    </Grid>
+                  ))}
+
+                  <Modal open={open} onClose={handleClose}>
+                    <div>
+                      <h1 onClick={handleClose} className={classes.close}>
+                        X
+                      </h1>
+                      <ImageCarousel img={data?.package_album} />
+                    </div>
+                  </Modal>
+                </Grid>
+              </Grid>
+              <Grid item xs={4}>
+                <PackageDetailCard
+                  avatar={data?.package_vendor_id.vendor_avatar}
+                  name={data?.package_vendor_id.vendor_name}
+                  price={data?.package_vendor_id.vendor_max_price}
+                  location={data?.package_vendor_id.vendor_location}
+                  min={data?.package_vendor_id.vendor_min_capacity}
+                  max={data?.package_vendor_id.vendor_max_capacity}
+                  services={data?.package_services}
+                  rating={data?.package_vendor_id.vendor_rating}
                 />
               </Grid>
-              <Modal open={open} onClose={handleClose}>
-                <div>
-                  <h1 onClick={handleClose} className={classes.close}>
-                    X
-                  </h1>
-                  <ImageCarousel />
-                </div>
-              </Modal>
             </Grid>
-          </Grid>
-          <Grid item xs={4}>
-            <PackageDetailCard />
-          </Grid>
-        </Grid>
-      </Container>
+          </Container>
+        </>
+      )}
     </div>
   );
 }

@@ -1,14 +1,25 @@
+import React, { useEffect } from "react";
 import { Container, Grid } from "@material-ui/core";
 import ImageHeader from "../../component/image-header/imgheader";
 import { VendorCard } from "../../component/card/detailcard";
-import React, { useEffect, useState } from "react";
-import axios from "axios";
 import Package from "../../component/card/Package";
 import { useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { getVendorId } from "../../store/action/detail";
+
 
 function DetailPage() {
-  const params = useParams()
-  console.log(params)
+  const {id} = useParams()
+  const dispatch = useDispatch();
+  const { data } = useSelector(
+    (state) => state.vendorDetail
+  );
+
+  console.log(data)
+
+  useEffect(() => {
+    dispatch(getVendorId(id))
+  }, [dispatch])
 
   return (
     <div>

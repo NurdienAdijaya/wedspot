@@ -1,7 +1,7 @@
 import * as types from "../const/types";
 
 const initialState = {
-  isLoading: false,
+  isLoading: true,
   isSuccess: false,
   data: [],
 };
