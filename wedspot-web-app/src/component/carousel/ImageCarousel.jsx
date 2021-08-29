@@ -16,66 +16,6 @@ const ImageCarousel = () => {
         <div className="image">
           <img src="https://source.unsplash.com/550x400/?bride" alt="" />
         </div>
-        <div className="image">
-          <img src="https://source.unsplash.com/550x400/?bride" alt="" />
-        </div>
-        <div className="image">
-          <img src="https://source.unsplash.com/550x400/?bride" alt="" />
-        </div>
-        <div className="image">
-          <img src="https://source.unsplash.com/550x400/?bride" alt="" />
-        </div>
-        <div className="image">
-          <img src="https://source.unsplash.com/550x400/?bride" alt="" />
-        </div>
-        <div className="image">
-          <img src="https://source.unsplash.com/550x400/?bride" alt="" />
-        </div>
-        <div className="image">
-          <img src="https://source.unsplash.com/550x400/?bride" alt="" />
-        </div>
-        <div className="image">
-          <img src="https://source.unsplash.com/550x400/?bride" alt="" />
-        </div>
-        <div className="image">
-          <img src="https://source.unsplash.com/550x400/?bride" alt="" />
-        </div>
-        <div className="image">
-          <img src="https://source.unsplash.com/550x400/?bride" alt="" />
-        </div>
-        <div className="image">
-          <img src="https://source.unsplash.com/550x400/?bride" alt="" />
-        </div>
-        <div className="image">
-          <img src="https://source.unsplash.com/550x400/?bride" alt="" />
-        </div>
-        <div className="image">
-          <img src="https://source.unsplash.com/550x400/?bride" alt="" />
-        </div>
-        <div className="image">
-          <img src="https://source.unsplash.com/550x400/?bride" alt="" />
-        </div>
-        <div className="image">
-          <img src="https://source.unsplash.com/550x400/?bride" alt="" />
-        </div>
-        <div className="image">
-          <img src="https://source.unsplash.com/550x400/?bride" alt="" />
-        </div>
-        <div className="image">
-          <img src="https://source.unsplash.com/550x400/?bride" alt="" />
-        </div>
-        <div className="image">
-          <img src="https://source.unsplash.com/550x400/?bride" alt="" />
-        </div>
-        <div className="image">
-          <img src="https://source.unsplash.com/550x400/?bride" alt="" />
-        </div>
-        <div className="image">
-          <img src="https://source.unsplash.com/550x400/?bride" alt="" />
-        </div>
-        <div className="image">
-          <img src="https://source.unsplash.com/550x400/?bride" alt="" />
-        </div>
       </Carousel>
     </div>
   );

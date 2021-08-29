@@ -6,20 +6,26 @@ import { userLogin } from "../../../store/action/user";
 import { FailedMessage } from "../../message/message";
 
 function Login() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [login, setLogin] = useState({
+    email: "",
+    password: "",
+  });
   const dispatch = useDispatch();
   const { isError, message, isLoading } = useSelector(
     (state) => state.userData
   );
 
-  useEffect(() => {
-    console.log("loading");
-  }, [isLoading]);
-
   const handleLogin = (e) => {
     e.preventDefault();
-    dispatch(userLogin(email, password));
+    if (
+      login.email === "" ||
+      login.password === ""
+    ) {
+      alert("please fill all form");
+    dispatch(userLogin());
+    }else {
+      dispatch(userLogin(login.email, login.password));
+    }
   };
 
   return (
@@ -31,10 +37,9 @@ function Login() {
             className="form-control rounded-4"
             id="floatingInput"
             placeholder="email"
-            value={email}
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
+            onChange={(e) => 
+              setLogin({ ...login, email: e.target.value })
+            }
           />
           <label htmlFor="floatingInput">Email address</label>
         </div>
@@ -44,9 +49,8 @@ function Login() {
             className="form-control rounded-4"
             id="floatingPassword"
             placeholder="Password"
-            value={password}
             onChange={(e) => {
-              setPassword(e.target.value);
+              setLogin({ ...login, password: e.target.value })
             }}
           />
           <label htmlFor="floatingPassword">Password</label>

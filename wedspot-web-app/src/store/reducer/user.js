@@ -46,14 +46,26 @@ const userData = (state = initialState, action) => {
       return {
         ...state,
         isError: true,
+        isSuccess:false,
         isLoading:false,
-        message:payload
+        message:payload,
+      };
+    case types.GET_USER_SUCCESS:
+      return {
+        ...state,
+        isSuccess:true,
+        data: payload,
       };
     case types.GET_USER:
       return {
         ...state,
-        data: payload,
+        isLoading:true,
       };
+      case types.GET_USER_FAIL:
+        return {
+          ...state,
+          isSuccess:false,
+        };  
     case types.UPDATE_PROFILE_PENDING:
       return{
         ...state,
