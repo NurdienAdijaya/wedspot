@@ -79,7 +79,7 @@ function* getOrganizerSearch(actions) {
   const { error, page = 1, body, location } = actions;
   try {
     const res = yield axios.get(
-      `${BASE_URL}/packages?page=${page}&limit=5&type=organizer&search=${body}&location=${location}`
+      `${BASE_URL}/vendors?page=${page}&limit=5&type=organizer&search=${body}&location=${location}`
     );
     yield put({
       type: types.GET_SEARCH_ORGANIZER_SUCCESS,
@@ -93,7 +93,7 @@ function* getOrganizerSearch(actions) {
   }
 }
 
-function* getPackagesSearch(actions) {
+function* getPackageSearch(actions) {
   const { error, page = 2, body, location } = actions;
   try {
     const res = yield axios.get(
@@ -129,6 +129,6 @@ export function* watchGetVenueSearch() {
 export function* watchGetOrganizerSearch() {
   yield takeEvery(types.GET_SEARCH_ORGANIZER_BEGIN, getOrganizerSearch);
 }
-export function* watchGetPackagesSearch() {
-  yield takeEvery(types.GET_SEARCH_PACKAGES_BEGIN, getPackagesSearch);
+export function* watchGetPackageSearch() {
+  yield takeEvery(types.GET_SEARCH_PACKAGES_BEGIN, getPackageSearch);
 }

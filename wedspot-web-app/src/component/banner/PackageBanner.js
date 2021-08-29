@@ -5,8 +5,8 @@ import Package from "../card/Package";
 import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getPackageHome } from "../../store/action/package";
 import { CircularProgress } from "@material-ui/core";
+import { getPackageHome } from "../../store/action/package";
 
 const PackageBanner = () => {
   const dispatch = useDispatch();
@@ -90,17 +90,19 @@ const PackageBanner = () => {
           marginTop: "1rem",
         }}
       >
-        <Button
-          variant="outlined"
-          style={{
-            color: "white",
-            borderColor: "white",
-            width: "262px",
-            height: "55px",
-          }}
-        >
-          Browse All The Packages
-        </Button>
+        <Link to="searchdetail/packages" style={{ textDecoration: "none" }}>
+          <Button
+            variant="outlined"
+            style={{
+              color: "white",
+              borderColor: "white",
+              width: "262px",
+              height: "55px",
+            }}
+          >
+            Browse All The Packages
+          </Button>
+        </Link>
       </div>
     </div>
   );

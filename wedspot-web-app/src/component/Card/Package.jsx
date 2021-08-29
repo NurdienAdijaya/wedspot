@@ -40,7 +40,14 @@ export default function Package({ image, title, price, data, height }) {
           height: `${height}`,
         }}
       >
-        <CardMedia className={classes.media} image={image} title={title} />
+        <CardMedia
+          className={classes.media}
+          // image={`${image}?${Math.floor(Math.random() * 10000)}`}
+          image={`https://source.unsplash.com/640x480?wedding?${Math.floor(
+            Math.random() * 10000
+          )}`}
+          title={title}
+        />
         <CardContent
           style={{
             display: "flex",
@@ -85,7 +92,7 @@ export default function Package({ image, title, price, data, height }) {
                 marginTop: "1rem",
               }}
             >
-              {data.package_services.map((tag, index) => (
+              {data?.package_services.map((tag, index) => (
                 <QuotationNew key={index} content={tag} margin="0.1rem" />
               ))}
             </div>

@@ -4,21 +4,22 @@ import Button from "@material-ui/core/Button";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-const SearchPackageBanner = () => {
-  const [data, setData] = useState([]);
-  const getData = () => {
-    axios
-      .get("http://localhost:4000/data")
-      .then((res) => {
-        console.log(res);
-        setData(res.data);
-      })
-      .catch((err) => console.log(err));
-  };
+const SearchPackageBanner = (datas) => {
+  // const [data, setData] = useState([]);
+  // const getData = () => {
+  //   axios
+  //     .get("http://localhost:4000/data")
+  //     .then((res) => {
+  //       console.log(res);
+  //       setData(res.data);
+  //     })
+  //     .catch((err) => console.log(err));
+  // };
 
-  useEffect(() => {
-    getData();
-  }, []);
+  // useEffect(() => {
+  //   getData();
+  // }, []);
+  console.log(datas);
   return (
     <div
       style={{
@@ -45,18 +46,18 @@ const SearchPackageBanner = () => {
           overflow: "scroll",
         }}
       >
-        {data.map((data) => (
+        {datas?.data?.map((data) => (
           <Link
-            to={`/package/${data.id}`}
+            to={`/package/${data.package_id}`}
             style={{
               textDecoration: "none",
               color: "black",
             }}
           >
             <Package
-              image={data.poster_path}
-              title={data.name}
-              price={data.price}
+              image={data.package_album[0]}
+              title={data.package_name}
+              price={data.package_price}
               data={data}
               height="330px"
             />
@@ -69,17 +70,19 @@ const SearchPackageBanner = () => {
           marginTop: "1rem",
         }}
       >
-        <Button
-          variant="outlined"
-          style={{
-            color: "#455437",
-            borderColor: "#455437",
-            width: "262px",
-            height: "55px",
-          }}
-        >
-          Browse All The Packages
-        </Button>
+        <Link to="searchdetail/packages" style={{ textDecoration: "none" }}>
+          <Button
+            variant="outlined"
+            style={{
+              color: "#455437",
+              borderColor: "#455437",
+              width: "262px",
+              height: "55px",
+            }}
+          >
+            Browse All The Packages
+          </Button>
+        </Link>
       </div>
     </div>
   );

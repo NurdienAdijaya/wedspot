@@ -3,17 +3,17 @@ import Venue from "../card/Venue";
 import TitleBar from "../TitleBar";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getOrganizerHome } from "../../store/action/package";
 import { CircularProgress } from "@material-ui/core";
+import { getAllVendor } from "../../store/action/vendor";
 
 const HomeVendorBanner = () => {
   const dispatch = useDispatch();
-  const { packages, isLoading } = useSelector(
-    (state) => state.packages.listOrganizerExample
+  const { vendors, isLoading } = useSelector(
+    (state) => state.vendors.allVendorList
   );
 
   useEffect(() => {
-    dispatch(getOrganizerHome());
+    dispatch(getAllVendor());
   }, [dispatch]);
 
   // const [data, setData] = useState([]);
@@ -31,8 +31,6 @@ const HomeVendorBanner = () => {
   //   getData();
   // }, []);
 
-
-
   return (
     <div
       style={{
@@ -46,6 +44,7 @@ const HomeVendorBanner = () => {
         mb={"2rem"}
         title={"Best Planner for You"}
         description={"Handle all the nitty gritties for your big day"}
+        link="searchdetail/organizer"
       />
       {isLoading ? (
         <div style={{ width: "100%", textAlign: "center" }}>
@@ -60,20 +59,21 @@ const HomeVendorBanner = () => {
               overflow: "scroll",
             }}
           >
-            {packages?.data?.map((data, index) => (
+            {vendors?.data?.map((data, index) => (
               <Link
                 key={index}
-                to={`/vendor/${data.package_id}`}
+                to={`/vendor/${data.vendor_id}`}
                 style={{
                   textDecoration: "none",
                   color: "black",
                 }}
               >
                 <Venue
-                  image={data.package_album[0]}
-                  title={data.package_name}
-                  location={data.package_location}
-                  rating={data.package_rating}
+                  // image={`https://source.unsplash.com/640x480?wedding?`}
+                  image={data.vendor_header}
+                  title={data.vendor_name}
+                  location={data.vendor_location}
+                  rating={data.vendor_rating}
                   width="300px"
                 />
               </Link>
