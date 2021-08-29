@@ -49,17 +49,17 @@ const HomeVenueBanner = () => {
             {packages?.data?.map((data, index) => (
               <Link
                 key={index}
-                to={`/package/${data.package_id}`}
+                to={`/package/${data.vendor_id}`}
                 style={{
                   textDecoration: "none",
                   color: "black",
                 }}
               >
                 <Venue
-                  image={data.package_album[0]}
-                  title={data.package_name}
-                  location={data.package_location}
-                  rating={data.package_rating}
+                  image={data.vendor_header}
+                  title={data.vendor_name}
+                  location={data.vendor_location}
+                  rating={data.vendor_rating}
                   width="300px"
                 />
               </Link>

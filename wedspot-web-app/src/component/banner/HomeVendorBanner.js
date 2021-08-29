@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { CircularProgress } from "@material-ui/core";
 import { getAllVendor } from "../../store/action/vendor";
+import { getOrganizerHome } from "../../store/action/package";
 
 const HomeVendorBanner = () => {
   const dispatch = useDispatch();
