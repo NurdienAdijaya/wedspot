@@ -17,6 +17,7 @@ import Close from "@material-ui/icons/Close";
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 800,
+    height:"650px"
   },
   media: {
     height: 0,
@@ -74,8 +75,8 @@ export default function DownloadQuotation({onClick}) {
           {/* <Typography className={classes.text} style={{ fontSize: "30px" }}>
             Quotation Request
           </Typography> */}
-          <div className="container-1" style={{display:"flex", marginTop:"100px"}} id="transition-modal-description">
-          <div className="content" style={{marginLeft:"30px"}}>
+          <div className="container-1" style={{display:"flex",justifyContent:"flex-start", marginTop:"100px"}} id="transition-modal-description">
+          <div className="content">
               <Avatar aria-label="recipe" className={classes.avatar}>
                 R
               </Avatar>
@@ -87,7 +88,7 @@ export default function DownloadQuotation({onClick}) {
           </div>
           </div>
           <CardContent className={classes.cardContent}>
-            <div className="main-container" style={{display:"flex", justifyContent:"space-between", alignItems:"start", textAlign:"center"}}>
+            <div className="main-container" style={{display:"flex", justifyContent:"space-between", alignItems:"start", textAlign:"center", marginTop:"20px"}}>
               <div className="list-main">
                 <h6 style={{color:"#a0a0a0"}}>Bride to be</h6>
                 <p>Rara Sekar</p>
@@ -102,19 +103,19 @@ export default function DownloadQuotation({onClick}) {
               </div>
             </div>
             <hr className="underline" style={{width:"100%",height:"1px",color:"#FF0000",size:"3"}}></hr>
-            <div className="main-container" style={{display:"flex", justifyContent:"space-between", marginRight:"200px"}}>
+            <div className="main-container" style={{display:"flex", justifyContent:"space-between", marginRight:"190px"}}>
               <div className="list-body">
                 <h6 style={{color:"#a0a0a0"}}>Wedding Location</h6>
                 <p>Bandung</p>
               </div>
-              <div className="list-body" style={{marginRight:"10px"}}>
+              <div className="list-body">
                 <h6 style={{color:"#a0a0a0"}}>Wedding Date</h6>
                 <p>23/10/2021</p>
               </div>
             </div>
-            <div className="main-container" style={{display:"flex", justifyContent:"space-between", marginRight:"200px", marginBottom:"30px"}}>
+            <div className="main-container" style={{display:"flex", justifyContent:"space-between", marginRight:"160px", marginTop:"50px"}}>
               <div className="list-footer">
-                <h6 style={{color:"#a0a0a0"}}>Budget</h6>
+                <h6 style={{color:"#a0a0a0",}}>Budget</h6>
                 <p>Rp.60.000.000</p>
               </div>
               <div className="list-footer1">
@@ -127,7 +128,7 @@ export default function DownloadQuotation({onClick}) {
             fullWidth
             variant="contained"
             color="primary"
-            className={classes.submit}
+            style={{marginTop:"100px"}}
           >
             Download Quotation
           </Button>
