@@ -7,8 +7,8 @@ import Package from "../../component/card/Package";
 import { useParams } from "react-router-dom";
 
 function DetailPage() {
-  const params = useParams()
-  console.log(params)
+  const params = useParams();
+  console.log(params);
 
   return (
     <div>
