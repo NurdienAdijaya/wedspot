@@ -64,7 +64,6 @@ const userData = (state = initialState, action) => {
       case types.GET_USER_FAIL:
         return {
           ...state,
-          isSuccess:false,
         };  
     case types.UPDATE_PROFILE_PENDING:
       return{

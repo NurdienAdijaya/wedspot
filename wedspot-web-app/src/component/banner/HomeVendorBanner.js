@@ -57,6 +57,7 @@ const HomeVendorBanner = () => {
               display: "flex",
               flexWrap: "nowrap",
               overflow: "scroll",
+              overflowY:"hidden"
             }}
           >
             {vendors?.data?.map((data, index) => (

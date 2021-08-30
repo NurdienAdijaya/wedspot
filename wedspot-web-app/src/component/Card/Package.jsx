@@ -9,7 +9,7 @@ import NumberFormat from "react-number-format";
 
 const useStyles = makeStyles({
   root: {
-    width: "300px",
+    width: "350px",
     height: "100%",
     margin: "1rem",
     background: "white",
@@ -42,10 +42,10 @@ export default function Package({ image, title, price, data, height }) {
       >
         <CardMedia
           className={classes.media}
-          // image={`${image}?${Math.floor(Math.random() * 10000)}`}
-          image={`https://source.unsplash.com/640x480?wedding?${Math.floor(
-            Math.random() * 10000
-          )}`}
+          image={image}
+          // image={`https://source.unsplash.com/640x480?wedding?${Math.floor(
+          //   Math.random() * 10000
+          // )}`}
           title={title}
         />
         <CardContent

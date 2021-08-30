@@ -44,6 +44,7 @@ const HomeVenueBanner = () => {
               display: "flex",
               flexWrap: "nowrap",
               overflow: "scroll",
+              overflowY:"hidden"
             }}
           >
             {packages?.data?.map((data, index) => (

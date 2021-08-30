@@ -4,17 +4,17 @@ import { BASE_URL } from "../const/server";
 import { put, takeEvery } from "redux-saga/effects";
 
 function* vendorsDetail({id}) {
-    console.log(id)
   try {
     const res = yield axios.get(`${BASE_URL}/vendors/${id}`);
     yield put({
       type: types.GET_DETAIL_VENDOR_SUCCESS,
-      payload: res.data,
+      payload: res.data.data,
     });
   } catch (error) {
-    console.log(error);
+    console.log("ini error vendor detail", error);
     yield put({
       type: types.GET_DETAIL_VENDOR_FAIL,
+      payload:error.response
     });
   }
 }

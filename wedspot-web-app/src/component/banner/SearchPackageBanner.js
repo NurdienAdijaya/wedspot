@@ -44,6 +44,7 @@ const SearchPackageBanner = (datas) => {
           display: "flex",
           flexWrap: "nowrap",
           overflow: "scroll",
+          overflowY:"hidden"
         }}
       >
         {datas?.data?.map((data) => (

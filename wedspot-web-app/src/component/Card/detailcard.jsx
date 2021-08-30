@@ -31,6 +31,7 @@ const useStyles = makeStyles((theme) => ({
   },
   text: {
     fontSize: "1em",
+    paddingLeft:"10px"
   },
   logo: {
     display: "flex",
@@ -53,45 +54,61 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export function VendorCard() {
+export function VendorCard({
+  avatar,
+  name,
+  rating,
+  minprice,
+  maxprice,
+  location,
+  min,
+  max,
+  phone,
+  email,
+  web
+}) {
   const classes = useStyles();
+  const { isSuccess } = useSelector((state) => state.userData);
+  const [show, setShow] = useState(false);
+  const openModal = () => setShow(true);
+  const closeModal = () => setShow(false);
 
   return (
     <div>
       <Card className={classes.root}>
         <CardHeader
-          avatar={<h1>foto</h1>}
-          title={<h4>Nama Vendor</h4>}
-          subheader={<Rating name="read-only" value="3" readOnly />}
+          avatar={<Avatar alt="avatar" src={avatar} />}
+          title={<h4>{name}</h4>}
+          subheader={<Rating name="read-only" value={rating} readOnly />}
         />
         <Divider variant="middle" className={classes.hr} />
         <CardContent>
           <p className={classes.text}>
-            <Room />
-            (Lokasi)
+            <Room className="me-2"/>
+            {location}
           </p>
           <p className={classes.text}>
-            <Person />
-            (min) - (max) pax
+            <Person className="me-2"/>
+            {min} - {max} pax
           </p>
           <p className={classes.text}>
-            <AttachMoney />
-            start from Rp(harga)
+            <AttachMoney className="me-2"/>
+            Rp.{minprice} - Rp.{maxprice}++
           </p>
         </CardContent>
         <Divider variant="middle" className={classes.hr} />
         <CardContent>
           <p className={classes.text}>
-            <Phone />
-            (nomor hp)
+            <Phone className="me-2"/>
+            {phone}
           </p>
           <p className={classes.text}>
-            <Mail />
-            (email)
+            <Mail className="me-2"/>
+            {email}
           </p>
           <p className={classes.text}>
-            <Language />
-            (website)
+            <Language className="me-2"/>
+            {web}
           </p>
         </CardContent>
         <Divider variant="middle" className={classes.hr} />
@@ -110,16 +127,56 @@ export function VendorCard() {
           </div>
         </Container>
         <Container className="pb-3">
-          <Button
+        <Button
+            onClick={openModal}
             type="submit"
             variant="contained"
             color="primary"
             className={classes.btn}
-            style={{ root: classes.root }}
           >
             ask for quotation
           </Button>
         </Container>
+        {isSuccess ? (
+          <>
+            <Dialog open={show} onClose={closeModal}>
+              <h1 className={classes.close} onClick={closeModal}>
+                x
+              </h1>
+              <DialogContent>
+                <RequestQuotation />
+              </DialogContent>
+              <DialogActions>
+                <Button
+                  onClick={closeModal}
+                  variant="contained"
+                  color="primary"
+                  className={classes.button}
+                >
+                  save changes
+                </Button>
+              </DialogActions>
+            </Dialog>
+          </>
+        ) : (
+          <>
+            <Dialog open={show} onClose={closeModal}>
+              <DialogContent>
+                <h1>Please Login Before Request A Quotation</h1>
+              </DialogContent>
+              <DialogActions>
+                <Button
+                  onClick={closeModal}
+                  variant="contained"
+                  color="primary"
+                  className={classes.button}
+                >
+                  OK
+                </Button>
+              </DialogActions>
+            </Dialog>
+          </>
+        )}
       </Card>
     </div>
   );
@@ -152,15 +209,15 @@ export function PackageDetailCard({
         <Divider variant="middle" className={classes.hr} />
         <CardContent>
           <p className={classes.text}>
-            <Room />
+            <Room className="me-2"/>
             {location}
           </p>
           <p className={classes.text}>
-            <Person />
+            <Person className="me-2"/>
             {min} - {max} pax
           </p>
           <p className={classes.text}>
-            <AttachMoney />
+            <AttachMoney className="me-2"/>
             start from Rp.{price}
           </p>
         </CardContent>
