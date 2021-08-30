@@ -36,6 +36,7 @@ function Login() {
             type="email"
             className="form-control rounded-4"
             id="floatingInput"
+
             placeholder="email"
             onChange={(e) => 
               setLogin({ ...login, email: e.target.value })

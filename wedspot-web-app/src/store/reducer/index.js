@@ -1,6 +1,7 @@
 import { combineReducers } from "redux";
 import userData from "./user";
 import packages from "./package";
+import quotation from "./quotation";
 import vendors from "./vendor";
 import search from "./search";
 import vendorDetail from "./vendordetail";
@@ -10,6 +11,7 @@ import config from "./config";
 export default combineReducers({
   userData,
   packages,
+  quotation,
   vendors,
   search,
   vendorDetail,

@@ -6,6 +6,7 @@ import HomeSearch from "../pages/search/search1";
 import DetailPage from "../pages/vendor/detail";
 import PackageDetail from "../pages/vendor/package";
 import Sidebar from "../pages/profile/sidebar";
+import VerticalTabs from "../pages/profile/notification";
 import SearchPage from "../pages/search/search2";
 import ProfileHeader from "../pages/profile/header";
 
@@ -48,6 +49,8 @@ const Routers = () => {
         <Route path="/account">
           <ProfileHeader />
           <Sidebar />
+          {/* < SimpleTabs/> */}
+          {/* <VerticalTabs /> */}
         </Route>
         <Route path="*">not found</Route>
       </Switch>

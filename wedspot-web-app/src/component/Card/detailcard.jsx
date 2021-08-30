@@ -1,4 +1,4 @@
-import React,{ useState} from "react";
+import React from "react";
 import Card from "@material-ui/core/Card";
 import {
   Room,
@@ -18,6 +18,11 @@ import facebook from "./icon/facebook.png";
 import twitter from "./icon/twitter.png";
 import instagram from "./icon/instagram.png";
 import { Container } from "@material-ui/core";
+import Modal from '@material-ui/core/Modal';
+import Backdrop from '@material-ui/core/Backdrop';
+import Fade from '@material-ui/core/Fade';
+import RequestQuotation from "../Quatationform/requestquotation";
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -35,6 +40,17 @@ const useStyles = makeStyles((theme) => ({
   btn: {
     width: "inherit",
     height: "55px",
+  },
+  modal: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  paper: {
+    backgroundColor: theme.palette.background.paper,
+    // border: '2px solid #000',
+    // boxShadow: theme.shadows[5],
+    // padding: theme.spacing(2, 4, 3),
   },
 }));
 
@@ -111,10 +127,17 @@ export function VendorCard() {
 }
 
 export function PackageDetailCard() {
-  const [show, setShow] = useState(false);
-  const openModal = () => setShow(true);
-  const closeModal = () => setShow(false);
   const classes = useStyles();
+  const [open, setOpen] = React.useState(false);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
     <div>
       <Card className={classes.root}>
@@ -148,14 +171,35 @@ export function PackageDetailCard() {
             </ul>
         </CardContent>
         <Container className="pb-3">
-          {!show &&<Button onClick={openModal}
+          <Button
             type="submit"
             variant="contained"
             color="primary"
             className={classes.btn}
+            onClick={handleOpen}
           >
             ask for quotation
-          </Button>}
+          </Button>
+          <Modal
+        aria-labelledby="transition-modal-title"
+        aria-describedby="transition-modal-description"
+        className={classes.modal}
+        open={open}
+        onClose={handleClose}
+        closeAfterTransition
+        BackdropComponent={Backdrop}
+        BackdropProps={{
+          timeout: 500,
+        }}
+      >
+            <Fade in={open}>
+          <div className={classes.paper}>
+            < RequestQuotation
+              onClick ={handleClose}
+            />
+          </div>
+        </Fade>
+           </Modal>
         </Container>
       </Card>
     </div>
