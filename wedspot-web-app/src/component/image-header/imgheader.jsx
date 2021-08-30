@@ -12,24 +12,30 @@ const useStyles = makeStyles((theme) => ({
     color: "white",
   },
   size: {
-    // filter:"brightness(50%)",
-    backgroundImage: `url(${"https://source.unsplash.com/1440x420/?wedding,hall"})`,
-    backgroundSize: "cover",
     color: "white",
+    height:"500px",
   },
   tittle: {
-    height: "420px",
+    height:"75%",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
   },
+  img:{
+    position:"absolute",
+    zIndex:"-1",
+    width:"100vw",
+    height:"500px",
+    filter: "brightness(50%)"
+  }
 }));
 
-export function ImageHeader() {
+export function ImageHeader({type, name, header}) {
   const classes = useStyles();
   return (
-    <div className={classes.size}>
-      <Container className="pt-3">
+    <div className={classes.size} >
+      <img src={header} alt="header" className={classes.img}/>
+      <Container className="pt-3" >
         <Breadcrumbs
           aria-label="breadcrumb"
           className={classes.bread}
@@ -41,16 +47,16 @@ export function ImageHeader() {
             <p>search result</p>
           </Link>
           <Link color="inherit" href="/">
-            type
+            {type}
           </Link>
           <Typography color="white" className={classes.cormorant}>
-            nama vendor
+            {name}
           </Typography>
         </Breadcrumbs>
       </Container>
       <div className={classes.tittle}>
         <Typography variant="h1" component="h2">
-          Nama Vendor
+          {name}
         </Typography>
       </div>
     </div>

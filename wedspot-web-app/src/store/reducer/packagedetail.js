@@ -1,7 +1,7 @@
 import * as types from "../const/types";
 
 const initialState = {
-  isLoading: false,
+  isLoading: true,
   isSuccess: false,
   data: [],
 };
@@ -24,7 +24,7 @@ const packageDetail = (state = initialState, action) => {
     case types.GET_DETAIL_PACKAGE_FAIL:
       return {
         ...state,
-        isLoading:false,
+        isLoading:true,
         isSuccess:false,
         data:payload
       };

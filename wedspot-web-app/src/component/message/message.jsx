@@ -25,6 +25,10 @@ export function FailedMessage({message}) {
   const [show, setShow] = useState(true);
   const {  isLoading } = useSelector((state) => state.userData);
 
+  useEffect(() => {
+   setShow(true)
+  }, [isLoading])
+
   
   return (
     <div className="position">
