@@ -6,7 +6,7 @@ import Package from "../../component/card/Package";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getVendorId } from "../../store/action/detail";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 function DetailPage() {
   const { id } = useParams();
