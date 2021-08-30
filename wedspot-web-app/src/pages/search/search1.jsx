@@ -7,6 +7,10 @@ import Venue from "../../component/card/Venue";
 import NoresultHand from "../../component/noresult/NoresultHand";
 import SearchTitle from "../../component/search/SearchTitle";
 import TitleBar from "../../component/TitleBar";
+import NoresultPhone from "../../component/noresult/NoresultPhone";
+import NoresultBell from "../../component/noresult/NoresultBell";
+
+import { getPackagesSearch } from "../../store/action/package";
 import {
   getOrganizerSearch,
   getPackageSearch,
@@ -50,6 +54,25 @@ const HomeSearch = () => {
     <div>
       <HomeSearchBanner />
       <SearchTitle />
+      <SearchPackageBanner />
+      <NoresultBell title="coba title" description="coba description" />
+      <NoresultHand
+        title="coba title tangan"
+        description="coba description tangan"
+      />
+      <NoresultPhone
+        title="coba title phone"
+        description="coba description phone"
+      />
+      <NoresultBell title="coba title" description="coba description" />
+      <NoresultHand
+        title="coba title tangan"
+        description="coba description tangan"
+      />
+      <NoresultPhone
+        title="coba title phone"
+        description="coba description phone"
+      />
       {/* <SearchPackageBanner datas={resultPackages} /> */}
       <div
         style={{
@@ -62,7 +85,7 @@ const HomeSearch = () => {
           style={{
             display: "flex",
             flexWrap: "nowrap",
-            overflow: "scroll",
+            overflowX: "scroll",
           }}
         >
           {resultPackages?.data?.map((data) => (
@@ -95,7 +118,7 @@ const HomeSearch = () => {
           style={{
             display: "flex",
             flexWrap: "nowrap",
-            overflow: "scroll",
+            overflowX: "scroll",
           }}
         >
           {resultOrganizers?.data?.map((data) => (

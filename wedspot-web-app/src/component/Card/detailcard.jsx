@@ -21,6 +21,10 @@ import instagram from "./icon/instagram.png";
 import { Container, Avatar } from "@material-ui/core";
 import RequestQuotation from "../Quatationform/requestquotation";
 import { useSelector } from "react-redux";
+import Modal from '@material-ui/core/Modal';
+import Backdrop from '@material-ui/core/Backdrop';
+import Fade from '@material-ui/core/Fade';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -51,6 +55,17 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     margin: "1em",
     height: "55px",
+  },
+  modal: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  paper: {
+    backgroundColor: theme.palette.background.paper,
+    // border: '2px solid #000',
+    // boxShadow: theme.shadows[5],
+    // padding: theme.spacing(2, 4, 3),
   },
 }));
 
@@ -240,8 +255,28 @@ export function PackageDetailCard({
           >
             ask for quotation
           </Button>
+          <Modal
+        aria-labelledby="transition-modal-title"
+        aria-describedby="transition-modal-description"
+        className={classes.modal}
+        open={show}
+        onClose={closeModal}
+        closeAfterTransition
+        BackdropComponent={Backdrop}
+        BackdropProps={{
+          timeout: 500,
+        }}
+      >
+            <Fade in={show}>
+          <div className={classes.paper}>
+            < RequestQuotation
+              onClick ={closeModal}
+            />
+          </div>
+        </Fade>
+           </Modal>
         </Container>
-        {isSuccess ? (
+        {/* {isSuccess ? (
           <>
             <Dialog open={show} onClose={closeModal}>
               <h1 className={classes.close} onClick={closeModal}>
@@ -280,7 +315,7 @@ export function PackageDetailCard({
               </DialogActions>
             </Dialog>
           </>
-        )}
+        )} */}
       </Card>
     </div>
   );

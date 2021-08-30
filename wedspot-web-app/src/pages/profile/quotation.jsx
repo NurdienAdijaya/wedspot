@@ -13,6 +13,8 @@ import DownloadQuotation from "../../component/card/quotation/DownloadQuotationm
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
+import ButtonSecondary from "../../component/buttons/ButtonSecondary";
+import QutationNotif from "../../component/card/quotation/quotationnotifmodal";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -51,6 +53,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     backgroundColor: "none",
+    padding:"25px"
   },
   modal: {
     display: 'flex',
@@ -77,7 +80,6 @@ export default function Quotation({ rating, image }) {
     setOpen(false);
   };
 
-  const [ showquo, setShowQuo] = useState(false)
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
@@ -99,10 +101,10 @@ export default function Quotation({ rating, image }) {
         <Tab label="Sent" {...a11yProps(1)} />
       </Tabs>
       <TabPanel value={value} index={0}>
-        <div style={{ display: "flex" }}>
+        <div style={{ display: "flex", flexDirection:"row", justifyContent:"space-between", alignItems:"baseline" }}>
           <div
             className="container-1"
-            style={{ display: "flex", marginTop: "100px" }}
+            style={{ display: "flex", flexDirection:"row", justifyContent:"space-between", alignItems:"center"}}
           >
             <div className="content" style={{ marginLeft: "30px" }}>
               <Avatar
@@ -124,34 +126,19 @@ export default function Quotation({ rating, image }) {
                   marginTop: "none",
                 }}
               >
-                <Rating
-                  name="half-rating-read"
-                  defaultValue={rating}
-                  precision={0.5}
-                  readOnly
-                  style={{
-                    paddingTop: "1.6rem",
-                    marginRight: "1rem",
-                  }}
-                />
-                <h5>{rating}/5</h5>
+             <Rating name="read-only" value="3" readOnly />
               </div>
               <h1 style={{ marginTop: "0px", fontSize: "10px" }}>
                 Saturday, 25th Feb 21|16:09
               </h1>
             </div>
           </div>
-            <button
-              onClick={handleOpen}
-              style={{
-                marginLeft: "570px",
-                marginTop: "100px",
-                width: "90px",
-                height: "40px",
-              }}
-            >
-              Details
-            </button>
+          < ButtonSecondary
+          width="110px"
+          content="Details"
+          height="36px"
+          onClick={handleOpen}
+          />
             <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
@@ -173,15 +160,15 @@ export default function Quotation({ rating, image }) {
         </Fade>
       </Modal>
         </div>
-        <a href="download" style={{ marginLeft: "820px", marginTop: "0px" }}>
+        <a href="download" style={{marginLeft:"800px"}}>
           Quotation attached
         </a>
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <div style={{ display: "flex" }}>
+        <div style={{ display: "flex", flexDirection:"row", justifyContent:"space-between", alignItems:"baseline" }}>
           <div
             className="container-1"
-            style={{ display: "flex", marginTop: "100px" }}
+            style={{ display: "flex", flexDirection:"row", justifyContent:"space-between", alignItems:"center"}}
           >
             <div className="content" style={{ marginLeft: "30px" }}>
               <Avatar
@@ -202,7 +189,13 @@ export default function Quotation({ rating, image }) {
               </h1>
             </div>
           </div>
-          <button
+          < ButtonSecondary
+          width="110px"
+          content="Details"
+          height="36px"
+          onClick={handleOpen}
+          />
+          {/* <button
             onClick={handleOpen}
             style={{
               marginLeft: "570px",
@@ -212,7 +205,7 @@ export default function Quotation({ rating, image }) {
             }}
           >
             Details
-          </button>
+          </button> */}
           <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
@@ -227,7 +220,7 @@ export default function Quotation({ rating, image }) {
       >
         <Fade in={open}>
           <div className={classes.paper}>
-            < DownloadQuotation 
+            < QutationNotif 
             onClick ={handleClose}
             />
           </div>

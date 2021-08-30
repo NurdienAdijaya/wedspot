@@ -60,8 +60,7 @@ const PackageBanner = () => {
             style={{
               display: "flex",
               flexWrap: "nowrap",
-              overflow: "scroll",
-              overflowY:"hidden"
+              overflowX: "scroll",
             }}
           >
             {packages?.data?.map((data, index) => (

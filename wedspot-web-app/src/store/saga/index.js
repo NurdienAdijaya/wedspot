@@ -7,10 +7,12 @@ import {
   watchGetOrganizerSearch,
   watchGetPackageSearch,
 } from "./package";
+import { watchGetQuotationInbox, watchGetQuotationSent } from "./quotation";
 import { watchGetSearch } from "./search";
 import { watchGetAllVendor } from "./vendor";
 import { watchLogin, watchRegister, watchGetUser } from "./user";
 import { watchPackageId, watchVendorId } from "./detail";
+import { watchGetLocation } from "./config";
 
 export default function* rootSaga() {
   // function generator
@@ -28,5 +30,8 @@ export default function* rootSaga() {
     watchGetUser(),
     watchPackageId(),
     watchVendorId(),
+    watchGetQuotationInbox(),
+    watchGetQuotationSent(),
+    watchGetLocation(),
   ]);
 }
