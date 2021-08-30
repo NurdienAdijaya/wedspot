@@ -62,7 +62,7 @@ const HomeSearch = () => {
           style={{
             display: "flex",
             flexWrap: "nowrap",
-            overflow: "scroll",
+            overflowX: "scroll",
           }}
         >
           {resultPackages?.data?.map((data) => (
@@ -95,7 +95,7 @@ const HomeSearch = () => {
           style={{
             display: "flex",
             flexWrap: "nowrap",
-            overflow: "scroll",
+            overflowX: "scroll",
           }}
         >
           {resultOrganizers?.data?.map((data) => (
