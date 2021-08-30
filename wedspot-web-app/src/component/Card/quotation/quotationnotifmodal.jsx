@@ -13,10 +13,12 @@ import { color } from "@material-ui/system";
 import { Button } from "@material-ui/core";
 import CloseIcon from '@material-ui/icons/Close';
 import Close from "@material-ui/icons/Close";
+import NotificationImportantIcon from '@material-ui/icons/NotificationImportant';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 800,
+    height:"550px"
   },
   media: {
     height: 0,
@@ -50,9 +52,9 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function DownloadQuotation(props) {
-  const { show, closeModal } = props;
+export default function QutationNotif({onClick}) {
   const classes = useStyles();
+  
 
   return (
     <Container component="main" maxWidth="sm">
@@ -61,20 +63,29 @@ export default function DownloadQuotation(props) {
       <div className="title">
         <div className="closeIcon">
           <IconButton
-          className={show ? "modal" : "hide"}
-          onClick={closeModal}
-          aria-label="close">
+          className={classes.icon}
+          aria-label="close"
+          onClick={onClick}
+          >
             <Close/>
           </IconButton>
         </div>
       <div style={{textAlign:"start"}}>
-        <h1>Request Quotation</h1>
+        <h1 id="transition-modal-title">Request Quotation</h1>
+        </div>
+        <div style={{display:"flex", flexDirection:"row", alignItems:"baseline",backgroundColor:"#FEE5DB",width:"500px", padding:"20px"}}>
+        <div>
+          < NotificationImportantIcon/>
+        </div>
+        <div>
+        <p style={{marginLeft:"10px"}}>Vendor will notify you once they have sent you the quotation. You will get the quotation on the Inbox tab.</p>
+        </div>
         </div>
           {/* <Typography className={classes.text} style={{ fontSize: "30px" }}>
             Quotation Request
           </Typography> */}
-          <div className="container-1" style={{display:"flex", marginTop:"100px"}}>
-          <div className="content" style={{marginLeft:"30px"}}>
+          <div className="container-1" style={{display:"flex",justifyContent:"flex-start", marginTop:"20px"}} id="transition-modal-description">
+          <div className="content">
               <Avatar aria-label="recipe" className={classes.avatar}>
                 R
               </Avatar>
@@ -86,7 +97,7 @@ export default function DownloadQuotation(props) {
           </div>
           </div>
           <CardContent className={classes.cardContent}>
-            <div className="main-container" style={{display:"flex", justifyContent:"space-between", alignItems:"start", textAlign:"center"}}>
+            <div className="main-container" style={{display:"flex", justifyContent:"space-between", alignItems:"start", textAlign:"center", marginTop:"20px"}}>
               <div className="list-main">
                 <h6 style={{color:"#a0a0a0"}}>Bride to be</h6>
                 <p>Rara Sekar</p>
@@ -101,19 +112,19 @@ export default function DownloadQuotation(props) {
               </div>
             </div>
             <hr className="underline" style={{width:"100%",height:"1px",color:"#FF0000",size:"3"}}></hr>
-            <div className="main-container" style={{display:"flex", justifyContent:"space-between", marginRight:"200px"}}>
+            <div className="main-container" style={{display:"flex", justifyContent:"space-between", marginRight:"190px"}}>
               <div className="list-body">
                 <h6 style={{color:"#a0a0a0"}}>Wedding Location</h6>
                 <p>Bandung</p>
               </div>
-              <div className="list-body" style={{marginRight:"10px"}}>
+              <div className="list-body">
                 <h6 style={{color:"#a0a0a0"}}>Wedding Date</h6>
                 <p>23/10/2021</p>
               </div>
             </div>
-            <div className="main-container" style={{display:"flex", justifyContent:"space-between", marginRight:"200px", marginBottom:"30px"}}>
+            <div className="main-container" style={{display:"flex", justifyContent:"space-between", marginRight:"160px", marginTop:"50px"}}>
               <div className="list-footer">
-                <h6 style={{color:"#a0a0a0"}}>Budget</h6>
+                <h6 style={{color:"#a0a0a0",}}>Budget</h6>
                 <p>Rp.60.000.000</p>
               </div>
               <div className="list-footer1">
@@ -121,15 +132,6 @@ export default function DownloadQuotation(props) {
                 <p>200 pax</p>
               </div>
             </div>
-            <Button
-            type="Send Request"
-            fullWidth
-            variant="contained"
-            color="primary"
-            className={classes.submit}
-          >
-            Download Quotation
-          </Button>
           </CardContent>
       </div>
     </div>

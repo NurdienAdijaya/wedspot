@@ -81,7 +81,6 @@ function* userUpdateProfile(action) {
 }
 
 function* getUser() {
-  console.log(`Bearer ${token}`)
   try {
     const res = yield axios.get(`${BASE_URL}/user/getprofil`,
     {headers:{Authorization: `Bearer ${token}`}});
