@@ -70,7 +70,7 @@ function* userUpdateProfile(action) {
     }} );
     yield put({
       type: types.UPDATE_PROFILE_SUCCESS,
-      payload: res.new_data,
+      payload: res.data.new_data,
     });
   } catch (error) {
     yield put({
@@ -86,7 +86,7 @@ function* getUser() {
     {headers:{Authorization: `Bearer ${token}`}});
     yield put({
       type: types.GET_USER_SUCCESS,
-      payload: res.data,
+      payload: res.data.data,
     });
   } catch (error) {
     yield put({
@@ -98,6 +98,10 @@ function* getUser() {
 
 export function* watchLogin() {
   yield takeEvery(types.LOGIN_PENDING, userLogin);
+}
+
+export function* watchUpdateProfile(){
+  yield takeEvery(types.UPDATE_PROFILE_PENDING, userUpdateProfile)
 }
 
 export function* watchRegister() {

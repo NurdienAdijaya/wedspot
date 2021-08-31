@@ -1,22 +1,15 @@
-import React, {useEffect} from "react";
+import React from "react";
 import logo from "../image/Logo.png";
 import SignIn from "./modal/modal";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Nav, Navbar, Container } from "react-bootstrap";
+import { Nav, Navbar} from "react-bootstrap";
 import { AvatarIcon, Notif } from "./dropdown/login";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { getUser } from "../../store/action/user";
 
 function Header({ background = "white" }) {
-  const dispatch = useDispatch()
-  const { isSuccess, data } = useSelector((state) => state.userData);
+  const { data } = useSelector((state) => state.userData);
   const token = localStorage.getItem('token')
-
-
-  useEffect(() => {
-   dispatch(getUser())
-  }, [])
 
   return (
     <div>

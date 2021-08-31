@@ -10,7 +10,7 @@ import {
 import { watchGetQuotationInbox, watchGetQuotationSent } from "./quotation";
 import { watchGetSearch } from "./search";
 import { watchGetAllVendor } from "./vendor";
-import { watchLogin, watchRegister, watchGetUser } from "./user";
+import { watchLogin, watchRegister, watchGetUser, watchUpdateProfile } from "./user";
 import { watchPackageId, watchVendorId } from "./detail";
 import { watchGetLocation } from "./config";
 
@@ -19,6 +19,7 @@ export default function* rootSaga() {
   yield all([
     watchLogin(),
     watchRegister(),
+    watchUpdateProfile(),
     watchGetVenueHome(),
     watchGetOrganizerHome(),
     watchGetPackagesHome(),

@@ -1,9 +1,11 @@
-import React from "react";
+import React, {useEffect} from "react";
 import "./App.css";
 import { ThemeProvider } from "@material-ui/core";
 import { BrowserRouter } from "react-router-dom";
 import Routers from "./routes/router";
 import { createTheme } from "@material-ui/core/styles";
+import {getUser} from './store/action/user'
+import { useDispatch } from "react-redux";
 
 function App() {
   const theme = createTheme({
@@ -19,6 +21,12 @@ function App() {
       },
     },
   });
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(getUser())
+   }, [])
 
   return (
     <ThemeProvider theme={theme}>
