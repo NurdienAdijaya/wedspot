@@ -11,6 +11,7 @@ const HomeVenueBanner = () => {
   const { packages, isLoading } = useSelector(
     (state) => state.packages.listVenueExample
   );
+  console.log("packages", packages);
 
   useEffect(() => {
     dispatch(getVenueHome());
@@ -49,7 +50,7 @@ const HomeVenueBanner = () => {
             {packages?.data?.map((data, index) => (
               <Link
                 key={index}
-                to={`/package/${data.vendor_id}`}
+                to={`/vendor/${data.vendor_id}`}
                 style={{
                   textDecoration: "none",
                   color: "black",

@@ -3,13 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import HomeSearchBanner from "../../component/banner/HomeSearchBanner";
 import SearchPackageBanner from "../../component/banner/SearchPackageBanner";
+import QuotationSent from "../../component/buttons/QuotationSent";
 import Venue from "../../component/card/Venue";
-import NoresultHand from "../../component/noresult/NoresultHand";
-import SearchTitle from "../../component/search/SearchTitle";
 import TitleBar from "../../component/TitleBar";
-import NoresultPhone from "../../component/noresult/NoresultPhone";
-import NoresultBell from "../../component/noresult/NoresultBell";
-
 import { getPackagesSearch } from "../../store/action/package";
 import {
   getOrganizerSearch,
@@ -19,9 +15,6 @@ import {
 
 const HomeSearch = () => {
   const { keyword, location } = useParams();
-  console.log("keyword", keyword);
-  console.log("location", location);
-
   const dispatch = useDispatch();
   const { resultPackages, packageLoading } = useSelector(
     (state) => state.packages.listPackageSearch
@@ -53,27 +46,44 @@ const HomeSearch = () => {
   return (
     <div>
       <HomeSearchBanner />
-      <SearchTitle />
-      <SearchPackageBanner />
-      <NoresultBell title="coba title" description="coba description" />
-      <NoresultHand
-        title="coba title tangan"
-        description="coba description tangan"
-      />
-      <NoresultPhone
-        title="coba title phone"
-        description="coba description phone"
-      />
-      <NoresultBell title="coba title" description="coba description" />
-      <NoresultHand
-        title="coba title tangan"
-        description="coba description tangan"
-      />
-      <NoresultPhone
-        title="coba title phone"
-        description="coba description phone"
-      />
-      {/* <SearchPackageBanner datas={resultPackages} /> */}
+      <div
+        style={{
+          margin: "2.5rem 9.1%",
+        }}
+      >
+        {keyword ? (
+          <p
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+            }}
+          >
+            Showing all search result for{" "}
+            <h5
+              style={{
+                margin: "0 0.2rem",
+              }}
+            >
+              {" "}
+              “{keyword}”{" "}
+            </h5>{" "}
+            in Wedspot
+          </p>
+        ) : null}
+        <div>
+          <Link to="/searchdetail/packages">
+            <QuotationSent background="white" content="Packages" />
+          </Link>
+          <Link to="/searchdetail/venue">
+            <QuotationSent background="white" content="Venue" />
+          </Link>
+          <Link to="/searchdetail/organizer">
+            <QuotationSent background="white" content="Wedding Organizer" />
+          </Link>
+        </div>
+      </div>
+      {/* <SearchPackageBanner /> */}
+      <SearchPackageBanner datas={resultPackages} />
       <div
         style={{
           padding: "0 9.1%",
@@ -123,7 +133,7 @@ const HomeSearch = () => {
         >
           {resultOrganizers?.data?.map((data) => (
             <Link
-              to={`/package/${data.vendor_id}`}
+              to={`/vendor/${data.vendor_id}`}
               style={{
                 textDecoration: "none",
                 color: "black",

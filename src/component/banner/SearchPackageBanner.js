@@ -46,7 +46,7 @@ const SearchPackageBanner = (datas) => {
           overflowX: "scroll",
         }}
       >
-        {datas?.data?.map((data) => (
+        {datas?.datas?.data?.map((data) => (
           <Link
             to={`/package/${data.package_id}`}
             style={{

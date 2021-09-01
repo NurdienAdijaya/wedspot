@@ -4,7 +4,7 @@ import { put, takeEvery } from "redux-saga/effects";
 import * as types from "../const/types";
 
 function* getVenueHome(actions) {
-  const { error, page = 50 } = actions;
+  const { error, page = 2 } = actions;
   try {
     const res = yield axios.get(
       `${BASE_URL}/vendors?page=${page}&limit=10&type=venue`
@@ -61,7 +61,7 @@ function* getVenueSearch(actions) {
   const { error, page = 1, body, location } = actions;
   try {
     const res = yield axios.get(
-      `${BASE_URL}/packages?page=${page}&limit=5&type=venue&search=${body}&location=${location}`
+      `${BASE_URL}/vendors?page=${page}&limit=5&type=venue&search=${body}&location=${location}`
     );
     yield put({
       type: types.GET_SEARCH_VENUE_SUCCESS,

@@ -35,7 +35,7 @@ function PackageDetail() {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
   const { data, isLoading } = useSelector((state) => state.packageDetail);
-  console.log(isLoading)
+  console.log("data", data);
 
   useEffect(() => {
     dispatch(getPackageId(id));
@@ -52,16 +52,15 @@ function PackageDetail() {
   return (
     <div>
       {isLoading ? (
-        <div style={{ width: "100vw", height:"100vh", textAlign: "center" }}>
+        <div style={{ width: "100vw", height: "100vh", textAlign: "center" }}>
           <CircularProgress color="secondary" />
         </div>
       ) : (
         <>
           <ImageHeader
             type={data?.package_vendor_id.vendor_type}
-            name={data?.package_vendor_id.vendor_name}
+            name={data?.package_name}
             header={data?.package_vendor_id.vendor_header}
-            
           />
           <Container className="pt-5 pb-5">
             <Grid container spacing={5}>
@@ -75,10 +74,11 @@ function PackageDetail() {
                     Back to All package
                   </Link>
                 </div>
-                <h1 className="pb-3 pt-5">Nama Package</h1>
+                <h1 className="pt-5">{data?.package_name}</h1>
+                <p className="mb-4">{`by ${data?.package_vendor_id.vendor_name}`}</p>
                 <h4>Details</h4>
                 <p className="pb-3 pe-3">{data?.package_details}</p>
-                <h3 className="pb-2">Take a look inside Gedong Putih</h3>
+                <h3 className="pb-2">{`Take a look inside ${data?.package_name}`}</h3>
                 <Grid container spacing={5}>
                   {data.package_album.map((img, idx) => (
                     <Grid item xs={6} key={idx}>

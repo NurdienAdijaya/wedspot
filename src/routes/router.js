@@ -20,7 +20,8 @@ const Routers = () => {
         location.pathname !== "/search/:keyword/:location" &&
         location.pathname !== "/account" &&
         location.pathname !== "/account/notification" &&
-        location.pathname !== "/account/quotation" && <Header />}
+        location.pathname !== "/account/quotation" &&
+        location.pathname !== "/account/download" && <Header />}
       <Switch>
         <Route exact path="/">
           <Homepage />
@@ -33,9 +34,6 @@ const Routers = () => {
         </Route>
         <Route path="/search">
           <HomeSearch />
-        </Route>
-        <Route exact path="/vendor/:id">
-          <DetailPage />
         </Route>
         <Route path="/searchdetail/:id">
           <SearchPage />
