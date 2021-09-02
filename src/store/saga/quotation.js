@@ -25,7 +25,7 @@ function* getQuotationInbox() {
 function* getQuotationSent() {
   console.log(`Bearer ${token}`);
   try {
-    const res = yield axios.get(`${BASE_URL}/quotations/user`, {
+    const res = yield axios.get(`${BASE_URL}/request/user`, {
       headers: { Authorization: `Bearer ${token}` },
     });
     yield put({
