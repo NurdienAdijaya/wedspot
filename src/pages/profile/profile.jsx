@@ -1,13 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   Container,
-  Avatar,
   makeStyles,
   Button,
   Grid,
   TextField,
-  Modal,
-  Typography,
 } from "@material-ui/core";
 import ChangePassword from "./changePasswordModal";
 import { useSelector, useDispatch } from "react-redux";
@@ -41,6 +38,23 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Profile() {
+  const uploadedImage = React.useRef(null);
+  const imageUploader = React.useRef(null);
+
+  const handleImageUpload = (e) => {
+    const [file] = e.target.files;
+    setAvatar(e.target.files[0])
+    if (file) {
+      const reader = new FileReader();
+      const { current } = uploadedImage;
+      current.file = file;
+      reader.onload = (e) => {
+        current.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
   const classes = useStyles();
   const [showChange, setShowChange] = useState(false);
   const dispatch = useDispatch();
@@ -49,14 +63,22 @@ export default function Profile() {
   const [email, setEmail] = useState(data.user_email || "");
   const [birthday, setBirthday] = useState(data.user_birthday || "");
   const [avatar, setAvatar] = useState("");
-  const [password, setPassword] = useState('')
-  const [oldPassword, setOldPassword] = useState('')
-  const [confirmOldPassword, setConfirmPassword] = useState('')
-
+  const [password, setPassword] = useState("");
+  const [oldPassword, setOldPassword] = useState("");
+  const [confirmOldPassword, setConfirmPassword] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(userUpdateProfile(email, fullname, birthday, avatar, password, oldPassword));
+    dispatch(
+      userUpdateProfile(
+        email,
+        fullname,
+        birthday,
+        avatar,
+        password,
+        oldPassword
+      )
+    );
   };
 
   return (
@@ -69,16 +91,26 @@ export default function Profile() {
       </div>
       <form onSubmit={handleSubmit}>
         <div className="pt-5 d-flex align-items-center">
-          {/* <img src={`${avatar.name}`} alt="SELECT FILE..." /> */}
-          <Typography>{ avatar?.name || "select an image"}</Typography>
-          <div className="ps-5">
+          <img
+            ref={uploadedImage}
+            alt="SELECT FILE..."
+            style={{
+              height: "120px",
+              width: "120px",
+            }}
+          />
+          {/* <Typography>{avatar?.name || "select an image"}</Typography> */}
+          <div className="ps-2">
             <input
               accept="image/*"
               className={classes.foto}
               id="contained-button-file"
               multiple
               type="file"
-              onChange={(e) => setAvatar(e.target.files[0])}
+              ref={imageUploader}
+              onChange={
+                handleImageUpload
+              }
             />
             <label htmlFor="contained-button-file">
               <Button
@@ -91,7 +123,9 @@ export default function Profile() {
               </Button>
             </label>
 
-            <p className={classes.pink} onClick={() => setAvatar('')}>Remove</p>
+            <p className={classes.pink} onClick={() => setAvatar("")}>
+              Remove
+            </p>
           </div>
         </div>
         <div className="pt-3">

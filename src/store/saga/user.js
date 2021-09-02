@@ -65,6 +65,7 @@ function* userUpdateProfile(action) {
   dataToSend.append("user_old_password", user_old_password);
 
   try {
+    console.log(token)
     const res = yield axios.put(`${BASE_URL}/user/edit`, dataToSend,{headers:{
       Authorization: `Bearer ${token}`
     }} );
@@ -73,6 +74,7 @@ function* userUpdateProfile(action) {
       payload: res.data.new_data,
     });
   } catch (error) {
+    console.log(error)
     yield put({
       type: types.UPDATE_PROFILE_FAIL,
       payload: error.response.data.errors
