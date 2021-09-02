@@ -9,6 +9,7 @@ import Sidebar from "../pages/profile/sidebar";
 import VerticalTabs from "../pages/profile/notification";
 import SearchPage from "../pages/search/search2";
 import ProfileHeader from "../pages/profile/header";
+import SentModal from "../component/Quatationform/SentModal";
 
 const Routers = () => {
   const location = useLocation();
@@ -23,6 +24,7 @@ const Routers = () => {
         location.pathname !== "/account/quotation" && <Header />}
       <Switch>
         <Route exact path="/">
+          <SentModal />
           <Homepage />
         </Route>
         <Route path="/search/:keyword/:location">

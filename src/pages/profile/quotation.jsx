@@ -10,9 +10,9 @@ import Avatar from "@material-ui/core/Avatar";
 import Rating from "@material-ui/lab/Rating";
 import { Paper } from "@material-ui/core";
 import DownloadQuotation from "../../component/card/quotation/DownloadQuotationmodal";
-import Modal from '@material-ui/core/Modal';
-import Backdrop from '@material-ui/core/Backdrop';
-import Fade from '@material-ui/core/Fade';
+import Modal from "@material-ui/core/Modal";
+import Backdrop from "@material-ui/core/Backdrop";
+import Fade from "@material-ui/core/Fade";
 import ButtonSecondary from "../../component/buttons/ButtonSecondary";
 import QutationNotif from "../../component/card/quotation/quotationnotifmodal";
 
@@ -53,12 +53,12 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     backgroundColor: "none",
-    padding:"25px"
+    padding: "25px",
   },
   modal: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
   },
   paper: {
     // backgroundColor: theme.palette.background.paper,
@@ -97,14 +97,26 @@ export default function Quotation({ rating, image }) {
         onChange={handleChange}
         aria-label="simple tabs example"
       >
-        <Tab label="Inbox" {...a11yProps(0)}/>
+        <Tab label="Inbox" {...a11yProps(0)} />
         <Tab label="Sent" {...a11yProps(1)} />
       </Tabs>
       <TabPanel value={value} index={0}>
-        <div style={{ display: "flex", flexDirection:"row", justifyContent:"space-between", alignItems:"baseline" }}>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "baseline",
+          }}
+        >
           <div
             className="container-1"
-            style={{ display: "flex", flexDirection:"row", justifyContent:"space-between", alignItems:"center"}}
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
           >
             <div className="content" style={{ marginLeft: "30px" }}>
               <Avatar
@@ -126,49 +138,59 @@ export default function Quotation({ rating, image }) {
                   marginTop: "none",
                 }}
               >
-             <Rating name="read-only" value="3" readOnly />
+                <Rating name="read-only" value="3" readOnly />
               </div>
               <h1 style={{ marginTop: "0px", fontSize: "10px" }}>
                 Saturday, 25th Feb 21|16:09
               </h1>
             </div>
           </div>
-          < ButtonSecondary
-          width="110px"
-          content="Details"
-          height="36px"
-          onClick={handleOpen}
+          <ButtonSecondary
+            width="110px"
+            content="Details"
+            height="36px"
+            onClick={handleOpen}
           />
-            <Modal
-        aria-labelledby="transition-modal-title"
-        aria-describedby="transition-modal-description"
-        className={classes.modal}
-        open={open}
-        onClose={handleClose}
-        closeAfterTransition
-        BackdropComponent={Backdrop}
-        BackdropProps={{
-          timeout: 500,
-        }}
-      >
-        <Fade in={open}>
-          <div className={classes.paper}>
-            < DownloadQuotation 
-            onClick ={handleClose}
-            />
-          </div>
-        </Fade>
-      </Modal>
+          <Modal
+            aria-labelledby="transition-modal-title"
+            aria-describedby="transition-modal-description"
+            className={classes.modal}
+            open={open}
+            onClose={handleClose}
+            closeAfterTransition
+            BackdropComponent={Backdrop}
+            BackdropProps={{
+              timeout: 500,
+            }}
+          >
+            <Fade in={open}>
+              <div className={classes.paper}>
+                <DownloadQuotation onClick={handleClose} />
+              </div>
+            </Fade>
+          </Modal>
         </div>
-        <a href="download" style={{marginLeft:"800px"}}>
-          Quotation attached
+        <a href="download" style={{ textDecoration: "none" }}>
+          <p style={{ textAlign: "end" }}>Quotation attached</p>
         </a>
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <div style={{ display: "flex", flexDirection:"row", justifyContent:"space-between", alignItems:"baseline" }}>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "baseline",
+          }}
+        >
           <div
             className="container-1"
-            style={{ display: "flex", flexDirection:"row", justifyContent:"space-between", alignItems:"center"}}
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
           >
             <div className="content" style={{ marginLeft: "30px" }}>
               <Avatar
@@ -189,11 +211,11 @@ export default function Quotation({ rating, image }) {
               </h1>
             </div>
           </div>
-          < ButtonSecondary
-          width="110px"
-          content="Details"
-          height="36px"
-          onClick={handleOpen}
+          <ButtonSecondary
+            width="110px"
+            content="Details"
+            height="36px"
+            onClick={handleOpen}
           />
           {/* <button
             onClick={handleOpen}
@@ -207,25 +229,23 @@ export default function Quotation({ rating, image }) {
             Details
           </button> */}
           <Modal
-        aria-labelledby="transition-modal-title"
-        aria-describedby="transition-modal-description"
-        className={classes.modal}
-        open={open}
-        onClose={handleClose}
-        closeAfterTransition
-        BackdropComponent={Backdrop}
-        BackdropProps={{
-          timeout: 500,
-        }}
-      >
-        <Fade in={open}>
-          <div className={classes.paper}>
-            < QutationNotif 
-            onClick ={handleClose}
-            />
-          </div>
-        </Fade>
-      </Modal>
+            aria-labelledby="transition-modal-title"
+            aria-describedby="transition-modal-description"
+            className={classes.modal}
+            open={open}
+            onClose={handleClose}
+            closeAfterTransition
+            BackdropComponent={Backdrop}
+            BackdropProps={{
+              timeout: 500,
+            }}
+          >
+            <Fade in={open}>
+              <div className={classes.paper}>
+                <QutationNotif onClick={handleClose} />
+              </div>
+            </Fade>
+          </Modal>
         </div>
       </TabPanel>
     </div>

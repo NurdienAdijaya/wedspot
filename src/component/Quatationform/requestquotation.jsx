@@ -12,10 +12,12 @@ import CloseIcon from "@material-ui/icons/Close";
 import Close from "@material-ui/icons/Close";
 import { Modal, Backdrop, Fade } from "@material-ui/core";
 import SentModal from "./SentModal";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
 import { getLocation } from "../../store/action/config";
 import { Select, FormControl, InputLabel } from "@material-ui/core";
+import { useSelector, useDispatch } from "react-redux";
+import { postRequest } from "../../store/action/request";
+import { useParams } from "react-router";
+import { param } from "jquery";
 
 // const currencies = [
 //   {
@@ -64,7 +66,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function RequestQuotation({ onClick }) {
+export default function RequestQuotation({ onClick, id }) {
   const dispatch = useDispatch();
   const [open, setOpen] = React.useState(false);
 
@@ -86,7 +88,14 @@ export default function RequestQuotation({ onClick }) {
     request_wedding_date: "",
     request_invitees: "",
   });
+  const { isError, message, isLoading } = useSelector((state) => state.request);
+  const handleSubmit = (e) => {
+    // e.preventDefault;
+    // dispatch(postRequest());
+  };
   console.log("form", form);
+  const params = useParams();
+  console.log(params);
 
   const changeForm = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -124,6 +133,7 @@ export default function RequestQuotation({ onClick }) {
           className={classes.form}
           noValidate
           name="form"
+          onSubmit={() => handleSubmit()}
           // onSubmit={() => handleSubmit()}
         >
           <Grid container spacing={2}>
@@ -191,8 +201,8 @@ export default function RequestQuotation({ onClick }) {
                 variant="outlined"
               >
                 <option aria-label="None" value="" />
-                {citys?.location?.map((data) => (
-                  <option value={form.request_wedding_location}>{data}</option>
+                {citys?.locations?.map((data) => (
+                  <option value={data}>{data}</option>
                 ))}
               </TextField>
             </Grid>
@@ -246,11 +256,11 @@ export default function RequestQuotation({ onClick }) {
             variant="contained"
             color="primary"
             className={classes.submit}
-            onClick={handleOpen}
+            onClick={(() => handleSubmit(), handleOpen)}
           >
             Send Request
           </Button>
-          <Modal
+          {/* <Modal
             aria-labelledby="transition-modal-title"
             aria-describedby="transition-modal-description"
             className={classes.modal}
@@ -267,7 +277,7 @@ export default function RequestQuotation({ onClick }) {
                 <SentModal onClick={handleClose} />
               </div>
             </Fade>
-          </Modal>
+          </Modal> */}
         </form>
       </div>
     </Container>

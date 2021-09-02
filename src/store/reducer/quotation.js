@@ -42,11 +42,11 @@ const quotation = (state = initialState, action) => {
     case types.GET_QUOTATION_SENT_FAIL:
       return {
         ...state,
-        listQuotationInbox: {
-          inboxLoading: false,
-          inboxSuccess: false,
-          error: error,
-          inboxMessage: payload,
+        listQuotationSent: {
+          sentLoading: false,
+          sentSuccess: false,
+          sentError: true,
+          sentMessage: payload,
         },
       };
     case types.GET_QUOTATION_INBOX_BEGIN:
@@ -70,7 +70,7 @@ const quotation = (state = initialState, action) => {
         listQuotationinbox: {
           inboxLoading: false,
           inboxSuccess: false,
-          error: error,
+          inboxError: true,
           inboxMessage: payload,
         },
       };

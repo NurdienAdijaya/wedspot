@@ -21,10 +21,10 @@ import instagram from "./icon/instagram.png";
 import { Container, Avatar } from "@material-ui/core";
 import RequestQuotation from "../Quatationform/requestquotation";
 import { useSelector } from "react-redux";
-import Modal from '@material-ui/core/Modal';
-import Backdrop from '@material-ui/core/Backdrop';
-import Fade from '@material-ui/core/Fade';
-
+import Modal from "@material-ui/core/Modal";
+import Backdrop from "@material-ui/core/Backdrop";
+import Fade from "@material-ui/core/Fade";
+import SentModal from "../Quatationform/SentModal";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
   },
   text: {
     fontSize: "1em",
-    paddingLeft:"10px"
+    paddingLeft: "10px",
   },
   logo: {
     display: "flex",
@@ -57,9 +57,9 @@ const useStyles = makeStyles((theme) => ({
     height: "55px",
   },
   modal: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
   },
   paper: {
     backgroundColor: theme.palette.background.paper,
@@ -80,7 +80,7 @@ export function VendorCard({
   max,
   phone,
   email,
-  web
+  web,
 }) {
   const classes = useStyles();
   const { isSuccess } = useSelector((state) => state.userData);
@@ -99,30 +99,30 @@ export function VendorCard({
         <Divider variant="middle" className={classes.hr} />
         <CardContent>
           <p className={classes.text}>
-            <Room className="me-2"/>
+            <Room className="me-2" />
             {location}
           </p>
           <p className={classes.text}>
-            <Person className="me-2"/>
+            <Person className="me-2" />
             {min} - {max} pax
           </p>
           <p className={classes.text}>
-            <AttachMoney className="me-2"/>
+            <AttachMoney className="me-2" />
             Rp.{minprice} - Rp.{maxprice}++
           </p>
         </CardContent>
         <Divider variant="middle" className={classes.hr} />
         <CardContent>
           <p className={classes.text}>
-            <Phone className="me-2"/>
+            <Phone className="me-2" />
             {phone}
           </p>
           <p className={classes.text}>
-            <Mail className="me-2"/>
+            <Mail className="me-2" />
             {email}
           </p>
           <p className={classes.text}>
-            <Language className="me-2"/>
+            <Language className="me-2" />
             {web}
           </p>
         </CardContent>
@@ -142,7 +142,7 @@ export function VendorCard({
           </div>
         </Container>
         <Container className="pb-3">
-        <Button
+          <Button
             onClick={openModal}
             type="submit"
             variant="contained"
@@ -224,15 +224,15 @@ export function PackageDetailCard({
         <Divider variant="middle" className={classes.hr} />
         <CardContent>
           <p className={classes.text}>
-            <Room className="me-2"/>
+            <Room className="me-2" />
             {location}
           </p>
           <p className={classes.text}>
-            <Person className="me-2"/>
+            <Person className="me-2" />
             {min} - {max} pax
           </p>
           <p className={classes.text}>
-            <AttachMoney className="me-2"/>
+            <AttachMoney className="me-2" />
             start from Rp.{price}
           </p>
         </CardContent>
@@ -256,25 +256,23 @@ export function PackageDetailCard({
             ask for quotation
           </Button>
           <Modal
-        aria-labelledby="transition-modal-title"
-        aria-describedby="transition-modal-description"
-        className={classes.modal}
-        open={show}
-        onClose={closeModal}
-        closeAfterTransition
-        BackdropComponent={Backdrop}
-        BackdropProps={{
-          timeout: 500,
-        }}
-      >
+            aria-labelledby="transition-modal-title"
+            aria-describedby="transition-modal-description"
+            className={classes.modal}
+            open={show}
+            onClose={closeModal}
+            closeAfterTransition
+            BackdropComponent={Backdrop}
+            BackdropProps={{
+              timeout: 500,
+            }}
+          >
             <Fade in={show}>
-          <div className={classes.paper}>
-            < RequestQuotation
-              onClick ={closeModal}
-            />
-          </div>
-        </Fade>
-           </Modal>
+              <div className={classes.paper}>
+                <RequestQuotation onClick={closeModal} />
+              </div>
+            </Fade>
+          </Modal>
         </Container>
         {/* {isSuccess ? (
           <>
