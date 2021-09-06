@@ -17,8 +17,7 @@ function Register() {
 
   const handleRegister = (e) => {
     e.preventDefault();
-    dispatch(userRegister(email, password, fullname));
-    
+    dispatch(userRegister(email, password, fullname));  
   };
 
   return (

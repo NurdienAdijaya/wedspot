@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   TextField,
   Dialog,
@@ -8,6 +8,7 @@ import {
   Button,
   makeStyles,
 } from "@material-ui/core";
+import { useDispatch } from "react-redux";
 
 const useStyles = makeStyles((theme) => ({
   close: {
@@ -24,14 +25,26 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ChangePassword({ show, close }) {
+export default function ChangePassword({
+  show,
+  close,
+  handleSubmit,
+  oldPassword,
+  password,
+  confirmOldPassword,
+  setConfirmPassword,
+  setOldPassword,
+  setPassword,
+}) {
+  const dispatch = useDispatch();
   const classes = useStyles();
+
   return (
     <Dialog open={show} onClose={close}>
       <h1 className={classes.close} onClick={close}>
         x
       </h1>
-      <form>
+      <form onSubmit={handleSubmit}>
         <DialogTitle id="form-dialog-title">Change Password</DialogTitle>
         <DialogContent>
           <TextField
@@ -39,6 +52,8 @@ export default function ChangePassword({ show, close }) {
             margin="dense"
             label="Old Password"
             type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
             fullWidth
           />
           <TextField
@@ -46,6 +61,8 @@ export default function ChangePassword({ show, close }) {
             margin="dense"
             label="New Password"
             type="password"
+            value={oldPassword}
+            onChange={(e) => setOldPassword(e.target.value)}
             fullWidth
           />
           <TextField
@@ -53,6 +70,12 @@ export default function ChangePassword({ show, close }) {
             margin="dense"
             label="Confirm New Password"
             type="password"
+            value={confirmOldPassword}
+            helperText={
+              confirmOldPassword !== oldPassword && "password doesn't match"
+            }
+            error={confirmOldPassword !== oldPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
             fullWidth
           />
         </DialogContent>
