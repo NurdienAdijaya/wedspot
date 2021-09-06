@@ -8,6 +8,13 @@ const initialState = {
     sentList: [],
     sentMessage: [],
   },
+  listQuotationSentDetail: {
+    sentLoading: false,
+    sentSuccess: false,
+    sentError: false,
+    sentListDetail: [],
+    sentMessage: [],
+  },
   listQuotationInbox: {
     inboxLoading: false,
     inboxSuccess: false,
@@ -43,6 +50,31 @@ const quotation = (state = initialState, action) => {
       return {
         ...state,
         listQuotationSent: {
+          sentLoading: false,
+          sentSuccess: false,
+          sentError: true,
+          sentMessage: payload,
+        },
+      };
+    case types.GET_QUOTATION_SENT_DETAIL_BEGIN:
+      return {
+        ...state,
+        listQuotationSentDetail: {
+          sentLoading: true,
+        },
+      };
+    case types.GET_QUOTATION_SENT_DETAIL_SUCCESS:
+      return {
+        ...state,
+        listQuotationSentDetail: {
+          sentListDetail: payload,
+          sentLoading: false,
+        },
+      };
+    case types.GET_QUOTATION_SENT_DETAIL_FAIL:
+      return {
+        ...state,
+        listQuotationSentDetail: {
           sentLoading: false,
           sentSuccess: false,
           sentError: true,

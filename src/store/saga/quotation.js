@@ -25,7 +25,7 @@ function* getQuotationInbox() {
 function* getQuotationSent() {
   console.log(`Bearer ${token}`);
   try {
-    const res = yield axios.get(`${BASE_URL}/request/user`, {
+    const res = yield axios.get(`${BASE_URL}/requests/user`, {
       headers: { Authorization: `Bearer ${token}` },
     });
     yield put({
@@ -39,10 +39,35 @@ function* getQuotationSent() {
   }
 }
 
+function* getQuotationSentDetail(actions) {
+  const { id } = actions;
+  console.log(`Bearer ${token}`);
+  try {
+    const res = yield axios.get(`${BASE_URL}/requests/${id}`, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    yield put({
+      type: types.GET_QUOTATION_SENT_DETAIL_SUCCESS,
+      payload: res.data,
+    });
+  } catch (error) {
+    yield put({
+      type: types.GET_QUOTATION_SENT_DETAIL_FAIL,
+    });
+  }
+}
+
 export function* watchGetQuotationInbox() {
   yield takeEvery(types.GET_QUOTATION_INBOX_BEGIN, getQuotationInbox);
 }
 
 export function* watchGetQuotationSent() {
   yield takeEvery(types.GET_QUOTATION_SENT_BEGIN, getQuotationSent);
+}
+
+export function* watchGetQuotationSentDetail() {
+  yield takeEvery(
+    types.GET_QUOTATION_SENT_DETAIL_BEGIN,
+    getQuotationSentDetail
+  );
 }
