@@ -21,6 +21,7 @@ import Checkbox from "@material-ui/core/Checkbox";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import Radio from "@material-ui/core/Radio";
 import { getLocation } from "../../store/action/config";
+import ButtonSecondary from "../../component/buttons/ButtonSecondary";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -70,14 +71,19 @@ function SearchPage() {
   const dispatch = useDispatch();
 
   const [location, setLocation] = useState("");
-  const [category, setCategory1] = useState("");
+  const [category, setCategory] = useState("");
   const [minPax, setminPax] = useState("0");
   const [maxPax, setmaxPax] = useState("5000");
   const [minPrice, setMinPrice] = useState("0");
   const [maxPrice, setMaxPrice] = useState("1000000000");
   const tipe = id === "packages" ? "packages" : "vendors";
-  const limit = "12";
+  const [limit, setLimit] = useState(18);
 
+  const loadMore = () => {
+    // setLimit(limit + 1);
+    setLimit(limit + items?.count);
+  };
+  console.log("limit", limit);
   const { items, isLoading } = useSelector(
     (state) => state?.search?.allSearchList
   );
@@ -85,7 +91,7 @@ function SearchPage() {
     (state) => state?.config?.allLocationList
   );
 
-  console.log("items", items);
+  console.log("location", location);
 
   useEffect(() => {
     dispatch(
@@ -117,7 +123,7 @@ function SearchPage() {
   }, [dispatch]);
 
   return (
-    <div>
+    <div id="searchpage">
       <Container className="pb-5 pt-5">
         <Breadcrumbs aria-label="breadcrumb">
           <Link color="inherit" href={`/searchdetail/${id}`}>
@@ -155,8 +161,8 @@ function SearchPage() {
                             onChange={(e) => {
                               {
                                 e.target.checked
-                                  ? setCategory1(e.target.value)
-                                  : setCategory1("");
+                                  ? setCategory(e.target.value)
+                                  : setCategory("");
                               }
                             }}
                           />
@@ -171,8 +177,8 @@ function SearchPage() {
                             onChange={(e) => {
                               {
                                 e.target.checked
-                                  ? setCategory1(e.target.value)
-                                  : setCategory1("");
+                                  ? setCategory(e.target.value)
+                                  : setCategory("");
                               }
                             }}
                           />
@@ -205,12 +211,12 @@ function SearchPage() {
               <Dropdown.Menu>
                 <Container>
                   <FormControl component="fieldset">
-                    <RadioGroup>
+                    <FormGroup>
                       {citys?.locations?.map((data) => (
                         <FormControlLabel
                           style={{ textTransform: "capitalize" }}
                           control={
-                            <Radio
+                            <Checkbox
                               color="primary"
                               value={data}
                               onChange={(e) => {
@@ -225,7 +231,7 @@ function SearchPage() {
                           label={data}
                         />
                       ))}
-                    </RadioGroup>
+                    </FormGroup>
                   </FormControl>
                   <div className="d-flex flex-column">
                     <Button
@@ -341,8 +347,8 @@ function SearchPage() {
           <h3>Showing All {items?.count} packages</h3>
         </div>
         <Grid container spacing={3}>
-          {items?.data?.map((data) => (
-            <Grid item xs={4}>
+          {items?.data?.map((data, index) => (
+            <Grid key={index} item xs={4}>
               {tipe === "vendors" ? (
                 <Venue
                   image={data?.vendor_header}
@@ -362,6 +368,25 @@ function SearchPage() {
             </Grid>
           ))}
         </Grid>
+        {limit < items?.count ? (
+          <div style={{ width: "100%", textAlign: "center", margin: "2rem" }}>
+            <ButtonSecondary
+              onClick={loadMore}
+              width="18.714rem"
+              content="See All"
+            />
+          </div>
+        ) : (
+          limit > items?.count && (
+            <a href="#">
+              <div
+                style={{ width: "100%", textAlign: "center", margin: "2rem" }}
+              >
+                <ButtonSecondary width="18.714rem" content="Back to " />
+              </div>
+            </a>
+          )
+        )}
       </Container>
     </div>
   );

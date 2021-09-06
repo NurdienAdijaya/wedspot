@@ -25,7 +25,6 @@ const Routers = () => {
         location.pathname !== "/account/download" && <Header />}
       <Switch>
         <Route exact path="/">
-          <SentModal />
           <Homepage />
         </Route>
         <Route path="/search/:keyword/:location">
