@@ -6,7 +6,6 @@ export const getRequest = () => {
   };
 };
 
-<<<<<<< HEAD
 // export const postRequest = (
 //   groom,
 //   bride,
@@ -33,12 +32,5 @@ export const postRequest = (form) => {
   return {
     type: types.POST_REQUEST_USER_BEGIN,
     form,
-=======
-export const postRequest = (props) => {
-  console.log(props)
-  return {
-    type: types.POST_REQUEST_USER_BEGIN,
-    action:props
->>>>>>> a9316aa0fbe4dd71f36c02448d2157ebccfee4c9
   };
 };
