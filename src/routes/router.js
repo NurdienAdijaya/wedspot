@@ -24,7 +24,6 @@ const Routers = () => {
         location.pathname !== "/account/quotation" && <Header />}
       <Switch>
         <Route exact path="/">
-          <SentModal />
           <Homepage />
         </Route>
         <Route path="/search/:keyword/:location">

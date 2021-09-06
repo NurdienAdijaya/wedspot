@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
@@ -15,6 +15,13 @@ import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import ButtonSecondary from "../../component/buttons/ButtonSecondary";
 import QutationNotif from "../../component/card/quotation/quotationnotifmodal";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  getQuotationInbox,
+  getQuotationSent,
+  getQuotationSentDetail,
+} from "../../store/action/quotation";
+import NoresultPhone from "../../component/noresult/NoresultPhone";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -70,6 +77,41 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Quotation({ rating, image }) {
   const classes = useStyles();
+  const token = localStorage.getItem("token");
+  console.log("token", token);
+  const dispatch = useDispatch();
+  const { inboxList, inboxLoading } = useSelector(
+    (state) => state?.quotation?.listQuotationInbox
+  );
+  // const inboxList = "ada isinya coy";
+  console.log("inboxList", inboxList);
+  const { sentList, sentLoading } = useSelector(
+    (state) => state?.quotation?.listQuotationSent
+  );
+  const { sentListDetail } = useSelector(
+    (state) => state?.quotation?.listQuotationSentDetail
+  );
+  console.log("sentList", sentList);
+  console.log("sentlistDetail", sentListDetail);
+
+  useEffect(() => {
+    dispatch(getQuotationInbox());
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(getQuotationSent());
+  }, [dispatch]);
+
+  const [id, setId] = useState({
+    _id: "",
+  });
+
+  useEffect(() => {
+    setId({ ...id, id: sentList?.data?.request_id });
+  }, [sentList?.data]);
+
+  console.log("id", id);
+
   const [open, setOpen] = React.useState(false);
 
   const handleOpen = () => {
@@ -101,123 +143,143 @@ export default function Quotation({ rating, image }) {
         <Tab label="Sent" {...a11yProps(1)} />
       </Tabs>
       <TabPanel value={value} index={0}>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "space-between",
-            alignItems: "baseline",
-          }}
-        >
-          <div
-            className="container-1"
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "space-between",
-              alignItems: "center",
-            }}
-          >
-            <div className="content" style={{ marginLeft: "30px" }}>
-              <Avatar
-                aria-label="recipe"
-                className={classes.avatar}
-                style={{ width: "60px", height: "60px" }}
-              >
-                <img src={image} alt=""></img>
-              </Avatar>
-            </div>
-            <div className="content-1" style={{ marginLeft: "20px" }}>
-              <Typography variant="h5" style={{ fontSize: "25px" }}>
-                Gedong Putih
-              </Typography>
+        {inboxList ? (
+          <div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+                alignItems: "baseline",
+              }}
+            >
               <div
+                className="container-1"
                 style={{
                   display: "flex",
-                  alignItems: "flex-end",
-                  marginTop: "none",
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                  alignItems: "center",
                 }}
               >
-                <Rating name="read-only" value="3" readOnly />
+                <div className="content" style={{ marginLeft: "30px" }}>
+                  <Avatar
+                    aria-label="recipe"
+                    className={classes.avatar}
+                    style={{ width: "60px", height: "60px" }}
+                  >
+                    <img src={image} alt=""></img>
+                  </Avatar>
+                </div>
+                <div className="content-1" style={{ marginLeft: "20px" }}>
+                  <Typography variant="h5" style={{ fontSize: "25px" }}>
+                    Gedong Putih
+                  </Typography>
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "flex-end",
+                      marginTop: "none",
+                    }}
+                  >
+                    <Rating name="read-only" value="3" readOnly />
+                  </div>
+                  <h1 style={{ marginTop: "0px", fontSize: "10px" }}>
+                    Saturday, 25th Feb 21|16:09
+                  </h1>
+                </div>
               </div>
-              <h1 style={{ marginTop: "0px", fontSize: "10px" }}>
-                Saturday, 25th Feb 21|16:09
-              </h1>
-            </div>
-          </div>
-          <ButtonSecondary
-            width="110px"
-            content="Details"
-            height="36px"
-            onClick={handleOpen}
-          />
-          <Modal
-            aria-labelledby="transition-modal-title"
-            aria-describedby="transition-modal-description"
-            className={classes.modal}
-            open={open}
-            onClose={handleClose}
-            closeAfterTransition
-            BackdropComponent={Backdrop}
-            BackdropProps={{
-              timeout: 500,
-            }}
-          >
-            <Fade in={open}>
-              <div className={classes.paper}>
-                <DownloadQuotation onClick={handleClose} />
-              </div>
-            </Fade>
-          </Modal>
-        </div>
-        <a href="download" style={{ textDecoration: "none" }}>
-          <p style={{ textAlign: "end" }}>Quotation attached</p>
-        </a>
-      </TabPanel>
-      <TabPanel value={value} index={1}>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "space-between",
-            alignItems: "baseline",
-          }}
-        >
-          <div
-            className="container-1"
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "space-between",
-              alignItems: "center",
-            }}
-          >
-            <div className="content" style={{ marginLeft: "30px" }}>
-              <Avatar
-                aria-label="recipe"
-                className={classes.avatar}
-                style={{ width: "60px", height: "60px" }}
+              <ButtonSecondary
+                width="110px"
+                content="Details"
+                height="36px"
+                onClick={handleOpen}
+              />
+              <Modal
+                aria-labelledby="transition-modal-title"
+                aria-describedby="transition-modal-description"
+                className={classes.modal}
+                open={open}
+                onClose={handleClose}
+                closeAfterTransition
+                BackdropComponent={Backdrop}
+                BackdropProps={{
+                  timeout: 500,
+                }}
               >
-                R
-              </Avatar>
+                <Fade in={open}>
+                  <div className={classes.paper}>
+                    <DownloadQuotation onClick={handleClose} />
+                  </div>
+                </Fade>
+              </Modal>
             </div>
-            <div className="content-1" style={{ marginLeft: "20px" }}>
-              <Typography variant="h5" style={{ fontSize: "19px" }}>
-                Gedong Putih
-              </Typography>
-              <Rating name="read-only" value="3" readOnly />
-              <h1 style={{ marginTop: "0px", fontSize: "10px" }}>
-                Saturday, 25th Feb 21|16:09
-              </h1>
-            </div>
+            <a href="download" style={{ textDecoration: "none" }}>
+              <p style={{ textAlign: "end" }}>Quotation attached</p>
+            </a>
           </div>
-          <ButtonSecondary
-            width="110px"
-            content="Details"
-            height="36px"
-            onClick={handleOpen}
+        ) : (
+          <NoresultPhone
+            title="No received quotations"
+            description="Once vendor sent you quotation, it’ll be shown here"
           />
-          {/* <button
+        )}
+      </TabPanel>
+      {/* ----------------quotation sent---------------------- */}
+      <TabPanel value={value} index={1}>
+        {sentList ? (
+          <div>
+            {sentList?.data?.map((data, index) => (
+              <div
+                key={index}
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                  alignItems: "baseline",
+                }}
+              >
+                <div
+                  className="container-1"
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                  }}
+                >
+                  <div className="content" style={{ marginLeft: "30px" }}>
+                    <Avatar
+                      aria-label="recipe"
+                      className={classes.avatar}
+                      style={{ width: "60px", height: "60px" }}
+                    >
+                      R
+                    </Avatar>
+                  </div>
+                  <div
+                    className="content-1"
+                    style={{ marginLeft: "20px", marginBottom: "30px" }}
+                  >
+                    <Typography
+                      variant="h5"
+                      style={{ fontSize: "19px", marginTop: "30px" }}
+                    >
+                      {data.request_package_id.package_name}
+                    </Typography>
+                    <Rating name="read-only" value="3" readOnly />
+                    <h1 style={{ marginTop: "0px", fontSize: "10px" }}>
+                      {data.created_at}
+                    </h1>
+                  </div>
+                </div>
+                <ButtonSecondary
+                  width="110px"
+                  content="Details"
+                  height="36px"
+                  onClick={handleOpen}
+                />
+                {/* <button
             onClick={handleOpen}
             style={{
               marginLeft: "570px",
@@ -228,25 +290,42 @@ export default function Quotation({ rating, image }) {
           >
             Details
           </button> */}
-          <Modal
-            aria-labelledby="transition-modal-title"
-            aria-describedby="transition-modal-description"
-            className={classes.modal}
-            open={open}
-            onClose={handleClose}
-            closeAfterTransition
-            BackdropComponent={Backdrop}
-            BackdropProps={{
-              timeout: 500,
-            }}
-          >
-            <Fade in={open}>
-              <div className={classes.paper}>
-                <QutationNotif onClick={handleClose} />
+                <Modal
+                  aria-labelledby="transition-modal-title"
+                  aria-describedby="transition-modal-description"
+                  className={classes.modal}
+                  open={open}
+                  onClose={handleClose}
+                  closeAfterTransition
+                  BackdropComponent={Backdrop}
+                  BackdropProps={{
+                    timeout: 500,
+                  }}
+                >
+                  <Fade in={open}>
+                    <div className={classes.paper}>
+                      <QutationNotif
+                        onClick={handleClose}
+                        data={data}
+                        key={index}
+                        name={data.request_package_id.package_name}
+                        requestId={data.request_id}
+                      />
+                    </div>
+                  </Fade>
+                </Modal>
               </div>
-            </Fade>
-          </Modal>
-        </div>
+            ))}
+          </div>
+        ) : (
+          <NoresultPhone
+            title="No sent quotation"
+            description="Try to enquiry to some vendors, maybe?"
+            titleButton="Search Vendor"
+            width="27rem"
+            link="/searchdetail/vendor"
+          />
+        )}
       </TabPanel>
     </div>
   );

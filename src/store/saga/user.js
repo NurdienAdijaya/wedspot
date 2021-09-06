@@ -3,7 +3,7 @@ import * as types from "../const/types";
 import { BASE_URL } from "../const/server";
 import { put, takeEvery } from "redux-saga/effects";
 
-const token = localStorage.getItem('token')
+const token = localStorage.getItem("token");
 
 function* userLogin(action) {
   const { user_email, user_password } = action;
@@ -12,7 +12,7 @@ function* userLogin(action) {
       user_email,
       user_password,
     });
-    yield localStorage.setItem("token",res.data.token);
+    yield localStorage.setItem("token", res.data.token);
     yield put({
       type: types.LOGIN_SUCCESS,
       payload: res.data.current_user,
@@ -65,9 +65,11 @@ function* userUpdateProfile(action) {
   dataToSend.append("user_old_password", user_old_password);
 
   try {
-    const res = yield axios.put(`${BASE_URL}/user/edit`, dataToSend,{headers:{
-      Authorization: `Bearer ${token}`
-    }} );
+    const res = yield axios.put(`${BASE_URL}/user/edit`, dataToSend, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
     yield put({
       type: types.UPDATE_PROFILE_SUCCESS,
       payload: res.new_data,
@@ -75,15 +77,16 @@ function* userUpdateProfile(action) {
   } catch (error) {
     yield put({
       type: types.UPDATE_PROFILE_FAIL,
-      payload: error.response.data.errors
-    })
+      payload: error.response.data.errors,
+    });
   }
 }
 
 function* getUser() {
   try {
-    const res = yield axios.get(`${BASE_URL}/user/getprofil`,
-    {headers:{Authorization: `Bearer ${token}`}});
+    const res = yield axios.get(`${BASE_URL}/user/getprofil`, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
     yield put({
       type: types.GET_USER_SUCCESS,
       payload: res.data,
@@ -91,8 +94,8 @@ function* getUser() {
   } catch (error) {
     yield put({
       type: types.GET_USER_FAIL,
-      payload: error.response
-    })
+      payload: error.response,
+    });
   }
 }
 

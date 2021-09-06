@@ -8,7 +8,7 @@ const initialState = {
   message: [],
 };
 
-const request = (state = initialState, action) => {
+const requestData = (state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {
     case types.GET_REQUEST_BEGIN:
@@ -54,4 +54,4 @@ const request = (state = initialState, action) => {
   }
 };
 
-export default request;
+export default requestData;
