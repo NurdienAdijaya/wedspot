@@ -65,24 +65,17 @@ function* userUpdateProfile(action) {
   dataToSend.append("user_old_password", user_old_password);
 
   try {
-<<<<<<< HEAD
-    console.log(token)
-    const res = yield axios.put(`${BASE_URL}/user/edit`, dataToSend,{headers:{
-      Authorization: `Bearer ${token}`
-    }} );
-=======
     const res = yield axios.put(`${BASE_URL}/user/edit`, dataToSend, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
     });
->>>>>>> fd1ad7c26302b1107dccdfb4db624c7feb5be82e
     yield put({
       type: types.UPDATE_PROFILE_SUCCESS,
       payload: res.data.new_data,
     });
   } catch (error) {
-    console.log(error)
+    console.log(error);
     yield put({
       type: types.UPDATE_PROFILE_FAIL,
       payload: error.response.data.errors,
@@ -111,8 +104,8 @@ export function* watchLogin() {
   yield takeEvery(types.LOGIN_PENDING, userLogin);
 }
 
-export function* watchUpdateProfile(){
-  yield takeEvery(types.UPDATE_PROFILE_PENDING, userUpdateProfile)
+export function* watchUpdateProfile() {
+  yield takeEvery(types.UPDATE_PROFILE_PENDING, userUpdateProfile);
 }
 
 export function* watchRegister() {
