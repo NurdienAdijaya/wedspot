@@ -152,46 +152,24 @@ export function VendorCard({
             ask for quotation
           </Button>
         </Container>
-        {isSuccess ? (
-          <>
-            <Dialog open={show} onClose={closeModal}>
-              <h1 className={classes.close} onClick={closeModal}>
-                x
-              </h1>
-              <DialogContent>
-                <RequestQuotation />
-              </DialogContent>
-              <DialogActions>
-                <Button
-                  onClick={closeModal}
-                  variant="contained"
-                  color="primary"
-                  className={classes.button}
-                >
-                  save changes
-                </Button>
-              </DialogActions>
-            </Dialog>
-          </>
-        ) : (
-          <>
-            <Dialog open={show} onClose={closeModal}>
-              <DialogContent>
-                <h1>Please Login Before Request A Quotation</h1>
-              </DialogContent>
-              <DialogActions>
-                <Button
-                  onClick={closeModal}
-                  variant="contained"
-                  color="primary"
-                  className={classes.button}
-                >
-                  OK
-                </Button>
-              </DialogActions>
-            </Dialog>
-          </>
-        )}
+        <Modal
+            aria-labelledby="transition-modal-title"
+            aria-describedby="transition-modal-description"
+            className={classes.modal}
+            open={show}
+            onClose={closeModal}
+            closeAfterTransition
+            BackdropComponent={Backdrop}
+            BackdropProps={{
+              timeout: 500,
+            }}
+          >
+            <Fade in={show}>
+              <div className={classes.paper}>
+                <RequestQuotation onClick={closeModal} />
+              </div>
+            </Fade>
+          </Modal>
       </Card>
     </div>
   );
