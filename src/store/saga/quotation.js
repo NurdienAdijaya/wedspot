@@ -6,7 +6,6 @@ import * as types from "../const/types";
 const token = localStorage.getItem("token");
 
 function* getQuotationInbox() {
-  console.log(`Bearer ${token}`);
   try {
     const res = yield axios.get(`${BASE_URL}/quotations/user`, {
       headers: { Authorization: `Bearer ${token}` },
@@ -23,7 +22,6 @@ function* getQuotationInbox() {
 }
 
 function* getQuotationSent() {
-  console.log(`Bearer ${token}`);
   try {
     const res = yield axios.get(`${BASE_URL}/requests/user`, {
       headers: { Authorization: `Bearer ${token}` },
@@ -41,7 +39,6 @@ function* getQuotationSent() {
 
 function* getQuotationSentDetail(actions) {
   const { id } = actions;
-  console.log(`Bearer ${token}`);
   try {
     const res = yield axios.get(`${BASE_URL}/requests/${id}`, {
       headers: { Authorization: `Bearer ${token}` },
