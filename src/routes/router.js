@@ -6,10 +6,8 @@ import HomeSearch from "../pages/search/search1";
 import DetailPage from "../pages/vendor/detail";
 import PackageDetail from "../pages/vendor/package";
 import Sidebar from "../pages/profile/sidebar";
-import VerticalTabs from "../pages/profile/notification";
 import SearchPage from "../pages/search/search2";
 import ProfileHeader from "../pages/profile/header";
-import SentModal from "../component/Quatationform/SentModal";
 
 const Routers = () => {
   const location = useLocation();

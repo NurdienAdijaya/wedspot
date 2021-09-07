@@ -5,7 +5,6 @@ import MenuItem from "@material-ui/core/MenuItem";
 import { Avatar } from "@material-ui/core";
 import { Notifications } from "@material-ui/icons";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
 
 export function Notif() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -23,9 +22,11 @@ export function Notif() {
         aria-controls="simple-menu"
         aria-haspopup="true"
         onClick={handleClick}
-        style={{ color: "#C97C68"}}
+        style={{ color: "#C97C68" }}
       >
-        <Notifications style={{ fontSize: "3em", textShadow: "green 0px 0px 10px" }}/>
+        <Notifications
+          style={{ fontSize: "3em", textShadow: "green 0px 0px 10px" }}
+        />
       </Button>
       <Menu
         id="simple-menu"
@@ -74,7 +75,12 @@ export function AvatarIcon({ avatar }) {
         onClose={handleClose}
       >
         <MenuItem onClick={handleClose}>
-          <Link to="/account" style={{textDecoration:"none", color:"black"}}>Profile</Link>
+          <Link
+            to="/account"
+            style={{ textDecoration: "none", color: "black" }}
+          >
+            Profile
+          </Link>
         </MenuItem>
         <MenuItem onClick={handleLogout}>Logout</MenuItem>
       </Menu>

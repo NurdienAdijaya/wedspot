@@ -1,23 +1,20 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Redirect } from "react-router-dom";
 import "semantic-ui-css/semantic.min.css";
 import { Divider, Button, Icon, Checkbox } from "semantic-ui-react";
-import {userRegister} from '../../../store/action/user'
-import {FailedMessage} from '../../message/message'
+import { userRegister } from "../../../store/action/user";
+import { FailedMessage } from "../../message/message";
 
 function Register() {
   const [fullname, setFullname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
-  const { isSuccess, isError, message } = useSelector((state) => state.userData);
-
- 
+  const { isError, message } = useSelector((state) => state.userData);
 
   const handleRegister = (e) => {
     e.preventDefault();
-    dispatch(userRegister(email, password, fullname));  
+    dispatch(userRegister(email, password, fullname));
   };
 
   return (
@@ -92,7 +89,7 @@ function Register() {
       </div>
       {isError && (
         <div>
-          <FailedMessage message={message[0]}/>
+          <FailedMessage message={message[0]} />
         </div>
       )}
     </div>

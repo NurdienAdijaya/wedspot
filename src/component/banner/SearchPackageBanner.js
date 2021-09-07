@@ -1,25 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Package from "../card/Package";
 import Button from "@material-ui/core/Button";
-import axios from "axios";
 import { Link } from "react-router-dom";
 
 const SearchPackageBanner = (datas) => {
-  // const [data, setData] = useState([]);
-  // const getData = () => {
-  //   axios
-  //     .get("http://localhost:4000/data")
-  //     .then((res) => {
-  //       console.log(res);
-  //       setData(res.data);
-  //     })
-  //     .catch((err) => console.log(err));
-  // };
-
-  // useEffect(() => {
-  //   getData();
-  // }, []);
-  console.log(datas);
   return (
     <div
       style={{
@@ -70,7 +54,7 @@ const SearchPackageBanner = (datas) => {
           marginTop: "1rem",
         }}
       >
-        <Link to="searchdetail/packages" style={{ textDecoration: "none" }}>
+        <Link to="/searchdetail/packages" style={{ textDecoration: "none" }}>
           <Button
             variant="outlined"
             style={{

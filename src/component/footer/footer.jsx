@@ -55,7 +55,6 @@ const Footer = () => {
             <p>Contact us</p>
           </div>
         </div>
-        {/* <Divider horizontal> */}
         <div
           style={{
             textAlign: "end",
@@ -120,14 +119,6 @@ const Footer = () => {
             </g>
           </svg>
         </div>
-        {/* {/* <img
-          src={logo}
-          alt="logo"
-          style={{
-            // marginBottom: "-1.66rem",
-          }} 
-        ></img> */}
-        {/* </Divider> */}
         <div
           className="d-flex justify-content-between pb-5"
           style={{

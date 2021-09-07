@@ -1,10 +1,11 @@
-import React, {useEffect} from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect } from "react";
 import "./App.css";
 import { ThemeProvider } from "@material-ui/core";
 import { BrowserRouter } from "react-router-dom";
 import Routers from "./routes/router";
 import { createTheme } from "@material-ui/core/styles";
-import {getUser} from './store/action/user'
+import { getUser } from "./store/action/user";
 import { useDispatch } from "react-redux";
 
 function App() {
@@ -22,11 +23,11 @@ function App() {
     },
   });
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getUser())
-   }, [])
+    dispatch(getUser());
+  }, []);
 
   return (
     <ThemeProvider theme={theme}>

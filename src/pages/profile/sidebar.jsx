@@ -1,19 +1,13 @@
+/* eslint-disable no-sequences */
 import React, { useState } from "react";
-import {
-  useRouteMatch,
-  Switch,
-  Route,
-  NavLink,
-  useLocation,
-} from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useRouteMatch, Switch, Route, NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
 import {
   Container,
   Grid,
   Avatar,
   Dialog,
   DialogTitle,
-  DialogContent,
   DialogActions,
   makeStyles,
   Button,
@@ -146,7 +140,7 @@ export default function Sidebar() {
               Ooops, No
             </Button>
             <Button
-              onClick={() => setShow(false), handleLogout}
+              onClick={(() => setShow(false), handleLogout)}
               variant="outlined"
               color="white"
               className={classes.button}

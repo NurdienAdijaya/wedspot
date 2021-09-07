@@ -31,8 +31,6 @@ export default function Venue({ image, title, location, rating, width }) {
       <CardActionArea className={classes.root}>
         <CardMedia
           className={classes.media}
-          // image={image}
-          // image={`${image}?${Math.floor(Math.random() * 10000)}`}
           image={`https://source.unsplash.com/640x480?wedding?${Math.floor(
             Math.random() * 10000
           )}`}

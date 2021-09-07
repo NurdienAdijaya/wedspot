@@ -13,8 +13,13 @@ import {
   watchGetQuotationSentDetail,
 } from "./quotation";
 import { watchGetSearch } from "./search";
-import { watchGetAllVendor } from "./vendor";
-import { watchLogin, watchRegister, watchGetUser, watchUpdateProfile } from "./user";
+import { watchGetAllVendor, watchGetVendorHome } from "./vendor";
+import {
+  watchLogin,
+  watchRegister,
+  watchGetUser,
+  watchUpdateProfile,
+} from "./user";
 import { watchPackageId, watchVendorId } from "./detail";
 import { watchGetLocation } from "./config";
 import { watchPostRequest } from "./request";
@@ -41,5 +46,6 @@ export default function* rootSaga() {
     watchGetLocation(),
     watchPostRequest(),
     watchGetQuotationSentDetail(),
+    watchGetVendorHome(),
   ]);
 }

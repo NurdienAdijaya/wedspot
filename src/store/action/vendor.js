@@ -18,3 +18,10 @@ export const getAllVendor = (
     maxPrice,
   };
 };
+
+export const getVendorHome = (Page = 1) => {
+  return {
+    type: types.GET_EXAMPLE_VENDOR_BEGIN,
+    Page,
+  };
+};

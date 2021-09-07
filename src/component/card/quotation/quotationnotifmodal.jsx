@@ -1,17 +1,13 @@
-import React, { useState, useEffect } from "react";
-import { makeStyles, responsiveFontSizes } from "@material-ui/core/styles";
-import clsx from "clsx";
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect } from "react";
+import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
-import CardHeader from "@material-ui/core/CardHeader";
 import Avatar from "@material-ui/core/Avatar";
 import Typography from "@material-ui/core/Typography";
 import { red } from "@material-ui/core/colors";
 import Rating from "@material-ui/lab/Rating";
 import { CardContent, IconButton } from "@material-ui/core";
 import { Container } from "@material-ui/core";
-import { color } from "@material-ui/system";
-import { Button } from "@material-ui/core";
-import CloseIcon from "@material-ui/icons/Close";
 import Close from "@material-ui/icons/Close";
 import NotificationImportantIcon from "@material-ui/icons/NotificationImportant";
 import { useDispatch, useSelector } from "react-redux";
@@ -61,11 +57,9 @@ export default function QutationNotif({ onClick, requestId }) {
     (state) => state?.quotation?.listQuotationSentDetail
   );
 
-  console.log("sentListDetail", sentListDetail);
-  console.log("requestId", requestId);
   useEffect(() => {
     dispatch(getQuotationSentDetail(requestId));
-  }, [dispatch]);
+  }, []);
 
   return (
     <Container component="main" maxWidth="sm">
@@ -107,9 +101,6 @@ export default function QutationNotif({ onClick, requestId }) {
                 </p>
               </div>
             </div>
-            {/* <Typography className={classes.text} style={{ fontSize: "30px" }}>
-            Quotation Request
-          </Typography> */}
             <div
               className="container-1"
               style={{
@@ -124,7 +115,6 @@ export default function QutationNotif({ onClick, requestId }) {
               </div>
               <div className="content-1" style={{ marginLeft: "20px" }}>
                 <Typography variant="h5">
-                  {/* {data.request_package_id.package_name} */}
                   {sentListDetail?.data?.request_package_id?.package_name}
                 </Typography>
                 <Rating name="read-only" value="3" readOnly />

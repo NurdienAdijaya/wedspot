@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from "react";
 import { Container, Grid } from "@material-ui/core";
 import ImageHeader from "../../component/image-header/imgheader";

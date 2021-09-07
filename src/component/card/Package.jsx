@@ -43,9 +43,6 @@ export default function Package({ image, title, price, data, height }) {
         <CardMedia
           className={classes.media}
           image={image}
-          // image={`https://source.unsplash.com/640x480?wedding?${Math.floor(
-          //   Math.random() * 10000
-          // )}`}
           title={title}
         />
         <CardContent

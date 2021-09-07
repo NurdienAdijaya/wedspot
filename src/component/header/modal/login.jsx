@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import "semantic-ui-css/semantic.min.css";
 import { Divider, Button, Icon } from "semantic-ui-react";
@@ -11,19 +11,14 @@ function Login() {
     password: "",
   });
   const dispatch = useDispatch();
-  const { isError, message, isLoading } = useSelector(
-    (state) => state.userData
-  );
+  const { isError, message } = useSelector((state) => state.userData);
 
   const handleLogin = (e) => {
     e.preventDefault();
-    if (
-      login.email === "" ||
-      login.password === ""
-    ) {
+    if (login.email === "" || login.password === "") {
       alert("please fill all form");
-    dispatch(userLogin());
-    }else {
+      dispatch(userLogin());
+    } else {
       dispatch(userLogin(login.email, login.password));
     }
   };
@@ -36,11 +31,8 @@ function Login() {
             type="email"
             className="form-control rounded-4"
             id="floatingInput"
-
             placeholder="email"
-            onChange={(e) => 
-              setLogin({ ...login, email: e.target.value })
-            }
+            onChange={(e) => setLogin({ ...login, email: e.target.value })}
           />
           <label htmlFor="floatingInput">Email address</label>
         </div>
@@ -51,7 +43,7 @@ function Login() {
             id="floatingPassword"
             placeholder="Password"
             onChange={(e) => {
-              setLogin({ ...login, password: e.target.value })
+              setLogin({ ...login, password: e.target.value });
             }}
           />
           <label htmlFor="floatingPassword">Password</label>

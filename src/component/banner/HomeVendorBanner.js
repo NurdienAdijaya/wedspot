@@ -4,34 +4,18 @@ import TitleBar from "../TitleBar";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { CircularProgress } from "@material-ui/core";
-import { getAllVendor } from "../../store/action/vendor";
-import { getOrganizerHome } from "../../store/action/package";
+import { getVendorHome } from "../../store/action/vendor";
 
 const HomeVendorBanner = () => {
   const dispatch = useDispatch();
   const { vendors, isLoading } = useSelector(
-    (state) => state.vendors.allVendorList
+    (state) => state.vendors.listVendorExample
   );
 
   useEffect(() => {
-    dispatch(getAllVendor());
+    dispatch(getVendorHome());
   }, [dispatch]);
-
-  // const [data, setData] = useState([]);
-  // const getData = () => {
-  //   axios
-  //     .get("http://localhost:4000/data")
-  //     .then((res) => {
-  //       console.log(res);
-  //       setData(res.data);
-  //     })
-  //     .catch((err) => console.log(err));
-  // };
-
-  // useEffect(() => {
-  //   getData();
-  // }, []);
-
+  console.log("vendors", vendors);
   return (
     <div
       style={{
@@ -70,7 +54,6 @@ const HomeVendorBanner = () => {
                 }}
               >
                 <Venue
-                  // image={`https://source.unsplash.com/640x480?wedding?`}
                   image={data.vendor_header}
                   title={data.vendor_name}
                   location={data.vendor_location}

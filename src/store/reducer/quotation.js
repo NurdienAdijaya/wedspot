@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import * as types from "../const/types";
 
 const initialState = {

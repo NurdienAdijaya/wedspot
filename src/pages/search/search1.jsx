@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
@@ -5,8 +6,8 @@ import HomeSearchBanner from "../../component/banner/HomeSearchBanner";
 import SearchPackageBanner from "../../component/banner/SearchPackageBanner";
 import QuotationSent from "../../component/buttons/QuotationSent";
 import Venue from "../../component/card/Venue";
+import NoresultHand from "../../component/noresult/NoresultHand";
 import TitleBar from "../../component/TitleBar";
-import { getPackagesSearch } from "../../store/action/package";
 import {
   getOrganizerSearch,
   getPackageSearch,
@@ -16,20 +17,16 @@ import {
 const HomeSearch = () => {
   const { keyword, location } = useParams();
   const dispatch = useDispatch();
-  const { resultPackages, packageLoading } = useSelector(
+  const { resultPackages } = useSelector(
     (state) => state.packages.listPackageSearch
   );
 
-  const { resultVenues, venueLoading } = useSelector(
+  const { resultVenues } = useSelector(
     (state) => state.packages.listVenueSearch
   );
-  const { resultOrganizers, organizerLoading } = useSelector(
+  const { resultOrganizers } = useSelector(
     (state) => state.packages.listOrganizerSearch
   );
-
-  console.log("resultPackages", resultPackages);
-  console.log("resultVenues", resultVenues);
-  console.log("resultOrganizers", resultOrganizers);
 
   useEffect(() => {
     dispatch(getPackageSearch(1, keyword, location));
@@ -91,31 +88,38 @@ const HomeSearch = () => {
         }}
       >
         <TitleBar title="Venue" link="/searchdetail/venue" />
-        <div
-          style={{
-            display: "flex",
-            flexWrap: "nowrap",
-            overflowX: "scroll",
-          }}
-        >
-          {resultPackages?.data?.map((data) => (
-            <Link
-              to={`/package/${data.package_id}`}
-              style={{
-                textDecoration: "none",
-                color: "black",
-              }}
-            >
-              <Venue
-                image={data.package_album[0]}
-                title={data.package_name}
-                location={data.package_location}
-                rating={data.package_vendor_id.vendor_rating}
-                width="300px"
-              />
-            </Link>
-          ))}
-        </div>
+        {resultVenues ? (
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "nowrap",
+              overflowX: "scroll",
+            }}
+          >
+            {resultVenues?.data?.map((data) => (
+              <Link
+                to={`/package/${data.package_id}`}
+                style={{
+                  textDecoration: "none",
+                  color: "black",
+                }}
+              >
+                <Venue
+                  image={data.package_album[0]}
+                  title={data.package_name}
+                  location={data.package_location}
+                  rating={data.package_vendor_id.vendor_rating}
+                  width="300px"
+                />
+              </Link>
+            ))}
+          </div>
+        ) : (
+          <NoresultHand
+            title="Oops, we couldn’t find anything"
+            description="Please try using another keyword to get better results"
+          />
+        )}
       </div>
       <div
         style={{
@@ -124,32 +128,40 @@ const HomeSearch = () => {
         }}
       >
         <TitleBar title="Wedding Organizer" link="/searchdetail/organizer" />
-        <div
-          style={{
-            display: "flex",
-            flexWrap: "nowrap",
-            overflowX: "scroll",
-          }}
-        >
-          {resultOrganizers?.data?.map((data) => (
-            <Link
-              to={`/vendor/${data.vendor_id}`}
-              style={{
-                textDecoration: "none",
-                color: "black",
-              }}
-            >
-              <Venue
-                image={data.vendor_header}
-                title={data.vendor_name}
-                location={data.vendor_location}
-                rating={data.vendor_rating}
-                width="300px"
-              />
-            </Link>
-          ))}
-        </div>
+        {resultOrganizers ? (
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "nowrap",
+              overflowX: "scroll",
+            }}
+          >
+            {resultOrganizers?.data?.map((data) => (
+              <Link
+                to={`/vendor/${data.vendor_id}`}
+                style={{
+                  textDecoration: "none",
+                  color: "black",
+                }}
+              >
+                <Venue
+                  image={data.vendor_header}
+                  title={data.vendor_name}
+                  location={data.vendor_location}
+                  rating={data.vendor_rating}
+                  width="300px"
+                />
+              </Link>
+            ))}
+          </div>
+        ) : (
+          <NoresultHand
+            title="Oops, we couldn’t find anything"
+            description="Please try using another keyword to get better results"
+          />
+        )}
       </div>
+      ha
     </div>
   );
 };

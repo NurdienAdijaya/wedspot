@@ -3,7 +3,6 @@ import Typography from "@material-ui/core/Typography";
 import Breadcrumbs from "@material-ui/core/Breadcrumbs";
 import Link from "@material-ui/core/Link";
 import { makeStyles } from "@material-ui/core/styles";
-import grey from "@material-ui/core/colors/grey";
 import { Container } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
@@ -13,29 +12,29 @@ const useStyles = makeStyles((theme) => ({
   },
   size: {
     color: "white",
-    height:"500px",
+    height: "500px",
   },
   tittle: {
-    height:"75%",
+    height: "75%",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
   },
-  img:{
-    position:"absolute",
-    zIndex:"-1",
-    width:"100vw",
-    height:"500px",
-    filter: "brightness(50%)"
-  }
+  img: {
+    position: "absolute",
+    zIndex: "-1",
+    width: "100vw",
+    height: "500px",
+    filter: "brightness(50%)",
+  },
 }));
 
-export function ImageHeader({type, name, header}) {
+export function ImageHeader({ type, name, header }) {
   const classes = useStyles();
   return (
-    <div className={classes.size} >
-      <img src={header} alt="header" className={classes.img}/>
-      <Container className="pt-3" >
+    <div className={classes.size}>
+      <img src={header} alt="header" className={classes.img} />
+      <Container className="pt-3">
         <Breadcrumbs
           aria-label="breadcrumb"
           className={classes.bread}

@@ -1,14 +1,13 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
-import AppBar from "@material-ui/core/AppBar";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import Avatar from "@material-ui/core/Avatar";
 import Rating from "@material-ui/lab/Rating";
-import { Paper } from "@material-ui/core";
 import DownloadQuotation from "../../component/card/quotation/DownloadQuotationmodal";
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
@@ -19,7 +18,6 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   getQuotationInbox,
   getQuotationSent,
-  getQuotationSentDetail,
 } from "../../store/action/quotation";
 import NoresultPhone from "../../component/noresult/NoresultPhone";
 
@@ -80,12 +78,12 @@ export default function Quotation({ rating, image }) {
   const token = localStorage.getItem("token");
   console.log("token", token);
   const dispatch = useDispatch();
-  const { inboxList, inboxLoading } = useSelector(
+  const { inboxList } = useSelector(
     (state) => state?.quotation?.listQuotationInbox
   );
   // const inboxList = "ada isinya coy";
   console.log("inboxList", inboxList);
-  const { sentList, sentLoading } = useSelector(
+  const { sentList } = useSelector(
     (state) => state?.quotation?.listQuotationSent
   );
   const { sentListDetail } = useSelector(

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   TextField,
   Dialog,
@@ -8,7 +8,7 @@ import {
   Button,
   makeStyles,
 } from "@material-ui/core";
-import { useDispatch } from "react-redux";
+// import { useDispatch } from "react-redux";
 
 const useStyles = makeStyles((theme) => ({
   close: {
@@ -36,7 +36,7 @@ export default function ChangePassword({
   setOldPassword,
   setPassword,
 }) {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const classes = useStyles();
 
   return (

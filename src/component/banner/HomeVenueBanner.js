@@ -11,7 +11,6 @@ const HomeVenueBanner = () => {
   const { packages, isLoading } = useSelector(
     (state) => state.packages.listVenueExample
   );
-  console.log("packages", packages);
 
   useEffect(() => {
     dispatch(getVenueHome());

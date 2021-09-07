@@ -1,16 +1,14 @@
+/* eslint-disable no-lone-blocks */
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Dropdown } from "react-bootstrap";
 import { Person, AttachMoney, Layers, Room } from "@material-ui/icons";
 import { TextField, Container, Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import FormLabel from "@material-ui/core/FormLabel";
 import FormControl from "@material-ui/core/FormControl";
 import FormGroup from "@material-ui/core/FormGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
-import FormHelperText from "@material-ui/core/FormHelperText";
 import Checkbox from "@material-ui/core/Checkbox";
-import { useEffect } from "react";
 
 const useStyles = makeStyles((theme) => ({
   input: {
@@ -50,8 +48,7 @@ export function DropdownPax() {
   return (
     <Dropdown>
       <Dropdown.Toggle variant="light" id="dropdown-basic">
-        <Person className="me-2" />
-        0 - 1.000 pax
+        <Person className="me-2" />0 - 1.000 pax
       </Dropdown.Toggle>
 
       <Dropdown.Menu>
@@ -151,8 +148,8 @@ export function DropdownPrice() {
 }
 
 export function DropdownType() {
-  const [venue, setVenue] = useState('');
-  const [wo, setWo] = useState('');
+  const [venue, setVenue] = useState("");
+  const [wo, setWo] = useState("");
 
   console.log(venue, wo);
   return (
@@ -171,7 +168,11 @@ export function DropdownType() {
                     color="primary"
                     value="venue"
                     onChange={(e) => {
-                      {e.target.checked ? setVenue(e.target.value) : setVenue('') }
+                      {
+                        e.target.checked
+                          ? setVenue(e.target.value)
+                          : setVenue("");
+                      }
                     }}
                   />
                 }
@@ -183,7 +184,9 @@ export function DropdownType() {
                     color="primary"
                     value="wo"
                     onChange={(e) => {
-                      {e.target.checked ? setWo(e.target.value) : setWo('') }
+                      {
+                        e.target.checked ? setWo(e.target.value) : setWo("");
+                      }
                     }}
                   />
                 }
@@ -207,7 +210,7 @@ export function DropdownType() {
   );
 }
 export function DropdownCity() {
-  const [city, setCity] = useState('');
+  const [city, setCity] = useState("");
 
   console.log(city);
   return (
@@ -226,7 +229,11 @@ export function DropdownCity() {
                     color="primary"
                     value="bandung"
                     onChange={(e) => {
-                      {e.target.checked ? setCity(e.target.value) : setCity('') }
+                      {
+                        e.target.checked
+                          ? setCity(e.target.value)
+                          : setCity("");
+                      }
                     }}
                   />
                 }

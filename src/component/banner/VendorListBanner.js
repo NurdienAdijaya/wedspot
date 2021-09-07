@@ -1,6 +1,5 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from "react";
-import imgv from "../asset/Arista.png";
 
 const VendorListBanner = () => {
   return (

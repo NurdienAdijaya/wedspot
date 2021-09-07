@@ -1,7 +1,7 @@
 import React from "react";
 import img from "../asset/Logo.png";
 import Kotak from "../asset/logokotak.png";
-import { Button, makeStyles } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core";
 import Avatar from "@material-ui/core/Avatar";
 import Typography from "@material-ui/core/Typography";
 import Rating from "@material-ui/lab/Rating";
@@ -12,9 +12,6 @@ import AssignmentIcon from "@material-ui/icons/Assignment";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import Card from "@material-ui/core/Card";
 import "./list.css";
-import { useSelector, useDispatch } from "react-redux";
-
-import { useState, useEffect } from "react";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -66,10 +63,11 @@ const InboxThumbnail = () => {
     <div>
       <div className="header" style={{ display: "flex", marginLeft: "100px" }}>
         <div className="logo">
-          <img src={img} style={{ width: "150px", marginTop: "20px" }} />
+          <img alt="" src={img} style={{ width: "150px", marginTop: "20px" }} />
         </div>
         <div className="logo1">
           <img
+            alt=""
             src={Kotak}
             style={{
               height: "30px",

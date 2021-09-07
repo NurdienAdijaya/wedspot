@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable no-lone-blocks */
 import React, { useState, useEffect } from "react";
 import Breadcrumbs from "@material-ui/core/Breadcrumbs";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -83,15 +85,9 @@ function SearchPage() {
     // setLimit(limit + 1);
     setLimit(limit + items?.count);
   };
-  console.log("limit", limit);
-  const { items, isLoading } = useSelector(
-    (state) => state?.search?.allSearchList
-  );
-  const { citys, cityLoading } = useSelector(
-    (state) => state?.config?.allLocationList
-  );
 
-  console.log("location", location);
+  const { items } = useSelector((state) => state?.search?.allSearchList);
+  const { citys } = useSelector((state) => state?.config?.allLocationList);
 
   useEffect(() => {
     dispatch(

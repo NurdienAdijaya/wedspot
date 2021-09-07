@@ -46,10 +46,8 @@ export default function RequestQuotation({ onClick }) {
 
   const { id } = useParams();
   const [success, setSuccess] = useState(false);
-  console.log("success", success);
 
   const { citys } = useSelector((state) => state?.config?.allLocationList);
-  console.log("citys", citys);
 
   useEffect(() => {
     dispatch(getLocation());
@@ -65,10 +63,6 @@ export default function RequestQuotation({ onClick }) {
     request_wedding_date: "",
     request_invitees: "",
   });
-  // const { isError, message, isLoading } = useSelector((state) => state.request);
-
-  console.log("form", form);
-  console.log("ini id dari useParams", id);
 
   const handleSubmit = (e) => {
     e.preventDefault();
