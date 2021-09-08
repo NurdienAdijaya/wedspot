@@ -195,7 +195,12 @@ const ExploreBanner = () => {
             width: "30vw",
           }}
         >
-          <Link to="/search">
+          <Link
+            to="/search"
+            style={{
+              textDecoration: "none",
+            }}
+          >
             <Button
               variant="contained"
               color={green[50]}

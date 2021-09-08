@@ -17,9 +17,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Dropdown } from "react-bootstrap";
 import { Person, AttachMoney, Layers, Room } from "@material-ui/icons";
 import FormControl from "@material-ui/core/FormControl";
-import FormGroup from "@material-ui/core/FormGroup";
+// import FormGroup from "@material-ui/core/FormGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Checkbox from "@material-ui/core/Checkbox";
+// import Checkbox from "@material-ui/core/Checkbox";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import Radio from "@material-ui/core/Radio";
 import { getLocation } from "../../store/action/config";
@@ -82,9 +82,9 @@ function SearchPage() {
   const [limit, setLimit] = useState(18);
 
   const loadMore = () => {
-    // setLimit(limit + 1);
     setLimit(limit + items?.count);
   };
+  console.log("location", location);
 
   const { items } = useSelector((state) => state?.search?.allSearchList);
   const { citys } = useSelector((state) => state?.config?.allLocationList);
@@ -207,12 +207,12 @@ function SearchPage() {
               <Dropdown.Menu>
                 <Container>
                   <FormControl component="fieldset">
-                    <FormGroup>
+                    <RadioGroup>
                       {citys?.locations?.map((data) => (
                         <FormControlLabel
                           style={{ textTransform: "capitalize" }}
                           control={
-                            <Checkbox
+                            <Radio
                               color="primary"
                               value={data}
                               onChange={(e) => {
@@ -227,7 +227,7 @@ function SearchPage() {
                           label={data}
                         />
                       ))}
-                    </FormGroup>
+                    </RadioGroup>
                   </FormControl>
                   <div className="d-flex flex-column">
                     <Button
@@ -343,6 +343,28 @@ function SearchPage() {
           <h3>Showing All {items?.count} packages</h3>
         </div>
         <Grid container spacing={3}>
+          {/* {tipe === "vendors"
+            ? items?.data?.map((data, index) => (
+                <Grid key={index} item xs={4}>
+                  <Venue
+                    image={data?.vendor_header}
+                    title={data?.vendor_name}
+                    location={data?.vendor_location}
+                    rating={data?.vendor_rating}
+                  />
+                </Grid>
+              ))
+            : items?.data?.map((data, index) => (
+                <Grid key={index} item xs={4}>
+                  <Package
+                    image={data?.package_album[1]}
+                    title={data?.package_name}
+                    price={data?.package_price}
+                    data={data}
+                    height="330px"
+                  />
+                </Grid>
+              ))} */}
           {items?.data?.map((data, index) => (
             <Grid key={index} item xs={4}>
               {tipe === "vendors" ? (

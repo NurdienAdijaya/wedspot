@@ -1,5 +1,4 @@
 import React from "react";
-import Header from "../header/header";
 import SearchInput from "../search/search";
 
 const HomeSearchBanner = () => {
@@ -14,7 +13,7 @@ const HomeSearchBanner = () => {
           zIndex: "-1",
         }}
       >
-        <Header background="transparent" />
+        {/* <Header background="transparent" /> */}
         <div
           style={{
             height: "80%",

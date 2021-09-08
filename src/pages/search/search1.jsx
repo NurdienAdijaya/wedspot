@@ -15,7 +15,10 @@ import {
 } from "../../store/action/package";
 
 const HomeSearch = () => {
-  const { keyword, location } = useParams();
+  var { keyword, location } = useParams();
+  console.log("keyword", keyword);
+  console.log("location", location);
+
   const dispatch = useDispatch();
   const { resultPackages } = useSelector(
     (state) => state.packages.listPackageSearch
@@ -27,6 +30,13 @@ const HomeSearch = () => {
   const { resultOrganizers } = useSelector(
     (state) => state.packages.listOrganizerSearch
   );
+  const searchKeyword = keyword;
+  const searchLocation = location;
+
+  console.log("keyword", keyword);
+  console.log("location", location);
+  console.log("searchKeyword", searchKeyword);
+  console.log("searchLocation", searchLocation);
 
   useEffect(() => {
     dispatch(getPackageSearch(1, keyword, location));
@@ -138,16 +148,16 @@ const HomeSearch = () => {
           >
             {resultOrganizers?.data?.map((data) => (
               <Link
-                to={`/vendor/${data.vendor_id}`}
+                to={`/package/${data.package_id}`}
                 style={{
                   textDecoration: "none",
                   color: "black",
                 }}
               >
                 <Venue
-                  image={data.vendor_header}
-                  title={data.vendor_name}
-                  location={data.vendor_location}
+                  image={data.package_vendor_id.vendor_header}
+                  title={data.package_name}
+                  location={data.package_location}
                   rating={data.vendor_rating}
                   width="300px"
                 />

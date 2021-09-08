@@ -9,7 +9,7 @@ function SearchInput({ marginTop }) {
     keyword: "",
     location: "",
   });
-  console.log("searchKeyword", searchKeyword);
+  // console.log("searchKeyword", searchKeyword);
 
   const changeForm = (e) => {
     setSearchKeyword({ ...searchKeyword, [e.target.name]: e.target.value });

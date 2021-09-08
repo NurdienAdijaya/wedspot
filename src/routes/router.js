@@ -14,9 +14,6 @@ const Routers = () => {
   return (
     <>
       {location.pathname !== "/" &&
-        location.pathname !== "/search" &&
-        location.pathname !== "/search/:keyword" &&
-        location.pathname !== "/search/:keyword/:location" &&
         location.pathname !== "/account" &&
         location.pathname !== "/account/notification" &&
         location.pathname !== "/account/quotation" &&
