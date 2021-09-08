@@ -13,7 +13,7 @@ import Button from "@material-ui/core/Button";
 import CardHeader from "@material-ui/core/CardHeader";
 import CardContent from "@material-ui/core/CardContent";
 import Divider from "@material-ui/core/Divider";
-import Rating from "@material-ui/lab/rating";
+// import Rating from "@material-ui/lab/rating";
 import facebook from "./icon/facebook.png";
 import twitter from "./icon/twitter.png";
 import instagram from "./icon/instagram.png";
@@ -22,6 +22,7 @@ import RequestQuotation from "../Quatationform/requestquotation";
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
+import { Rating } from "@material-ui/lab";
 
 const useStyles = makeStyles((theme) => ({
   root: {
